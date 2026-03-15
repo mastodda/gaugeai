@@ -1,0 +1,1005 @@
+{
+  "headline": "Charles Tyrwhitt Intro Offer wins with a significant +0.28 PI advantage, suggesting a stronger appeal through perceived value and quality.",
+  "concept_comparison": {
+    "winner": "Charles Tyrwhitt Intro Offer",
+    "winner_name": "Intro Offer",
+    "margin": "+0.28",
+    "key_differentiator": "The Intro Offer emphasizes a lower price point and strong brand trust, resonating more with consumers."
+  },
+  "segment_insights": [
+    {
+      "segment_axis": "income",
+      "finding": "High-income respondents rated the Intro Offer 3.31 vs 3.04 for the $200 Off Deal (delta: +0.27).",
+      "implication": "Target high-income consumers with messaging focused on quality and value.",
+      "evidence": "One respondent noted, 'The significant discount is appealing to someone like me who's always on the lookout for quality.'"
+    },
+    {
+      "segment_axis": "shopping_mindset",
+      "finding": "Convenience-first shoppers rated the Intro Offer 3.24 vs 2.79 for the $200 Off Deal (delta: +0.45).",
+      "implication": "Highlight convenience and ease of purchase in marketing to this segment.",
+      "evidence": "'The free shipping is a nice touch that adds convenience,' said a positive respondent."
+    },
+    {
+      "segment_axis": "brand_adoption_style",
+      "finding": "Early adopters rated the Intro Offer 3.45 vs 3.12 for the $200 Off Deal (delta: +0.33).",
+      "implication": "Leverage early adopters as brand advocates to drive awareness and credibility.",
+      "evidence": "'The offer is intriguing, especially with such a significant discount,' shared a positive early adopter."
+    },
+    {
+      "segment_axis": "household_composition",
+      "finding": "Couples without children rated the Intro Offer 3.42 vs 3.01 for the $200 Off Deal (delta: +0.41).",
+      "implication": "Focus on this demographic in campaigns, emphasizing quality and style for professional settings.",
+      "evidence": "'I appreciate quality and timeless styles,' noted a couple respondent."
+    }
+  ],
+  "topic_analysis": [
+    {
+      "topic": "price/value",
+      "mention_rate": "100%",
+      "role": "driver",
+      "detail": "Price/value is a strong driver for both concepts but resonates more positively with the Intro Offer.",
+      "concept_difference": "The Intro Offer is perceived as a better value due to its lower price point."
+    },
+    {
+      "topic": "quality",
+      "mention_rate": "100%",
+      "role": "driver",
+      "detail": "Quality is a key driver for both concepts, but the Intro Offer aligns better with consumer expectations.",
+      "concept_difference": "The Intro Offer is seen as offering premium quality at a more accessible price."
+    },
+    {
+      "topic": "brand/trust",
+      "mention_rate": "98%",
+      "role": "driver",
+      "detail": "Brand trust is critical; the Intro Offer leverages Charles Tyrwhitt's reputation effectively.",
+      "concept_difference": "The Intro Offer benefits from stronger brand trust perceptions."
+    },
+    {
+      "topic": "style/aesthetics",
+      "mention_rate": "98%",
+      "role": "mixed",
+      "detail": "Style is appreciated in both concepts but is more compelling in the Intro Offer.",
+      "concept_difference": "The Intro Offer's emphasis on timeless British style resonates more with consumers."
+    }
+  ],
+  "recommended_actions": [
+    {
+      "action": "Promote the Intro Offer through targeted ads focusing on high-income and convenience-first segments.",
+      "evidence": "High-income respondents rated it 3.31 and convenience-first shoppers rated it 3.24.",
+      "expected_impact": "Increase purchase intent among affluent consumers.",
+      "priority": "high"
+    },
+    {
+      "action": "Leverage testimonials from early adopters in marketing materials to build credibility.",
+      "evidence": "Early adopters rated the Intro Offer 3.45, indicating strong appeal.",
+      "expected_impact": "Enhance brand trust and encourage trial among skeptical consumers.",
+      "priority": "medium"
+    },
+    {
+      "action": "Highlight the free shipping and quality in messaging to couples without children.",
+      "evidence": "Couples rated the Intro Offer 3.42, showing strong interest.",
+      "expected_impact": "Drive conversions in this demographic.",
+      "priority": "medium"
+    }
+  ],
+  "concept_specific": {
+    "Charles Tyrwhitt Intro Offer": {
+      "strengths": [
+        "Mean PI of 3.22",
+        "42.2% Top 2 Box",
+        "Strong brand trust (98%)"
+      ],
+      "weaknesses": [
+        "24.0% Bottom 2 Box",
+        "Neutral sentiment at 59%",
+        "Lifestyle mismatch at 47%"
+      ],
+      "best_audience": "High-income consumers with a PI of 3.31."
+    },
+    "Charles Tyrwhitt $200 Off Deal": {
+      "strengths": [
+        "Significant discount (3 shirts for $134.25)",
+        "100% mention of price/value",
+        "Appeals to deal hunters (PI 2.97)"
+      ],
+      "weaknesses": [
+        "Mean PI of 2.94",
+        "33.1% Top 2 Box",
+        "34.2% Bottom 2 Box"
+      ],
+      "best_audience": "Single parents with a PI of 3.19."
+    }
+  },
+  "methodology_notes": [
+    "The sample size is limited to 100 respondents, which may affect generalizability.",
+    "Responses are based on self-reported data, which can introduce bias.",
+    "The concepts tested may not fully capture the complexity of consumer preferences."
+  ],
+  "_precomputed": {
+    "concept_a": {
+      "segment_metrics": {
+        "income": {
+          "upper-moderate": {
+            "n": 35,
+            "mean_pi": 3.29,
+            "sentiment_distribution": {
+              "neutral": 0.74,
+              "leaning": 0.2,
+              "soft_neg": 0.06
+            }
+          },
+          "high": {
+            "n": 31,
+            "mean_pi": 3.31,
+            "sentiment_distribution": {
+              "leaning": 0.35,
+              "neutral": 0.55,
+              "soft_neg": 0.1
+            }
+          },
+          "moderate": {
+            "n": 22,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.23,
+              "leaning": 0.27
+            }
+          },
+          "low": {
+            "n": 12,
+            "mean_pi": 2.84,
+            "sentiment_distribution": {
+              "neutral": 0.42,
+              "soft_neg": 0.5,
+              "leaning": 0.08
+            }
+          }
+        },
+        "age_band": {
+          "45-59": {
+            "n": 41,
+            "mean_pi": 3.28,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "soft_neg": 0.12,
+              "leaning": 0.32
+            }
+          },
+          "60+": {
+            "n": 10,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "leaning": 0.3,
+              "neutral": 0.5,
+              "soft_neg": 0.2
+            }
+          },
+          "18-29": {
+            "n": 17,
+            "mean_pi": 3.22,
+            "sentiment_distribution": {
+              "leaning": 0.29,
+              "soft_neg": 0.18,
+              "neutral": 0.53
+            }
+          },
+          "30-44": {
+            "n": 32,
+            "mean_pi": 3.15,
+            "sentiment_distribution": {
+              "neutral": 0.69,
+              "soft_neg": 0.19,
+              "leaning": 0.12
+            }
+          }
+        },
+        "region": {
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 3.12,
+            "sentiment_distribution": {
+              "neutral": 0.85,
+              "soft_neg": 0.08,
+              "leaning": 0.08
+            }
+          },
+          "South": {
+            "n": 28,
+            "mean_pi": 3.27,
+            "sentiment_distribution": {
+              "leaning": 0.32,
+              "neutral": 0.46,
+              "soft_neg": 0.21
+            }
+          },
+          "West": {
+            "n": 35,
+            "mean_pi": 3.25,
+            "sentiment_distribution": {
+              "leaning": 0.31,
+              "neutral": 0.54,
+              "soft_neg": 0.14
+            }
+          },
+          "Midwest": {
+            "n": 24,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.67,
+              "soft_neg": 0.17,
+              "leaning": 0.17
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 25,
+            "mean_pi": 3.23,
+            "sentiment_distribution": {
+              "neutral": 0.6,
+              "leaning": 0.28,
+              "soft_neg": 0.12
+            }
+          },
+          "couple, no children": {
+            "n": 17,
+            "mean_pi": 3.42,
+            "sentiment_distribution": {
+              "leaning": 0.47,
+              "neutral": 0.47,
+              "soft_neg": 0.06
+            }
+          },
+          "empty nester": {
+            "n": 17,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "neutral": 0.59,
+              "soft_neg": 0.18,
+              "leaning": 0.24
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 17,
+            "mean_pi": 3.1,
+            "sentiment_distribution": {
+              "neutral": 0.82,
+              "leaning": 0.06,
+              "soft_neg": 0.12
+            }
+          },
+          "living with roommates": {
+            "n": 5,
+            "mean_pi": 2.76,
+            "sentiment_distribution": {
+              "soft_neg": 0.6,
+              "neutral": 0.4
+            }
+          },
+          "family with teenagers": {
+            "n": 15,
+            "mean_pi": 3.2,
+            "sentiment_distribution": {
+              "neutral": 0.6,
+              "soft_neg": 0.2,
+              "leaning": 0.2
+            }
+          },
+          "single parent": {
+            "n": 4,
+            "mean_pi": 3.36,
+            "sentiment_distribution": {
+              "soft_neg": 0.25,
+              "neutral": 0.25,
+              "leaning": 0.5
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 26,
+            "mean_pi": 3.21,
+            "sentiment_distribution": {
+              "neutral": 0.58,
+              "leaning": 0.27,
+              "soft_neg": 0.15
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 9,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "leaning": 0.33,
+              "neutral": 0.44,
+              "soft_neg": 0.22
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 32,
+            "mean_pi": 3.26,
+            "sentiment_distribution": {
+              "neutral": 0.69,
+              "leaning": 0.25,
+              "soft_neg": 0.06
+            }
+          },
+          "brand loyal": {
+            "n": 18,
+            "mean_pi": 3.13,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "soft_neg": 0.28,
+              "leaning": 0.17
+            }
+          },
+          "convenience first": {
+            "n": 15,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "leaning": 0.27,
+              "neutral": 0.53,
+              "soft_neg": 0.2
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 18,
+            "mean_pi": 2.98,
+            "sentiment_distribution": {
+              "neutral": 0.67,
+              "soft_neg": 0.28,
+              "leaning": 0.06
+            }
+          },
+          "moderately health-aware": {
+            "n": 33,
+            "mean_pi": 3.35,
+            "sentiment_distribution": {
+              "leaning": 0.39,
+              "neutral": 0.45,
+              "soft_neg": 0.15
+            }
+          },
+          "health-indifferent": {
+            "n": 23,
+            "mean_pi": 3.26,
+            "sentiment_distribution": {
+              "leaning": 0.39,
+              "neutral": 0.43,
+              "soft_neg": 0.17
+            }
+          },
+          "highly health-conscious": {
+            "n": 26,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.85,
+              "soft_neg": 0.08,
+              "leaning": 0.08
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 31,
+            "mean_pi": 3.26,
+            "sentiment_distribution": {
+              "neutral": 0.52,
+              "leaning": 0.32,
+              "soft_neg": 0.16
+            }
+          },
+          "late majority": {
+            "n": 33,
+            "mean_pi": 3.17,
+            "sentiment_distribution": {
+              "leaning": 0.18,
+              "neutral": 0.7,
+              "soft_neg": 0.12
+            }
+          },
+          "early adopter": {
+            "n": 16,
+            "mean_pi": 3.45,
+            "sentiment_distribution": {
+              "leaning": 0.44,
+              "neutral": 0.56
+            }
+          },
+          "skeptic": {
+            "n": 20,
+            "mean_pi": 3.05,
+            "sentiment_distribution": {
+              "neutral": 0.55,
+              "soft_neg": 0.35,
+              "leaning": 0.1
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 29,
+            "mean_pi": 3.2,
+            "sentiment_distribution": {
+              "neutral": 0.62,
+              "soft_neg": 0.14,
+              "leaning": 0.24
+            }
+          },
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 19,
+            "mean_pi": 3.15,
+            "sentiment_distribution": {
+              "leaning": 0.11,
+              "neutral": 0.74,
+              "soft_neg": 0.16
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 20,
+            "mean_pi": 3.37,
+            "sentiment_distribution": {
+              "leaning": 0.35,
+              "neutral": 0.6,
+              "soft_neg": 0.05
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 20,
+            "mean_pi": 3.13,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.3,
+              "leaning": 0.2
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 12,
+            "mean_pi": 3.27,
+            "sentiment_distribution": {
+              "leaning": 0.42,
+              "neutral": 0.42,
+              "soft_neg": 0.17
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 25,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.6,
+              "soft_neg": 0.2,
+              "leaning": 0.2
+            }
+          },
+          "research-driven": {
+            "n": 23,
+            "mean_pi": 3.28,
+            "sentiment_distribution": {
+              "leaning": 0.39,
+              "soft_neg": 0.09,
+              "neutral": 0.52
+            }
+          },
+          "in-store discovery": {
+            "n": 14,
+            "mean_pi": 3.22,
+            "sentiment_distribution": {
+              "leaning": 0.29,
+              "neutral": 0.5,
+              "soft_neg": 0.21
+            }
+          },
+          "ad-responsive": {
+            "n": 9,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "neutral": 0.78,
+              "soft_neg": 0.11,
+              "leaning": 0.11
+            }
+          },
+          "word-of-mouth": {
+            "n": 29,
+            "mean_pi": 3.21,
+            "sentiment_distribution": {
+              "neutral": 0.62,
+              "soft_neg": 0.17,
+              "leaning": 0.21
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "price/value": {
+          "count": 100,
+          "pct": 100
+        },
+        "quality": {
+          "count": 100,
+          "pct": 100
+        },
+        "fit/sizing": {
+          "count": 92,
+          "pct": 92
+        },
+        "brand/trust": {
+          "count": 98,
+          "pct": 98
+        },
+        "lifestyle_mismatch": {
+          "count": 47,
+          "pct": 47
+        },
+        "style/aesthetics": {
+          "count": 98,
+          "pct": 98
+        },
+        "convenience": {
+          "count": 96,
+          "pct": 96
+        },
+        "comparison_shopping": {
+          "count": 17,
+          "pct": 17
+        }
+      }
+    },
+    "concept_b": {
+      "segment_metrics": {
+        "income": {
+          "upper-moderate": {
+            "n": 35,
+            "mean_pi": 2.99,
+            "sentiment_distribution": {
+              "neutral": 0.63,
+              "soft_neg": 0.26,
+              "leaning": 0.09,
+              "low": 0.03
+            }
+          },
+          "high": {
+            "n": 31,
+            "mean_pi": 3.04,
+            "sentiment_distribution": {
+              "soft_neg": 0.23,
+              "leaning": 0.13,
+              "neutral": 0.61,
+              "low": 0.03
+            }
+          },
+          "moderate": {
+            "n": 22,
+            "mean_pi": 2.9,
+            "sentiment_distribution": {
+              "soft_neg": 0.32,
+              "neutral": 0.59,
+              "low": 0.05,
+              "leaning": 0.05
+            }
+          },
+          "low": {
+            "n": 12,
+            "mean_pi": 2.59,
+            "sentiment_distribution": {
+              "soft_neg": 0.67,
+              "neutral": 0.33
+            }
+          }
+        },
+        "age_band": {
+          "45-59": {
+            "n": 41,
+            "mean_pi": 3.0,
+            "sentiment_distribution": {
+              "neutral": 0.54,
+              "soft_neg": 0.29,
+              "leaning": 0.12,
+              "low": 0.05
+            }
+          },
+          "60+": {
+            "n": 10,
+            "mean_pi": 2.92,
+            "sentiment_distribution": {
+              "neutral": 0.8,
+              "soft_neg": 0.2
+            }
+          },
+          "18-29": {
+            "n": 17,
+            "mean_pi": 2.8,
+            "sentiment_distribution": {
+              "soft_neg": 0.47,
+              "leaning": 0.12,
+              "neutral": 0.41
+            }
+          },
+          "30-44": {
+            "n": 32,
+            "mean_pi": 2.94,
+            "sentiment_distribution": {
+              "neutral": 0.66,
+              "soft_neg": 0.28,
+              "low": 0.03,
+              "leaning": 0.03
+            }
+          }
+        },
+        "region": {
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "neutral": 0.69,
+              "soft_neg": 0.31
+            }
+          },
+          "South": {
+            "n": 28,
+            "mean_pi": 2.96,
+            "sentiment_distribution": {
+              "neutral": 0.61,
+              "leaning": 0.11,
+              "soft_neg": 0.25,
+              "low": 0.04
+            }
+          },
+          "West": {
+            "n": 35,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "soft_neg": 0.31,
+              "neutral": 0.57,
+              "leaning": 0.06,
+              "low": 0.06
+            }
+          },
+          "Midwest": {
+            "n": 24,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "soft_neg": 0.38,
+              "neutral": 0.5,
+              "leaning": 0.12
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 25,
+            "mean_pi": 2.85,
+            "sentiment_distribution": {
+              "neutral": 0.6,
+              "leaning": 0.04,
+              "soft_neg": 0.36
+            }
+          },
+          "couple, no children": {
+            "n": 17,
+            "mean_pi": 3.01,
+            "sentiment_distribution": {
+              "soft_neg": 0.29,
+              "neutral": 0.59,
+              "leaning": 0.12
+            }
+          },
+          "empty nester": {
+            "n": 17,
+            "mean_pi": 3.03,
+            "sentiment_distribution": {
+              "neutral": 0.59,
+              "soft_neg": 0.29,
+              "leaning": 0.12
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 17,
+            "mean_pi": 2.92,
+            "sentiment_distribution": {
+              "soft_neg": 0.35,
+              "neutral": 0.65
+            }
+          },
+          "living with roommates": {
+            "n": 5,
+            "mean_pi": 2.37,
+            "sentiment_distribution": {
+              "soft_neg": 0.8,
+              "low": 0.2
+            }
+          },
+          "family with teenagers": {
+            "n": 15,
+            "mean_pi": 3.03,
+            "sentiment_distribution": {
+              "neutral": 0.73,
+              "low": 0.13,
+              "leaning": 0.07,
+              "soft_neg": 0.07
+            }
+          },
+          "single parent": {
+            "n": 4,
+            "mean_pi": 3.19,
+            "sentiment_distribution": {
+              "soft_neg": 0.25,
+              "neutral": 0.25,
+              "leaning": 0.5
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 26,
+            "mean_pi": 2.97,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.38,
+              "leaning": 0.12
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 9,
+            "mean_pi": 2.89,
+            "sentiment_distribution": {
+              "neutral": 0.44,
+              "soft_neg": 0.44,
+              "leaning": 0.11
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 32,
+            "mean_pi": 3.01,
+            "sentiment_distribution": {
+              "neutral": 0.72,
+              "soft_neg": 0.22,
+              "leaning": 0.06
+            }
+          },
+          "brand loyal": {
+            "n": 18,
+            "mean_pi": 2.92,
+            "sentiment_distribution": {
+              "soft_neg": 0.33,
+              "neutral": 0.61,
+              "leaning": 0.06
+            }
+          },
+          "convenience first": {
+            "n": 15,
+            "mean_pi": 2.79,
+            "sentiment_distribution": {
+              "neutral": 0.47,
+              "low": 0.2,
+              "soft_neg": 0.27,
+              "leaning": 0.07
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 18,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "soft_neg": 0.39,
+              "leaning": 0.06
+            }
+          },
+          "moderately health-aware": {
+            "n": 33,
+            "mean_pi": 3.01,
+            "sentiment_distribution": {
+              "neutral": 0.52,
+              "soft_neg": 0.3,
+              "leaning": 0.18
+            }
+          },
+          "health-indifferent": {
+            "n": 23,
+            "mean_pi": 2.82,
+            "sentiment_distribution": {
+              "soft_neg": 0.3,
+              "leaning": 0.04,
+              "neutral": 0.57,
+              "low": 0.09
+            }
+          },
+          "highly health-conscious": {
+            "n": 26,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "neutral": 0.69,
+              "soft_neg": 0.27,
+              "low": 0.04
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 31,
+            "mean_pi": 2.99,
+            "sentiment_distribution": {
+              "neutral": 0.65,
+              "soft_neg": 0.29,
+              "leaning": 0.06
+            }
+          },
+          "late majority": {
+            "n": 33,
+            "mean_pi": 2.89,
+            "sentiment_distribution": {
+              "soft_neg": 0.3,
+              "neutral": 0.64,
+              "leaning": 0.03,
+              "low": 0.03
+            }
+          },
+          "early adopter": {
+            "n": 16,
+            "mean_pi": 3.12,
+            "sentiment_distribution": {
+              "leaning": 0.31,
+              "neutral": 0.5,
+              "soft_neg": 0.12,
+              "low": 0.06
+            }
+          },
+          "skeptic": {
+            "n": 20,
+            "mean_pi": 2.79,
+            "sentiment_distribution": {
+              "neutral": 0.45,
+              "soft_neg": 0.5,
+              "low": 0.05
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 29,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "neutral": 0.62,
+              "soft_neg": 0.24,
+              "leaning": 0.1,
+              "low": 0.03
+            }
+          },
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 19,
+            "mean_pi": 3.0,
+            "sentiment_distribution": {
+              "neutral": 0.74,
+              "soft_neg": 0.26
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 20,
+            "mean_pi": 2.94,
+            "sentiment_distribution": {
+              "soft_neg": 0.3,
+              "leaning": 0.15,
+              "neutral": 0.45,
+              "low": 0.1
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 20,
+            "mean_pi": 2.82,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "neutral": 0.45,
+              "leaning": 0.05
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 12,
+            "mean_pi": 3.0,
+            "sentiment_distribution": {
+              "neutral": 0.67,
+              "soft_neg": 0.25,
+              "leaning": 0.08
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 25,
+            "mean_pi": 2.86,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "soft_neg": 0.32,
+              "low": 0.08,
+              "leaning": 0.04
+            }
+          },
+          "research-driven": {
+            "n": 23,
+            "mean_pi": 3.03,
+            "sentiment_distribution": {
+              "neutral": 0.65,
+              "leaning": 0.13,
+              "soft_neg": 0.22
+            }
+          },
+          "in-store discovery": {
+            "n": 14,
+            "mean_pi": 2.89,
+            "sentiment_distribution": {
+              "soft_neg": 0.36,
+              "neutral": 0.57,
+              "leaning": 0.07
+            }
+          },
+          "ad-responsive": {
+            "n": 9,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "neutral": 0.44,
+              "soft_neg": 0.44,
+              "leaning": 0.11
+            }
+          },
+          "word-of-mouth": {
+            "n": 29,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "soft_neg": 0.31,
+              "neutral": 0.59,
+              "low": 0.03,
+              "leaning": 0.07
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "price/value": {
+          "count": 100,
+          "pct": 100
+        },
+        "quality": {
+          "count": 100,
+          "pct": 100
+        },
+        "fit/sizing": {
+          "count": 96,
+          "pct": 96
+        },
+        "brand/trust": {
+          "count": 98,
+          "pct": 98
+        },
+        "lifestyle_mismatch": {
+          "count": 53,
+          "pct": 53
+        },
+        "style/aesthetics": {
+          "count": 100,
+          "pct": 100
+        },
+        "convenience": {
+          "count": 77,
+          "pct": 77
+        },
+        "comparison_shopping": {
+          "count": 20,
+          "pct": 20
+        }
+      }
+    }
+  },
+  "_meta": {
+    "model": "gpt-4o-mini",
+    "n_concepts": 2,
+    "concept_ids": [
+      "concept_a",
+      "concept_b"
+    ],
+    "prompt_tokens_approx": 5659
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "_meta": {
+    "description": "Structured lifestyle and psychographic attributes for rich persona generation. Each dimension is sampled independently using weighted distributions approximating US adult population. These attributes are combined with core demographics (age, gender, region, income) to generate a detailed persona narrative via LLM.",
+    "version": "0.1.0",
+    "sources": "Distributions are rough approximations based on US Census, BLS Consumer Expenditure Survey, Pew Research, and Nielsen/NielsenIQ consumer segmentation data. They are directional, not precise.",
+    "notes": [
+      "Weights are relative and will be normalized. They don't need to sum to 1.",
+      "Each attribute is sampled independently — the persona narrative generator handles creating realistic combinations.",
+      "Conditional overrides allow age/income to shift distributions where it matters (e.g., young adults are more likely to be early adopters).",
+      "Attributes are designed to be product-category-agnostic. They affect HOW someone evaluates a product, not WHAT they think of a specific product."
+    ]
+  },
+
+  "dimensions": {
+
+    "household_composition": {
+      "description": "Living situation and family structure. Affects budget priorities, pack size preferences, and whose needs they're shopping for.",
+      "values": {
+        "single, living alone": 0.28,
+        "couple, no children": 0.20,
+        "family with young children (under 12)": 0.18,
+        "family with teenagers": 0.12,
+        "single parent": 0.08,
+        "empty nester": 0.10,
+        "living with roommates": 0.04
+      },
+      "conditional_overrides": {
+        "age < 25": {
+          "single, living alone": 0.35,
+          "living with roommates": 0.30,
+          "couple, no children": 0.25,
+          "family with young children (under 12)": 0.05,
+          "family with teenagers": 0.0,
+          "single parent": 0.03,
+          "empty nester": 0.0
+        },
+        "age > 55": {
+          "single, living alone": 0.25,
+          "couple, no children": 0.30,
+          "empty nester": 0.30,
+          "family with teenagers": 0.08,
+          "family with young children (under 12)": 0.02,
+          "single parent": 0.03,
+          "living with roommates": 0.02
+        }
+      }
+    },
+
+    "shopping_mindset": {
+      "description": "Primary decision-making style when evaluating purchases. This is the strongest predictor of how someone talks about price, value, and trade-offs.",
+      "values": {
+        "deal hunter — actively seeks discounts, compares prices, uses coupons": 0.30,
+        "convenience first — values ease and speed over price": 0.22,
+        "quality/ingredient focused — reads labels, pays more for better quality": 0.20,
+        "brand loyal — sticks with trusted brands, slow to switch": 0.18,
+        "impulse/spontaneous — buys based on mood, packaging, or in-store discovery": 0.10
+      },
+      "conditional_overrides": {
+        "income == 'low'": {
+          "deal hunter — actively seeks discounts, compares prices, uses coupons": 0.50,
+          "convenience first — values ease and speed over price": 0.12,
+          "quality/ingredient focused — reads labels, pays more for better quality": 0.10,
+          "brand loyal — sticks with trusted brands, slow to switch": 0.20,
+          "impulse/spontaneous — buys based on mood, packaging, or in-store discovery": 0.08
+        },
+        "income == 'high'": {
+          "deal hunter — actively seeks discounts, compares prices, uses coupons": 0.10,
+          "convenience first — values ease and speed over price": 0.35,
+          "quality/ingredient focused — reads labels, pays more for better quality": 0.30,
+          "brand loyal — sticks with trusted brands, slow to switch": 0.15,
+          "impulse/spontaneous — buys based on mood, packaging, or in-store discovery": 0.10
+        }
+      }
+    },
+
+    "health_orientation": {
+      "description": "How much health and wellness factor into purchase decisions. Affects receptivity to functional claims, ingredient scrutiny, and willingness to pay for 'better for you' products.",
+      "values": {
+        "highly health-conscious — actively manages diet, reads nutrition labels, avoids processed food": 0.20,
+        "moderately health-aware — tries to make decent choices but isn't rigid about it": 0.40,
+        "health-indifferent — buys what tastes good or is convenient, doesn't think much about health": 0.25,
+        "fitness/performance oriented — focused on macros, hydration, supplements, and recovery": 0.15
+      },
+      "conditional_overrides": {
+        "age < 30": {
+          "highly health-conscious — actively manages diet, reads nutrition labels, avoids processed food": 0.15,
+          "moderately health-aware — tries to make decent choices but isn't rigid about it": 0.30,
+          "health-indifferent — buys what tastes good or is convenient, doesn't think much about health": 0.30,
+          "fitness/performance oriented — focused on macros, hydration, supplements, and recovery": 0.25
+        },
+        "age > 50": {
+          "highly health-conscious — actively manages diet, reads nutrition labels, avoids processed food": 0.35,
+          "moderately health-aware — tries to make decent choices but isn't rigid about it": 0.40,
+          "health-indifferent — buys what tastes good or is convenient, doesn't think much about health": 0.18,
+          "fitness/performance oriented — focused on macros, hydration, supplements, and recovery": 0.07
+        }
+      }
+    },
+
+    "brand_adoption_style": {
+      "description": "How open someone is to trying new products and brands. Maps roughly to Rogers' diffusion of innovation curve.",
+      "values": {
+        "early adopter — actively seeks new products, enjoys being first to try things": 0.14,
+        "early majority — open to new things once they see some social proof or reviews": 0.34,
+        "late majority — waits until something is well-established before trying it": 0.34,
+        "skeptic — resistant to new products, needs strong convincing or recommendation": 0.18
+      },
+      "conditional_overrides": {
+        "age < 30": {
+          "early adopter — actively seeks new products, enjoys being first to try things": 0.25,
+          "early majority — open to new things once they see some social proof or reviews": 0.40,
+          "late majority — waits until something is well-established before trying it": 0.25,
+          "skeptic — resistant to new products, needs strong convincing or recommendation": 0.10
+        },
+        "age > 55": {
+          "early adopter — actively seeks new products, enjoys being first to try things": 0.08,
+          "early majority — open to new things once they see some social proof or reviews": 0.25,
+          "late majority — waits until something is well-established before trying it": 0.40,
+          "skeptic — resistant to new products, needs strong convincing or recommendation": 0.27
+        }
+      }
+    },
+
+    "primary_shopping_channel": {
+      "description": "Where this person does most of their grocery/CPG shopping. Affects what products they encounter and their expectations around pricing and selection.",
+      "values": {
+        "mainstream grocery (Kroger, Safeway, Publix, HEB)": 0.38,
+        "warehouse club (Costco, Sam's Club, BJ's)": 0.16,
+        "discount/value (Walmart, Aldi, Lidl, Dollar General)": 0.22,
+        "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": 0.12,
+        "primarily online (Amazon Fresh, Instacart, Walmart+)": 0.12
+      },
+      "conditional_overrides": {
+        "income == 'low'": {
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": 0.30,
+          "warehouse club (Costco, Sam's Club, BJ's)": 0.10,
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": 0.45,
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": 0.05,
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": 0.10
+        },
+        "income == 'high'": {
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": 0.25,
+          "warehouse club (Costco, Sam's Club, BJ's)": 0.20,
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": 0.05,
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": 0.30,
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": 0.20
+        }
+      }
+    },
+
+    "media_influence": {
+      "description": "How this person discovers and evaluates new products. Affects what kind of claims resonate and what social proof matters.",
+      "values": {
+        "social media influenced — discovers products through TikTok, Instagram, YouTube": 0.25,
+        "research-driven — reads reviews, compares specs, checks Consumer Reports": 0.22,
+        "word-of-mouth — trusts recommendations from friends, family, coworkers": 0.30,
+        "in-store discovery — browses shelves, influenced by packaging and displays": 0.15,
+        "ad-responsive — notices and remembers TV, podcast, and digital ads": 0.08
+      },
+      "conditional_overrides": {
+        "age < 30": {
+          "social media influenced — discovers products through TikTok, Instagram, YouTube": 0.50,
+          "research-driven — reads reviews, compares specs, checks Consumer Reports": 0.15,
+          "word-of-mouth — trusts recommendations from friends, family, coworkers": 0.20,
+          "in-store discovery — browses shelves, influenced by packaging and displays": 0.10,
+          "ad-responsive — notices and remembers TV, podcast, and digital ads": 0.05
+        },
+        "age > 50": {
+          "social media influenced — discovers products through TikTok, Instagram, YouTube": 0.08,
+          "research-driven — reads reviews, compares specs, checks Consumer Reports": 0.25,
+          "word-of-mouth — trusts recommendations from friends, family, coworkers": 0.38,
+          "in-store discovery — browses shelves, influenced by packaging and displays": 0.20,
+          "ad-responsive — notices and remembers TV, podcast, and digital ads": 0.09
+        }
+      }
+    }
+  },
+
+  "persona_narrative_prompt": {
+    "description": "System prompt for the LLM call that generates a rich persona narrative from structured attributes. This narrative becomes the system prompt for elicitation.",
+    "template": "You are a creative writer helping build realistic consumer research personas. Given the following demographic and lifestyle attributes, write a 2-3 paragraph first-person persona description. The persona should feel like a real, specific individual — not a marketing segment summary.\n\nRules:\n- Write in third person (\"They are...\" not \"I am...\")\n- Include specific but plausible details that bring the persona to life (e.g., specific routines, preferences, habits)\n- Stay consistent with ALL provided attributes — don't contradict any of them\n- Do NOT mention purchase intent or any specific product\n- Do NOT include opinions about hypothetical products\n- Focus on daily life, routines, values, and how they approach shopping decisions\n- Keep it grounded and realistic — avoid caricature\n- End with a brief note on what matters most to them when evaluating new products",
+    "user_message_template": "Generate a persona based on these attributes:\n\nAge: {age}\nGender: {gender}\nRegion: {region}\nIncome level: {income}\nHousehold: {household_composition}\nShopping style: {shopping_mindset}\nHealth orientation: {health_orientation}\nBrand adoption: {brand_adoption_style}\nPrimary shopping channel: {primary_shopping_channel}\nProduct discovery: {media_influence}",
+    "elicitation_system_prompt_template": "You are participating in a consumer research survey. Here is your background:\n\n{persona_narrative}\n\nStay in character and respond naturally based on who you are. Reply briefly to any questions posed to you.",
+    "reasoning_system_prompt_template": "You are participating in a consumer research survey. Here is your background:\n\n{persona_narrative}\n\nStay in character and respond naturally based on who you are. Give a thoughtful, detailed explanation drawing on your personal situation, preferences, and values."
+  }
+}

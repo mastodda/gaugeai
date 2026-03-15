@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "engagement": {
+      "engagement": "Example: Sparkling Water Concept Test",
+      "client": "ACME Beverages",
+      "date": "2026-02-15",
+      "analyst": "",
+      "notes": "MVP test engagement. Two flavor concepts for a new sparkling water line."
+    },
+    "pipeline_config": {
+      "llm_provider": "openai",
+      "llm_model": "gpt-4o",
+      "llm_temperature": 0.5,
+      "embedding_model": "text-embedding-3-small",
+      "ssr_epsilon": 0.0,
+      "ssr_temperature": 1.0,
+      "samples_per_persona": 2,
+      "seed": 123250375,
+      "reference_sets": [
+        "set_1_direct_likelihood",
+        "set_2_purchase_decision",
+        "set_3_interest_consideration",
+        "set_4_spending_money",
+        "set_5_try_give_it_a_go",
+        "set_6_personal_fit"
+      ]
+    },
+    "timestamp": "2026-02-16T14:57:36.107898"
+  },
+  "summary": {
+    "concept_a": {
+      "concept_name": "CitrusBurst Sparkling Water",
+      "distribution": {
+        "1": 0.0756,
+        "2": 0.162,
+        "3": 0.2237,
+        "4": 0.3475,
+        "5": 0.1912
+      },
+      "mean_pi": 3.4166,
+      "std_pi": 0.5442,
+      "n_respondents": 100
+    },
+    "concept_b": {
+      "concept_name": "CitrusBurst Sparkling Water \u2014 Vitamin Boost",
+      "distribution": {
+        "1": 0.0805,
+        "2": 0.175,
+        "3": 0.2522,
+        "4": 0.3182,
+        "5": 0.1741
+      },
+      "mean_pi": 3.3302,
+      "std_pi": 0.5597,
+      "n_respondents": 100
+    }
+  }
+}

@@ -1,0 +1,25 @@
+REVERTING TO BASIC (TIER 1) PERSONAS
+=====================================
+
+Context:
+Tier 2 rich personas produce lower absolute mean PI scores (~0.5 drop) compared
+to the paper-validated Tier 1 template prompts. Concept ranking is preserved.
+The drop likely reflects more realistic, grounded responses rather than scoring
+degradation — but Tier 1 is the only method validated against human baselines
+in the Maier et al. paper.
+
+How to revert:
+Remove (or rename) lifestyle_attributes.json from your config directory.
+That's it. The pipeline auto-detects this file. Without it, persona generation
+falls back to Tier 1 template-based prompts with no extra LLM calls.
+
+How to re-enable:
+Put lifestyle_attributes.json back in the config directory next to your
+engagement JSON. The pipeline picks it up automatically on the next run.
+
+Hybrid option (not yet implemented):
+Use Tier 1 simple prompts for stage 1 (scoring) and Tier 2 rich prompts for
+stage 2 (reasoning) only. This would preserve paper-validated PI scores while
+still getting rich qualitative reasoning. To implement: in persona_generator.py,
+set persona.system_prompt from the basic template and persona.reasoning_prompt
+from the rich narrative. The pipeline already uses these two prompts separately.

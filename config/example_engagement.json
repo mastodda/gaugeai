@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "engagement": "Example: Sparkling Water Concept Test",
+    "client": "ACME Beverages",
+    "date": "2026-02-15",
+    "analyst": "",
+    "notes": "MVP test engagement. Two flavor concepts for a new sparkling water line."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "concept_a",
+      "name": "CitrusBurst Sparkling Water",
+      "description": "CitrusBurst is a premium sparkling water infused with natural citrus oils. Zero calories, zero sweeteners — just crisp bubbles with a bright lemon-lime finish. Available in sleek 12oz slim cans, sold in 8-packs for $6.99. Designed for health-conscious adults who want flavor without compromise.",
+      "image_path": null
+    },
+    {
+      "concept_id": "concept_b",
+      "name": "CitrusBurst Sparkling Water — Vitamin Boost",
+      "description": "CitrusBurst Vitamin Boost is a premium sparkling water with natural citrus flavor plus added B-vitamins and electrolytes. Zero calories, zero sweeteners, with functional hydration benefits. Available in sleek 12oz slim cans, sold in 8-packs for $8.49. Designed for active adults who want more from their water.",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this product?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [21, 65],
+    "gender_distribution": {
+      "woman": 0.52,
+      "man": 0.48
+    },
+    "region_distribution": {
+      "Midwest": 0.21,
+      "Northeast": 0.17,
+      "South": 0.38,
+      "West": 0.24
+    },
+    "income_distribution": {
+      "low": 0.25,
+      "moderate": 0.40,
+      "upper-moderate": 0.25,
+      "high": 0.10
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

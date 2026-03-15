@@ -1,0 +1,8 @@
+{
+  "name": "ssr-toolkit",
+  "private": true,
+  "description": "Node.js dependencies for SSR Toolkit (PowerPoint export)",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

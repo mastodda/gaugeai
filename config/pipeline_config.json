@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "description": "Pipeline configuration: LLM models, embedding models, and SSR parameters",
+    "version": "0.1.0",
+    "paper_references": {
+      "ssr_paper": "Maier et al. - LLMs Reproduce Human Purchase Intent via SSR (2025)",
+      "sample_size_paper": "How Many Survey Respondents is an LLM Worth? (2025)"
+    }
+  },
+
+  "llm": {
+    "primary": {
+      "provider": "google",
+      "model": "gemini-2.0-flash",
+      "rationale": "Best SSR correlation attainment (rho=92.4%) and strong distributional similarity in the paper"
+    },
+    "secondary": {
+      "provider": "openai",
+      "model": "gpt-4o",
+      "rationale": "Highest KS similarity (0.88) in the paper; best for validation runs"
+    },
+    "generation_params": {
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "max_tokens": 200,
+      "samples_per_persona": 2,
+      "notes": "Paper used T_LLM=0.5 as primary; T_LLM=1.5 showed minimal difference. n=2 samples per persona was sufficient for stability."
+    }
+  },
+
+  "embedding": {
+    "model": "text-embedding-3-small",
+    "provider": "openai",
+    "dimensions": 1536,
+    "notes": "Paper found text-embedding-3-large produced virtually identical results. Small model is cheaper and sufficient."
+  },
+
+  "ssr_params": {
+    "epsilon": 0.0,
+    "post_elicitation_temperature": 1.0,
+    "aggregation": "mean_over_sets",
+    "notes": {
+      "epsilon": "Controls minimum-probability floor. 0.0 means one Likert rating always gets p=0 per set. Paper used 0.0 but flags it as tunable.",
+      "temperature": "Controls pmf sharpness. T=1 is the paper's default. Lower T = peakier distributions. Paper shows optimization potential around T=1.",
+      "aggregation": "Average pmfs across all reference sets per respondent. Paper found this more robust than using any single best set."
+    }
+  },
+
+  "panel": {
+    "default_size": 100,
+    "effective_sample_size_notes": {
+      "gpt_4o_social_opinions": 58,
+      "deepseek_v3_social_opinions": 45,
+      "gpt_4o_math_questions": 15,
+      "source": "Hidden population size estimates from sample size paper, alpha=0.05",
+      "warning": "These are domain-specific. Do not assume your domain matches. Generate more respondents than the effective size to ensure distributional stability."
+    }
+  },
+
+  "demographic_axes": {
+    "well_replicated": ["age", "income"],
+    "moderately_replicated": ["product_category_preferences", "price_sensitivity"],
+    "poorly_replicated": ["gender", "region", "ethnicity"],
+    "notes": "Paper found age and income effects reproduced well by LLMs. Gender, region, ethnicity were inconsistently captured. Flag poorly-replicated axes as lower-confidence in reports."
+  }
+}

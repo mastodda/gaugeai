@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "engagement": "Beckett Simonon Dress Shoes - Visual Ad Comparison",
+    "client": "Beckett Simonon",
+    "date": "2026-03-10",
+    "analyst": "Miles Stoddart",
+    "notes": "Synthetic survey advertisement review for Beckett Simonon Dress Shoes."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "concept_a",
+      "name": "Beckett Simonon 2 for $359",
+      "description": null,
+      "image_path": "BeckettSimononAd1.png"
+    },
+    {
+      "concept_id": "concept_b",
+      "name": "Beckett Simonon 5 Pair Visual",
+      "description": null,
+      "image_path": "BeckettSimononAd2.png"
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [21, 65],
+    "gender_distribution": {
+      "woman": 0,
+      "man": 1
+    },
+    "region_distribution": {
+      "Midwest": 0.21,
+      "Northeast": 0.3,
+      "South": 0.21,
+      "West": 0.28
+    },
+    "income_distribution": {
+      "low": 0.10,
+      "moderate": 0.25,
+      "upper-moderate": 0.40,
+      "high": 0.25
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 1,
+    "llm_top_p": 0.9,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

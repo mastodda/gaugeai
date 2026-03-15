@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "description": "SSR reference statement sets for mapping free-text responses to Likert distributions",
+    "version": "0.1.0",
+    "question_type": "purchase_intent",
+    "question_text": "How likely would you be to purchase this product?",
+    "likert_scale": {
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "Definitely not",
+        "2": "Probably not",
+        "3": "Uncertain",
+        "4": "Probably yes",
+        "5": "Definitely yes"
+      }
+    },
+    "design_constraints": {
+      "statements_per_set": 5,
+      "domain_independent": true,
+      "monotonic_gradient": "1=strongly_negative → 5=strongly_positive",
+      "style": "short, generic, no product-category-specific language",
+      "notes": "Each set captures a different natural framing of purchase intent. Sets are averaged to reduce sensitivity to any single phrasing."
+    }
+  },
+  "sets": {
+    "set_1_direct_likelihood": {
+      "framing": "direct likelihood language (buy/not buy)",
+      "anchors": {
+        "1": "It's very unlikely I'd buy this.",
+        "2": "I probably wouldn't buy this.",
+        "3": "I'm not sure whether I'd buy this or not.",
+        "4": "I'd probably buy this.",
+        "5": "I'd very likely buy this."
+      }
+    },
+    "set_2_purchase_decision": {
+      "framing": "purchase decision language",
+      "anchors": {
+        "1": "This isn't something I would purchase.",
+        "2": "I don't think I'd purchase this.",
+        "3": "I might or might not purchase this.",
+        "4": "I think I would purchase this.",
+        "5": "I'm quite confident I would purchase this."
+      }
+    },
+    "set_3_interest_consideration": {
+      "framing": "interest and consideration framing",
+      "anchors": {
+        "1": "I'm not interested in this product.",
+        "2": "I don't think this product is for me.",
+        "3": "I'm not sure if I'd be interested in this.",
+        "4": "This product seems interesting to me.",
+        "5": "I'm very interested in getting this product."
+      }
+    },
+    "set_4_spending_money": {
+      "framing": "spending and money framing",
+      "anchors": {
+        "1": "I wouldn't spend my money on this.",
+        "2": "I don't think this is worth buying.",
+        "3": "I'd have to think about whether it's worth the money.",
+        "4": "I'd consider spending money on this.",
+        "5": "I'd happily pay for this product."
+      }
+    },
+    "set_5_try_give_it_a_go": {
+      "framing": "trial and experimentation framing",
+      "anchors": {
+        "1": "I wouldn't bother trying this.",
+        "2": "I'd probably pass on this.",
+        "3": "I might give this a try, I'm not sure.",
+        "4": "I'd probably give this a try.",
+        "5": "I'd definitely want to try this."
+      }
+    },
+    "set_6_personal_fit": {
+      "framing": "personal fit and need framing",
+      "anchors": {
+        "1": "This product doesn't fit my needs at all.",
+        "2": "I don't think I need something like this.",
+        "3": "This could be useful, but I'm on the fence.",
+        "4": "I think this product would work well for me.",
+        "5": "This is exactly what I've been looking for."
+      }
+    }
+  }
+}

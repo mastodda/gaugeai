@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "engagement": {
+      "engagement": "Button Down Shirt for Men",
+      "client": "Charles Tyrwhitt",
+      "date": "2026-02-19",
+      "analyst": "",
+      "notes": "Synthetic survey data creation for Charles Tyrwhitt"
+    },
+    "pipeline_config": {
+      "llm_provider": "openai",
+      "llm_model": "gpt-4o",
+      "llm_temperature": 0.5,
+      "embedding_model": "text-embedding-3-small",
+      "ssr_epsilon": 0.0,
+      "ssr_temperature": 1.0,
+      "samples_per_persona": 2,
+      "seed": 2026225379,
+      "reference_sets": [
+        "set_1_direct_likelihood",
+        "set_2_purchase_decision",
+        "set_3_interest_consideration",
+        "set_4_spending_money",
+        "set_5_try_give_it_a_go",
+        "set_6_personal_fit"
+      ]
+    },
+    "timestamp": "2026-02-26T21:19:30.607883"
+  },
+  "summary": {
+    "concept_a": {
+      "concept_name": "Charles Tyrwhitt Intro Offer",
+      "distribution": {
+        "1": 0.0606,
+        "2": 0.1143,
+        "3": 0.2433,
+        "4": 0.3315,
+        "5": 0.2503
+      },
+      "mean_pi": 3.5966,
+      "std_pi": 0.464,
+      "n_respondents": 100
+    },
+    "concept_b": {
+      "concept_name": "Charles Tyrwhitt $200 Off Deal",
+      "distribution": {
+        "1": 0.0761,
+        "2": 0.1425,
+        "3": 0.2657,
+        "4": 0.3094,
+        "5": 0.2063
+      },
+      "mean_pi": 3.4274,
+      "std_pi": 0.5734,
+      "n_respondents": 100
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "engagement": "Button Down Shirt for Men",
+    "client": "Charles Tyrwhitt",
+    "date": "2026-02-19",
+    "analyst": "",
+    "notes": "Synthetic survey data creation for Charles Tyrwhitt"
+  },
+
+  "concepts": [
+    {
+      "concept_id": "concept_a",
+      "name": "Charles Tyrwhitt Intro Offer",
+      "description": "Back to business in timeless British style. This exclusive introductory offer brings premium Charles Tyrwhitt dress shirts within reach, starting at just $44.75 (regularly $129) with free shipping. Shop now and upgrade your essentials.",
+      "image_path": null
+    },
+    {
+      "concept_id": "concept_b",
+      "name": "Charles Tyrwhitt $200 Off Deal",
+      "description": "Upgrade your workweek rotation with timeless British tailoring. Get 3 premium dress shirts for $134.25 (reg. $387) and save big. Shop now and dress sharper for less.",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this product?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [21, 65],
+    "gender_distribution": {
+      "woman": 0,
+      "man": 1
+    },
+    "region_distribution": {
+      "Midwest": 0.21,
+      "Northeast": 0.17,
+      "South": 0.38,
+      "West": 0.24
+    },
+    "income_distribution": {
+      "low": 0.10,
+      "moderate": 0.25,
+      "upper-moderate": 0.40,
+      "high": 0.25
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 1,
+    "llm_top_p": 0.9,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 50
+  }
+}

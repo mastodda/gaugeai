@@ -1,0 +1,1026 @@
+{
+  "headline": "Beckett Simonon 5 Pair Visual wins with a 0.20 PI advantage, driven by higher perceived quality and style appeal.",
+  "concept_comparison": {
+    "winner": "Beckett Simonon 5 Pair Visual",
+    "winner_name": "Beckett Simonon 5 Pair Visual",
+    "margin": "0.20",
+    "key_differentiator": "Higher perceived quality and style appeal, as evidenced by the 100% mention rate for quality and style."
+  },
+  "segment_insights": [
+    {
+      "segment_axis": "income",
+      "finding": "High-income respondents rated 3.59 for 5 Pair Visual vs 3.43 for 2 for $359 (delta: -0.16).",
+      "implication": "Target high-income consumers with messaging emphasizing quality and style to enhance appeal.",
+      "evidence": "One respondent noted, 'If they are made with quality materials and craftsmanship, I'd consider purchasing them.'"
+    },
+    {
+      "segment_axis": "shopping_mindset",
+      "finding": "Convenience-first shoppers rated 3.46 for 5 Pair Visual vs 3.15 for 2 for $359 (delta: -0.31).",
+      "implication": "Highlight convenience and versatility in messaging to attract convenience-first shoppers.",
+      "evidence": "A respondent stated, 'The variety of styles is impressive, appealing for different occasions.'"
+    },
+    {
+      "segment_axis": "brand_adoption_style",
+      "finding": "Early majority rated 3.47 for 5 Pair Visual vs 3.20 for 2 for $359 (delta: -0.27).",
+      "implication": "Focus on building trust and credibility to convert early majority consumers.",
+      "evidence": "One respondent mentioned, 'I'd check reviews and see if there's any buzz on social media.'"
+    },
+    {
+      "segment_axis": "household_composition",
+      "finding": "Families with young children rated 3.53 for 5 Pair Visual vs 3.25 for 2 for $359 (delta: -0.28).",
+      "implication": "Emphasize durability and style to appeal to families looking for versatile footwear.",
+      "evidence": "A respondent said, 'These shoes look sharp and stylish, perfect for a professional setting.'"
+    }
+  ],
+  "topic_analysis": [
+    {
+      "topic": "quality",
+      "mention_rate": "100%",
+      "role": "driver",
+      "detail": "Quality is a key driver for both concepts, but 5 Pair Visual's presentation enhances perceived quality.",
+      "concept_difference": "Both concepts have a 100% mention rate for quality, but 5 Pair Visual received more positive sentiment."
+    },
+    {
+      "topic": "style/aesthetics",
+      "mention_rate": "100%",
+      "role": "driver",
+      "detail": "The variety and style appeal of 5 Pair Visual resonate more with consumers, enhancing purchase intent.",
+      "concept_difference": "5 Pair Visual's styles are perceived as more versatile compared to the 2 for $359 offer."
+    },
+    {
+      "topic": "price/value",
+      "mention_rate": "99%",
+      "role": "mixed",
+      "detail": "While price is a consideration, the perceived value of quality outweighs concerns for 5 Pair Visual.",
+      "concept_difference": "2 for $359 is seen as a better deal, but 5 Pair Visual is viewed as a more valuable investment."
+    },
+    {
+      "topic": "fit/sizing",
+      "mention_rate": "72% vs 74%",
+      "role": "barrier",
+      "detail": "Concerns about fit and sizing are present in both concepts, but more pronounced in 2 for $359.",
+      "concept_difference": "5 Pair Visual's variety helps mitigate fit concerns by offering more options."
+    }
+  ],
+  "recommended_actions": [
+    {
+      "action": "Develop targeted campaigns for high-income consumers highlighting quality and style.",
+      "evidence": "High-income respondents rated 3.59 for 5 Pair Visual, indicating strong appeal.",
+      "expected_impact": "Increase purchase intent among high-income segments.",
+      "priority": "high"
+    },
+    {
+      "action": "Create content that emphasizes convenience and versatility for convenience-first shoppers.",
+      "evidence": "Convenience-first shoppers rated 3.46 for 5 Pair Visual, significantly higher than 2 for $359.",
+      "expected_impact": "Enhance engagement and conversion rates in this segment.",
+      "priority": "high"
+    },
+    {
+      "action": "Leverage social proof and reviews to build trust with early majority consumers.",
+      "evidence": "Early majority rated 3.47 for 5 Pair Visual, indicating a need for credibility.",
+      "expected_impact": "Increase conversion rates among early majority consumers.",
+      "priority": "medium"
+    },
+    {
+      "action": "Highlight durability and style in messaging to appeal to families with young children.",
+      "evidence": "Families with young children rated 3.53 for 5 Pair Visual, showing strong interest.",
+      "expected_impact": "Boost purchase intent among family-oriented consumers.",
+      "priority": "medium"
+    }
+  ],
+  "concept_specific": {
+    "Beckett Simonon 2 for $359": {
+      "purchase_drivers": [
+        {
+          "theme": "Value for Money",
+          "detail": "The offer of two pairs for $359 is perceived as a good deal if quality is assured.",
+          "evidence": "One respondent stated, 'Getting two pairs for $359 seems like a decent deal.'"
+        },
+        {
+          "theme": "Quality Appearance",
+          "detail": "The shoes are viewed as stylish and well-made, appealing to quality-conscious consumers.",
+          "evidence": "A respondent mentioned, 'The shoes look well-made and stylish.'"
+        },
+        {
+          "theme": "Variety",
+          "detail": "The concept allows for selection between two pairs, which adds to its appeal.",
+          "evidence": "One respondent noted, 'I appreciate having options for different occasions.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Affordability",
+          "detail": "The price point of $359 is seen as steep for some consumers, limiting purchase intent.",
+          "evidence": "A respondent said, 'While they look nice, $359 is a bit steep for me.'"
+        },
+        {
+          "theme": "Fit Uncertainty",
+          "detail": "Concerns about fit and sizing may deter potential buyers from committing.",
+          "evidence": "A respondent expressed, 'I'd want to know more about the durability and comfort.'"
+        },
+        {
+          "theme": "Brand Familiarity",
+          "detail": "Some consumers prefer established brands, impacting their willingness to purchase.",
+          "evidence": "A respondent stated, 'I\u2019d probably pass on this unless I heard good reviews.'"
+        }
+      ],
+      "best_audience": "Moderate-income consumers who value quality and style."
+    },
+    "Beckett Simonon 5 Pair Visual": {
+      "purchase_drivers": [
+        {
+          "theme": "Variety of Styles",
+          "detail": "The range of styles appeals to consumers looking for versatility in footwear.",
+          "evidence": "A respondent noted, 'The variety of shoe styles is impressive.'"
+        },
+        {
+          "theme": "Quality Perception",
+          "detail": "High perceived quality enhances the attractiveness of the concept.",
+          "evidence": "One respondent stated, 'If they are made with quality materials, I'd consider purchasing.'"
+        },
+        {
+          "theme": "Style Appeal",
+          "detail": "The stylish presentation resonates with consumers seeking fashionable options.",
+          "evidence": "A respondent mentioned, 'These shoes look stylish and versatile.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Price Sensitivity",
+          "detail": "Some consumers may still find the price a barrier, despite the perceived value.",
+          "evidence": "A respondent expressed, 'I'd prioritize deals and affordability.'"
+        },
+        {
+          "theme": "Fit Concerns",
+          "detail": "Uncertainty about fit may deter some consumers from purchasing.",
+          "evidence": "A respondent stated, 'I\u2019d want to know about the materials used and their durability.'"
+        },
+        {
+          "theme": "Brand Trust",
+          "detail": "Consumers may hesitate to purchase without strong brand recognition.",
+          "evidence": "A respondent mentioned, 'I'd want to hear recommendations from trusted sources.'"
+        }
+      ],
+      "best_audience": "Quality-focused consumers who appreciate style and variety."
+    }
+  },
+  "methodology_notes": [
+    "The sample size is limited to 100 respondents, which may not fully represent the broader market.",
+    "Responses are self-reported and may be subject to bias based on individual perceptions.",
+    "The concepts tested lack detailed descriptions, which may affect consumer understanding and intent."
+  ],
+  "_precomputed": {
+    "concept_a": {
+      "segment_metrics": {
+        "income": {
+          "high": {
+            "n": 25,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "leaning": 0.44
+            }
+          },
+          "moderate": {
+            "n": 27,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "neutral": 0.7,
+              "leaning": 0.22,
+              "soft_neg": 0.07
+            }
+          },
+          "upper-moderate": {
+            "n": 38,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "low": 0.03,
+              "neutral": 0.63,
+              "soft_neg": 0.11,
+              "leaning": 0.24
+            }
+          },
+          "low": {
+            "n": 10,
+            "mean_pi": 2.88,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.5
+            }
+          }
+        },
+        "age_band": {
+          "45-59": {
+            "n": 39,
+            "mean_pi": 3.33,
+            "sentiment_distribution": {
+              "neutral": 0.54,
+              "leaning": 0.38,
+              "soft_neg": 0.08
+            }
+          },
+          "30-44": {
+            "n": 27,
+            "mean_pi": 3.28,
+            "sentiment_distribution": {
+              "neutral": 0.67,
+              "leaning": 0.22,
+              "soft_neg": 0.11
+            }
+          },
+          "18-29": {
+            "n": 24,
+            "mean_pi": 3.12,
+            "sentiment_distribution": {
+              "low": 0.04,
+              "neutral": 0.58,
+              "soft_neg": 0.17,
+              "leaning": 0.21
+            }
+          },
+          "60+": {
+            "n": 10,
+            "mean_pi": 3.2,
+            "sentiment_distribution": {
+              "neutral": 0.9,
+              "soft_neg": 0.1
+            }
+          }
+        },
+        "region": {
+          "Northeast": {
+            "n": 25,
+            "mean_pi": 3.23,
+            "sentiment_distribution": {
+              "neutral": 0.6,
+              "soft_neg": 0.16,
+              "leaning": 0.24
+            }
+          },
+          "Midwest": {
+            "n": 21,
+            "mean_pi": 3.31,
+            "sentiment_distribution": {
+              "neutral": 0.71,
+              "leaning": 0.24,
+              "soft_neg": 0.05
+            }
+          },
+          "West": {
+            "n": 28,
+            "mean_pi": 3.25,
+            "sentiment_distribution": {
+              "low": 0.04,
+              "leaning": 0.29,
+              "neutral": 0.57,
+              "soft_neg": 0.11
+            }
+          },
+          "South": {
+            "n": 26,
+            "mean_pi": 3.23,
+            "sentiment_distribution": {
+              "leaning": 0.27,
+              "soft_neg": 0.12,
+              "neutral": 0.62
+            }
+          }
+        },
+        "household_composition": {
+          "family with teenagers": {
+            "n": 12,
+            "mean_pi": 3.29,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.17,
+              "leaning": 0.33
+            }
+          },
+          "single, living alone": {
+            "n": 32,
+            "mean_pi": 3.34,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "leaning": 0.44,
+              "soft_neg": 0.06
+            }
+          },
+          "single parent": {
+            "n": 4,
+            "mean_pi": 2.66,
+            "sentiment_distribution": {
+              "low": 0.25,
+              "soft_neg": 0.25,
+              "neutral": 0.5
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 18,
+            "mean_pi": 3.25,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "leaning": 0.33,
+              "soft_neg": 0.11
+            }
+          },
+          "empty nester": {
+            "n": 9,
+            "mean_pi": 3.34,
+            "sentiment_distribution": {
+              "neutral": 1.0
+            }
+          },
+          "living with roommates": {
+            "n": 10,
+            "mean_pi": 3.13,
+            "sentiment_distribution": {
+              "neutral": 0.8,
+              "soft_neg": 0.2
+            }
+          },
+          "couple, no children": {
+            "n": 15,
+            "mean_pi": 3.22,
+            "sentiment_distribution": {
+              "neutral": 0.73,
+              "soft_neg": 0.13,
+              "leaning": 0.13
+            }
+          }
+        },
+        "shopping_mindset": {
+          "brand loyal": {
+            "n": 19,
+            "mean_pi": 3.16,
+            "sentiment_distribution": {
+              "neutral": 0.58,
+              "low": 0.05,
+              "soft_neg": 0.16,
+              "leaning": 0.21
+            }
+          },
+          "deal hunter": {
+            "n": 32,
+            "mean_pi": 3.21,
+            "sentiment_distribution": {
+              "neutral": 0.72,
+              "leaning": 0.19,
+              "soft_neg": 0.09
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 26,
+            "mean_pi": 3.37,
+            "sentiment_distribution": {
+              "leaning": 0.35,
+              "neutral": 0.62,
+              "soft_neg": 0.04
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 7,
+            "mean_pi": 3.48,
+            "sentiment_distribution": {
+              "leaning": 0.57,
+              "neutral": 0.43
+            }
+          },
+          "convenience first": {
+            "n": 16,
+            "mean_pi": 3.15,
+            "sentiment_distribution": {
+              "neutral": 0.56,
+              "soft_neg": 0.25,
+              "leaning": 0.19
+            }
+          }
+        },
+        "health_orientation": {
+          "highly health-conscious": {
+            "n": 29,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.72,
+              "soft_neg": 0.14,
+              "leaning": 0.14
+            }
+          },
+          "fitness/performance oriented": {
+            "n": 9,
+            "mean_pi": 3.3,
+            "sentiment_distribution": {
+              "neutral": 1.0
+            }
+          },
+          "health-indifferent": {
+            "n": 25,
+            "mean_pi": 3.16,
+            "sentiment_distribution": {
+              "low": 0.04,
+              "leaning": 0.32,
+              "neutral": 0.44,
+              "soft_neg": 0.2
+            }
+          },
+          "moderately health-aware": {
+            "n": 37,
+            "mean_pi": 3.36,
+            "sentiment_distribution": {
+              "leaning": 0.38,
+              "neutral": 0.57,
+              "soft_neg": 0.05
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "late majority": {
+            "n": 37,
+            "mean_pi": 3.25,
+            "sentiment_distribution": {
+              "neutral": 0.7,
+              "leaning": 0.22,
+              "soft_neg": 0.08
+            }
+          },
+          "skeptic": {
+            "n": 15,
+            "mean_pi": 3.21,
+            "sentiment_distribution": {
+              "neutral": 0.87,
+              "leaning": 0.07,
+              "soft_neg": 0.07
+            }
+          },
+          "early majority": {
+            "n": 33,
+            "mean_pi": 3.2,
+            "sentiment_distribution": {
+              "low": 0.03,
+              "leaning": 0.27,
+              "neutral": 0.52,
+              "soft_neg": 0.18
+            }
+          },
+          "early adopter": {
+            "n": 15,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "neutral": 0.4,
+              "leaning": 0.53,
+              "soft_neg": 0.07
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 38,
+            "mean_pi": 3.32,
+            "sentiment_distribution": {
+              "neutral": 0.61,
+              "low": 0.03,
+              "leaning": 0.34,
+              "soft_neg": 0.03
+            }
+          },
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 17,
+            "mean_pi": 3.35,
+            "sentiment_distribution": {
+              "neutral": 0.59,
+              "leaning": 0.35,
+              "soft_neg": 0.06
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 19,
+            "mean_pi": 3.26,
+            "sentiment_distribution": {
+              "leaning": 0.21,
+              "neutral": 0.63,
+              "soft_neg": 0.16
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 12,
+            "mean_pi": 3.28,
+            "sentiment_distribution": {
+              "neutral": 0.75,
+              "soft_neg": 0.08,
+              "leaning": 0.17
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 14,
+            "mean_pi": 2.9,
+            "sentiment_distribution": {
+              "neutral": 0.57,
+              "soft_neg": 0.36,
+              "leaning": 0.07
+            }
+          }
+        },
+        "media_influence": {
+          "word-of-mouth": {
+            "n": 42,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "neutral": 0.6,
+              "leaning": 0.26,
+              "soft_neg": 0.14
+            }
+          },
+          "research-driven": {
+            "n": 25,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "neutral": 0.68,
+              "soft_neg": 0.12,
+              "leaning": 0.2
+            }
+          },
+          "social media influenced": {
+            "n": 15,
+            "mean_pi": 3.3,
+            "sentiment_distribution": {
+              "low": 0.07,
+              "neutral": 0.53,
+              "leaning": 0.4
+            }
+          },
+          "in-store discovery": {
+            "n": 15,
+            "mean_pi": 3.21,
+            "sentiment_distribution": {
+              "neutral": 0.67,
+              "leaning": 0.2,
+              "soft_neg": 0.13
+            }
+          },
+          "ad-responsive": {
+            "n": 3,
+            "mean_pi": 3.51,
+            "sentiment_distribution": {
+              "neutral": 0.67,
+              "leaning": 0.33
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "price/value": {
+          "count": 99,
+          "pct": 99
+        },
+        "quality": {
+          "count": 100,
+          "pct": 100
+        },
+        "fit/sizing": {
+          "count": 72,
+          "pct": 72
+        },
+        "brand/trust": {
+          "count": 100,
+          "pct": 100
+        },
+        "lifestyle_mismatch": {
+          "count": 31,
+          "pct": 31
+        },
+        "style/aesthetics": {
+          "count": 95,
+          "pct": 95
+        },
+        "convenience": {
+          "count": 80,
+          "pct": 80
+        },
+        "comparison_shopping": {
+          "count": 25,
+          "pct": 25
+        }
+      }
+    },
+    "concept_b": {
+      "segment_metrics": {
+        "income": {
+          "high": {
+            "n": 25,
+            "mean_pi": 3.59,
+            "sentiment_distribution": {
+              "neutral": 0.2,
+              "leaning": 0.8
+            }
+          },
+          "moderate": {
+            "n": 27,
+            "mean_pi": 3.39,
+            "sentiment_distribution": {
+              "neutral": 0.37,
+              "soft_neg": 0.07,
+              "leaning": 0.56
+            }
+          },
+          "upper-moderate": {
+            "n": 38,
+            "mean_pi": 3.49,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "neutral": 0.5
+            }
+          },
+          "low": {
+            "n": 10,
+            "mean_pi": 3.08,
+            "sentiment_distribution": {
+              "neutral": 0.7,
+              "leaning": 0.1,
+              "soft_neg": 0.2
+            }
+          }
+        },
+        "age_band": {
+          "45-59": {
+            "n": 39,
+            "mean_pi": 3.54,
+            "sentiment_distribution": {
+              "neutral": 0.38,
+              "leaning": 0.62
+            }
+          },
+          "30-44": {
+            "n": 27,
+            "mean_pi": 3.38,
+            "sentiment_distribution": {
+              "neutral": 0.33,
+              "leaning": 0.56,
+              "soft_neg": 0.11
+            }
+          },
+          "18-29": {
+            "n": 24,
+            "mean_pi": 3.39,
+            "sentiment_distribution": {
+              "leaning": 0.54,
+              "soft_neg": 0.04,
+              "neutral": 0.42
+            }
+          },
+          "60+": {
+            "n": 10,
+            "mean_pi": 3.41,
+            "sentiment_distribution": {
+              "leaning": 0.3,
+              "neutral": 0.7
+            }
+          }
+        },
+        "region": {
+          "Northeast": {
+            "n": 25,
+            "mean_pi": 3.44,
+            "sentiment_distribution": {
+              "neutral": 0.52,
+              "leaning": 0.48
+            }
+          },
+          "Midwest": {
+            "n": 21,
+            "mean_pi": 3.41,
+            "sentiment_distribution": {
+              "neutral": 0.48,
+              "soft_neg": 0.05,
+              "leaning": 0.48
+            }
+          },
+          "West": {
+            "n": 28,
+            "mean_pi": 3.51,
+            "sentiment_distribution": {
+              "leaning": 0.64,
+              "neutral": 0.36
+            }
+          },
+          "South": {
+            "n": 26,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "leaning": 0.58,
+              "neutral": 0.31,
+              "soft_neg": 0.12
+            }
+          }
+        },
+        "household_composition": {
+          "family with teenagers": {
+            "n": 12,
+            "mean_pi": 3.42,
+            "sentiment_distribution": {
+              "neutral": 0.25,
+              "leaning": 0.67,
+              "soft_neg": 0.08
+            }
+          },
+          "single, living alone": {
+            "n": 32,
+            "mean_pi": 3.47,
+            "sentiment_distribution": {
+              "neutral": 0.47,
+              "leaning": 0.53
+            }
+          },
+          "single parent": {
+            "n": 4,
+            "mean_pi": 3.32,
+            "sentiment_distribution": {
+              "leaning": 0.25,
+              "neutral": 0.75
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 18,
+            "mean_pi": 3.53,
+            "sentiment_distribution": {
+              "neutral": 0.33,
+              "leaning": 0.67
+            }
+          },
+          "empty nester": {
+            "n": 9,
+            "mean_pi": 3.39,
+            "sentiment_distribution": {
+              "leaning": 0.44,
+              "neutral": 0.44,
+              "soft_neg": 0.11
+            }
+          },
+          "living with roommates": {
+            "n": 10,
+            "mean_pi": 3.33,
+            "sentiment_distribution": {
+              "soft_neg": 0.2,
+              "leaning": 0.5,
+              "neutral": 0.3
+            }
+          },
+          "couple, no children": {
+            "n": 15,
+            "mean_pi": 3.48,
+            "sentiment_distribution": {
+              "leaning": 0.53,
+              "neutral": 0.47
+            }
+          }
+        },
+        "shopping_mindset": {
+          "brand loyal": {
+            "n": 19,
+            "mean_pi": 3.33,
+            "sentiment_distribution": {
+              "neutral": 0.47,
+              "leaning": 0.42,
+              "soft_neg": 0.11
+            }
+          },
+          "deal hunter": {
+            "n": 32,
+            "mean_pi": 3.41,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.06,
+              "leaning": 0.44
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 26,
+            "mean_pi": 3.55,
+            "sentiment_distribution": {
+              "neutral": 0.19,
+              "leaning": 0.81
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 7,
+            "mean_pi": 3.54,
+            "sentiment_distribution": {
+              "leaning": 0.57,
+              "neutral": 0.43
+            }
+          },
+          "convenience first": {
+            "n": 16,
+            "mean_pi": 3.46,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "leaning": 0.5
+            }
+          }
+        },
+        "health_orientation": {
+          "highly health-conscious": {
+            "n": 29,
+            "mean_pi": 3.44,
+            "sentiment_distribution": {
+              "neutral": 0.66,
+              "leaning": 0.34
+            }
+          },
+          "fitness/performance oriented": {
+            "n": 9,
+            "mean_pi": 3.41,
+            "sentiment_distribution": {
+              "neutral": 0.44,
+              "leaning": 0.56
+            }
+          },
+          "health-indifferent": {
+            "n": 25,
+            "mean_pi": 3.44,
+            "sentiment_distribution": {
+              "leaning": 0.68,
+              "soft_neg": 0.08,
+              "neutral": 0.24
+            }
+          },
+          "moderately health-aware": {
+            "n": 37,
+            "mean_pi": 3.48,
+            "sentiment_distribution": {
+              "neutral": 0.32,
+              "leaning": 0.62,
+              "soft_neg": 0.05
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "late majority": {
+            "n": 37,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "neutral": 0.43,
+              "leaning": 0.51,
+              "soft_neg": 0.05
+            }
+          },
+          "skeptic": {
+            "n": 15,
+            "mean_pi": 3.33,
+            "sentiment_distribution": {
+              "neutral": 0.73,
+              "leaning": 0.27
+            }
+          },
+          "early majority": {
+            "n": 33,
+            "mean_pi": 3.47,
+            "sentiment_distribution": {
+              "leaning": 0.64,
+              "neutral": 0.3,
+              "soft_neg": 0.06
+            }
+          },
+          "early adopter": {
+            "n": 15,
+            "mean_pi": 3.55,
+            "sentiment_distribution": {
+              "leaning": 0.73,
+              "neutral": 0.27
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 38,
+            "mean_pi": 3.5,
+            "sentiment_distribution": {
+              "neutral": 0.39,
+              "leaning": 0.58,
+              "soft_neg": 0.03
+            }
+          },
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 17,
+            "mean_pi": 3.47,
+            "sentiment_distribution": {
+              "neutral": 0.41,
+              "leaning": 0.59
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 19,
+            "mean_pi": 3.45,
+            "sentiment_distribution": {
+              "leaning": 0.63,
+              "neutral": 0.32,
+              "soft_neg": 0.05
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 12,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "neutral": 0.5
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 14,
+            "mean_pi": 3.29,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "leaning": 0.36,
+              "soft_neg": 0.14
+            }
+          }
+        },
+        "media_influence": {
+          "word-of-mouth": {
+            "n": 42,
+            "mean_pi": 3.39,
+            "sentiment_distribution": {
+              "neutral": 0.43,
+              "leaning": 0.5,
+              "soft_neg": 0.07
+            }
+          },
+          "research-driven": {
+            "n": 25,
+            "mean_pi": 3.44,
+            "sentiment_distribution": {
+              "neutral": 0.52,
+              "leaning": 0.48
+            }
+          },
+          "social media influenced": {
+            "n": 15,
+            "mean_pi": 3.49,
+            "sentiment_distribution": {
+              "leaning": 0.6,
+              "neutral": 0.33,
+              "soft_neg": 0.07
+            }
+          },
+          "in-store discovery": {
+            "n": 15,
+            "mean_pi": 3.56,
+            "sentiment_distribution": {
+              "leaning": 0.73,
+              "neutral": 0.27
+            }
+          },
+          "ad-responsive": {
+            "n": 3,
+            "mean_pi": 3.54,
+            "sentiment_distribution": {
+              "neutral": 0.33,
+              "leaning": 0.67
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "price/value": {
+          "count": 92,
+          "pct": 92
+        },
+        "quality": {
+          "count": 100,
+          "pct": 100
+        },
+        "fit/sizing": {
+          "count": 74,
+          "pct": 74
+        },
+        "brand/trust": {
+          "count": 98,
+          "pct": 98
+        },
+        "lifestyle_mismatch": {
+          "count": 63,
+          "pct": 63
+        },
+        "style/aesthetics": {
+          "count": 100,
+          "pct": 100
+        },
+        "convenience": {
+          "count": 34,
+          "pct": 34
+        },
+        "comparison_shopping": {
+          "count": 26,
+          "pct": 26
+        }
+      }
+    }
+  },
+  "_meta": {
+    "model": "gpt-4o-mini",
+    "n_concepts": 2,
+    "concept_ids": [
+      "concept_a",
+      "concept_b"
+    ],
+    "prompt_tokens_approx": 5410
+  }
+}

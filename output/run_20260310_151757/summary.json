@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "engagement": {
+      "engagement": "Beckett Simonon Dress Shoes - Visual Ad Comparison",
+      "client": "Beckett Simonon",
+      "date": "2026-03-10",
+      "analyst": "Miles Stoddart",
+      "notes": "Synthetic survey advertisement review for Beckett Simonon Dress Shoes."
+    },
+    "pipeline_config": {
+      "llm_provider": "openai",
+      "llm_model": "gpt-4o",
+      "llm_temperature": 1,
+      "embedding_model": "text-embedding-3-small",
+      "ssr_epsilon": 0.0,
+      "ssr_temperature": 1.0,
+      "samples_per_persona": 2,
+      "seed": 42,
+      "reference_sets": [
+        "set_1_direct_likelihood",
+        "set_2_purchase_decision",
+        "set_3_interest_consideration",
+        "set_4_spending_money",
+        "set_5_try_give_it_a_go",
+        "set_6_personal_fit"
+      ]
+    },
+    "timestamp": "2026-03-10T16:41:11.051005"
+  },
+  "summary": {
+    "concept_a": {
+      "concept_name": "Beckett Simonon 2 for $359",
+      "distribution": {
+        "1": 0.0544,
+        "2": 0.0923,
+        "3": 0.379,
+        "4": 0.3066,
+        "5": 0.1676
+      },
+      "mean_pi": 3.4408,
+      "std_pi": 0.2645,
+      "n_respondents": 100
+    },
+    "concept_b": {
+      "concept_name": "Beckett Simonon 5 Pair Visual",
+      "distribution": {
+        "1": 0.0554,
+        "2": 0.0817,
+        "3": 0.3479,
+        "4": 0.3074,
+        "5": 0.2077
+      },
+      "mean_pi": 3.5304,
+      "std_pi": 0.1607,
+      "n_respondents": 100
+    }
+  }
+}
