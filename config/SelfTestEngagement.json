@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "engagement": "Synthetic Survey Panel: Concept Test with Creative Directors",
+    "client": "Internal / Go-to-Market Validation",
+    "date": "2026-03-22",
+    "analyst": "",
+    "notes": "Meta-test: head-to-head comparison of a synthetic AI survey panel vs. a traditional human survey panel. Panel of 100 marketing and agency creative directors choosing which they would purchase for a single concept test."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "concept_a",
+      "name": "AI Synthetic Survey Panel",
+      "description": "You need to run a consumer concept test for a product or ad campaign your team is developing. This service uses AI to generate a synthetic survey panel of 100 demographically diverse respondents who evaluate your concept. Each synthetic respondent provides a purchase intent rating on a 1-5 scale and detailed written reasoning explaining what they like, what concerns them, and whether they'd buy. The methodology is based on peer-reviewed research showing that AI-generated survey responses reproduce real human purchase intent distributions with approximately 90% accuracy. Results are delivered within 4 hours as a polished report with demographic breakdowns, segment analysis, and actionable recommendations. Cost: $500 for one concept test with 100 respondents.",
+      "image_path": null
+    },
+    {
+      "concept_id": "concept_b",
+      "name": "Traditional Human Survey Panel",
+      "description": "You need to run a consumer concept test for a product or ad campaign your team is developing. This service recruits 100 real human respondents matched to your target demographic through a traditional online survey panel. Each respondent rates their purchase intent on a 1-5 scale and provides written feedback explaining their reasoning. Respondents are screened, verified, and quality-checked to ensure genuine responses. Results are delivered in 2-3 weeks as a polished report with demographic breakdowns, segment analysis, and actionable recommendations. Cost: $15,000 for one concept test with 100 respondents.",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this survey service for your next concept test?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [28, 58],
+    "occupation_distribution": {
+      "Director of Marketing at a consumer packaged goods company": 0.20,
+      "Creative Director at a full-service advertising agency": 0.20,
+      "VP of Brand Strategy at a mid-size consumer brand": 0.20,
+      "Head of Consumer Insights at a CPG firm": 0.20,
+      "Creative Producer at an advertising agency": 0.20
+    },
+    "gender_distribution": {
+      "woman": 0.48,
+      "man": 0.50,
+      "non-binary": 0.02
+    },
+    "region_distribution": {
+      "Northeast": 0.30,
+      "West": 0.30,
+      "South": 0.22,
+      "Midwest": 0.18
+    },
+    "income_distribution": {
+      "moderate": 0.15,
+      "upper-moderate": 0.45,
+      "high": 0.40
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "lifestyle_config": "lifestyle_attributes_b2b.json",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

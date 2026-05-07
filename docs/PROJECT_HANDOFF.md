@@ -1,6 +1,6 @@
 # SSR Toolkit — Consolidated Project Document
 
-*Last updated: March 2026*
+*Last updated: May 2026*
 
 ---
 
@@ -40,7 +40,8 @@ The pipeline does NOT ask LLMs to pick a number on a Likert scale (that produces
 
 ```
 ssr-toolkit/
-├── run_pipeline.py                  # CLI entry point (--dry-run, --seed)
+├── run_pipeline.py                  # CLI entry point (--dry-run, --seed, --mode)
+├── launcher.py                      # Streamlit UI launcher (recommended)
 ├── test_integration.py              # Full pipeline test with mock clients
 ├── core/
 │   ├── pipeline.py                  # End-to-end orchestrator (5 steps)
@@ -65,7 +66,9 @@ ssr-toolkit/
 │   ├── example_engagement.json      # Example: sparkling water concept test
 │   └── example_engagement2.json     # Example: dress shirts concept test
 ├── docs/
-│   └── domain_suitability_checklist.md
+│   ├── domain_suitability_checklist.md
+│   ├── methodology_differences.md   # Deviations from Maier et al. (2025)
+│   └── PROJECT_HANDOFF.md           # This file
 └── output/                          # Pipeline run outputs
     └── <run_dir>/
         ├── results.json             # Full respondent data
@@ -76,28 +79,46 @@ ssr-toolkit/
 
 ---
 
+## Pipeline Modes
+
+Set `"mode"` in the `pipeline` section of the engagement JSON, or override at runtime with `--mode`:
+
+| Feature | `"full"` (default) | `"paper"` |
+|---|---|---|
+| Personas | Tier 2 (LLM narrative + psychographics) | Tier 1 (demographic template) |
+| Stage 2 reasoning | Enabled | Disabled |
+| Insights generation | Enabled | Disabled |
+| SSR scoring | Identical | Identical |
+
+`"paper"` mode replicates the strict Maier et al. (2025) methodology. Use it for validation runs, cost-sensitive jobs, or establishing a calibrated baseline before running `"full"`.
+
+---
+
 ## Pipeline Steps
 
 The pipeline runs in 5 steps (plus insight generation):
 
 1. **LLM client init** — needed early because Tier 2 persona gen requires LLM calls
-2. **Persona generation** — sample demographics + lifestyle, optionally generate narrative via LLM
+2. **Persona generation** — sample demographics + lifestyle, optionally generate narrative via LLM (skipped in paper mode; Tier 1 only)
 3. **Embedding client + reference sets** — pre-compute anchor embeddings (cached to disk)
-4. **Elicitation + scoring** — for each persona × concept × sample: Stage 1 (PI response → embed → SSR score), then Stage 2 (reasoning follow-up)
+4. **Elicitation + scoring** — for each persona × concept × sample: Stage 1 (PI response → embed → SSR score), then Stage 2 if enabled (reasoning follow-up; disabled in paper mode)
 5. **Write output** — results.json, summary.json, personas.json
-6. **Insight generation** (non-blocking) — one GPT-4o-mini call synthesizing all responses into comparative insights.json
+6. **Insight generation** (non-blocking) — one GPT-4o-mini call synthesizing all responses into comparative insights.json (skipped in paper mode)
 
 ### Running
 
 ```bash
 # Dry run — validate config, estimate costs, no API calls
-python run_pipeline.py --engagement config/example_engagement.json --dry-run
+python run_pipeline.py config/example_engagement.json --dry-run
 
-# Full run
-python run_pipeline.py --engagement config/example_engagement.json --seed 42
+# Full run (default: Tier 2 personas, Stage 2 reasoning, insights)
+python run_pipeline.py config/example_engagement.json --seed 42
+
+# Paper mode — strict Maier et al. methodology (Tier 1, no Stage 2, no insights)
+python run_pipeline.py config/example_engagement.json --mode paper
 
 # Generate insights for an existing run
-python -m core.insights_generator output/results.json
+python -m core.insights_generator output/<run_dir>/results.json
 ```
 
 ---
@@ -149,18 +170,27 @@ Tier 2 produces ~0.5 lower absolute mean PI vs Tier 1. Concept ranking is preser
 
 ## Image Support
 
-Concepts can include images instead of or alongside text descriptions. Set `image_path` in the engagement JSON:
+Concepts support three input modes: text only, image only, or both together. Set `image_path` and/or `description` in the engagement JSON:
 
 ```json
 {
   "concept_id": "concept_a",
   "name": "Product Name",
-  "description": "Text description (used as fallback)",
+  "description": "Text description",
   "image_path": "concept_a.png"
 }
 ```
 
-Place the image file next to the engagement JSON. The pipeline resolves relative paths, validates the file exists (falls back to text if missing), and sends it via the vision API. All three providers (OpenAI, Gemini, Claude) support image input. The paper found image stimulus slightly outperformed text-only.
+| `description` | `image_path` | What gets sent to the LLM |
+|---|---|---|
+| provided | valid file | Both image and text description |
+| provided | null / missing | Text only |
+| null | valid file | Image only |
+| null | null / missing | Error — pipeline halts |
+
+Place image files next to the engagement JSON. The pipeline resolves relative paths and validates each file exists; a missing image falls back gracefully (text-only or error if no text either). All three providers (OpenAI, Gemini, Claude) support combined image + text input.
+
+The paper found image stimulus slightly outperformed text-only. Sending both gives the LLM the visual stimulus plus any additional context the image alone may not convey (e.g., brand name, ingredients, price tier).
 
 Images are displayed in the Streamlit Overview tab above each concept's metrics.
 
@@ -320,12 +350,99 @@ For a 100-persona, 2-concept run:
 
 ---
 
+## Session Summary — April 2026
+
+### What was done
+
+**1. Methodology audit (`docs/methodology_differences.md`)**
+
+Performed a full comparison between the current pipeline implementation and the Maier et al. (2025) paper methodology. Findings documented in `docs/methodology_differences.md`. Key deviations identified:
+
+- **Tier 2 personas are not paper-validated** — produce ~0.5 lower absolute mean PI vs the paper's Tier 1 baseline. Concept ranking is preserved; absolute scores are not calibrated to the paper.
+- **Stage 2 reasoning is an extension** — the paper ends at SSR scoring; the reasoning follow-up is a product addition.
+- **Reference sets use custom wording** — the paper's anchor texts were optimized for 57 personal care surveys; the toolkit's 6 sets are custom-authored and not independently validated.
+- **Insights generation has no paper equivalent** — it is a product layer.
+- **Effective sample size (κ) is not implemented** — deferred to Phase 2.
+- **Absolute PI runs lower than paper baseline** (~3.3–3.7 vs the paper's 3.5–3.8) due to Tier 2 persona drift.
+
+**2. Pipeline mode switching**
+
+Added a `"mode"` field to engagement configs and a `--mode` CLI flag:
+
+- `"full"` (default) — Tier 2 personas, Stage 2 reasoning, insights generation
+- `"paper"` — strict Maier et al.: Tier 1 personas only, no Stage 2, no insights
+
+Implementation: `apply_mode(config, mode)` in `core/pipeline.py` sets `lifestyle_config_path`, `skip_stage_2`, and `skip_insights` flags. The CLI flag overrides the engagement config. Mode is recorded in `results.json` metadata.
+
+Usage:
+```bash
+python run_pipeline.py config/my_engagement.json --mode paper
+python run_pipeline.py config/my_engagement.json --mode full
+```
+
+Or set `"mode": "paper"` in the `pipeline` section of the engagement JSON.
+
+**3. Streamlit launcher (`launcher.py`)**
+
+A browser-based UI for configuring and running the pipeline without editing JSON files.
+
+```bash
+streamlit run launcher.py
+```
+
+Features:
+- **Sidebar**: mode selector, LLM provider/model dropdowns, temperature slider, samples per persona, seed
+- **Concepts tab**: dynamic add/remove concept cards with name, description textarea, and drag-and-drop image uploader with live preview
+- **Demographics tab**: panel size, age range slider, gender split, region and income number inputs with real-time sum validation
+- **Run**: spawns `run_pipeline.py` as a subprocess, streams stdout live, saves the generated engagement JSON to `config/_launcher_{timestamp}.json`
+- **Done**: shows output directory, one-click "Launch Explorer" button that opens the results explorer in a new process
+
+### Files changed
+
+| File | Change |
+|---|---|
+| `core/pipeline.py` | Added `mode`, `skip_stage_2`, `skip_insights` to `PipelineConfig`; added `apply_mode()`; gated Stage 2 and insights on flags; added `mode` to output metadata |
+| `run_pipeline.py` | Added `--mode` CLI flag; imports and calls `apply_mode()` as override; updated dry-run cost estimate to show Stage 1/Stage 2 breakdown |
+| `config/example_engagement.json` | Added `"mode": "full"` to pipeline section |
+| `launcher.py` | New file — Streamlit launcher UI |
+| `docs/methodology_differences.md` | New file — full audit of deviations from paper |
+| `README.md` | Added launcher usage, Pipeline Modes section, updated Persona Tiers section |
+| `CLAUDE.md` | Added launcher and `--mode` to commands |
+| `docs/PROJECT_HANDOFF.md` | Updated directory structure, pipeline steps, running instructions |
+
+---
+
+## Session Summary — May 2026
+
+### What was done
+
+**Multi-modal concept input (`core/llm_client.py`)**
+
+Previously each provider used an `if/elif` pattern — image took priority and text was silently dropped if both were provided. Updated all three providers (OpenAI, Gemini, Anthropic) to support sending both image and text together when both are present, while preserving existing single-modal behavior.
+
+- **Both present**: image block + text description sent in the same user message
+- **Image only**: image + generic intro text (unchanged behavior)
+- **Text only**: plain text message (unchanged behavior)
+- **Neither**: raises `ValueError` (unchanged behavior)
+
+The pipeline and engagement JSON schema required no changes — `concept.get("description")` and `concept.get("image_path")` were already being passed through; the fix was entirely in the provider message-building logic.
+
+### Files changed
+
+| File | Change |
+|---|---|
+| `core/llm_client.py` | Replaced `if/elif` concept blocks with `has_image`/`has_text` flags in all three providers; updated abstract base class docstring |
+
+---
+
 ## Open Questions & Next Steps
 
 - **Validate Tier 2 against more concepts**: Build confidence in scoring differences across categories.
-- **Hybrid scoring/reasoning prompts**: If Tier 2 PI drift becomes a concern, use Tier 1 for scoring and Tier 2 for reasoning. The fields are already separate.
+- **Hybrid scoring/reasoning prompts**: If Tier 2 PI drift becomes a concern, use Tier 1 for scoring and Tier 2 for reasoning. The fields are already separate in `PipelineConfig` (`system_prompt` vs `reasoning_prompt`). Not yet implemented.
 - **Lifestyle attribute tuning**: Weights are population-approximate, not precision-sourced. Could tighten with Pew/NielsenIQ data.
 - **Phase 2 — Statistical Layer**: Effective sample size (κ), confidence intervals. Deferred until human baseline data is available.
 - **Multi-question support**: Swap reference sets per question type (purchase intent vs. relevance vs. appeal).
 - **Reference set tuning workflow**: Systematic way to optimize ε and T parameters.
 - **Domain expansion**: Validate beyond personal care into food, tech, fashion, household goods.
+- **Launcher: add dry-run support**: Let users estimate cost before committing to a full run from the UI.
+- **Launcher: persist form state across sessions**: Currently resets on browser refresh.

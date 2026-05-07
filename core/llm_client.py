@@ -37,7 +37,7 @@ class LLMClient(ABC):
         Args:
             system_prompt: Persona system prompt (demographics + survey context).
             concept_text: Product concept as text (used if no image provided).
-            concept_image_path: Path to concept image file (preferred over text).
+            concept_image_path: Path to concept image file. Used alongside concept_text when both are provided.
             question: The survey question to ask.
             temperature: LLM sampling temperature.
             top_p: Nucleus sampling parameter.
@@ -69,30 +69,29 @@ class OpenAIClient(LLMClient):
     ) -> str:
         messages = [{"role": "system", "content": system_prompt}]
 
-        # Concept message (image or text)
-        if concept_image_path and Path(concept_image_path).exists():
+        # Concept message (image, text, or both)
+        has_image = bool(concept_image_path and Path(concept_image_path).exists())
+        has_text = bool(concept_text)
+
+        if not has_image and not has_text:
+            raise ValueError("Must provide either concept_text or concept_image_path")
+
+        if has_image:
             img_data = _encode_image(concept_image_path)
             mime = _guess_mime(concept_image_path)
-            messages.append({
-                "role": "user",
-                "content": [
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:{mime};base64,{img_data}",
-                            "detail": "high",
-                        },
-                    },
-                    {"type": "text", "text": "Here is a product concept for your review."},
-                ],
-            })
-        elif concept_text:
-            messages.append({
-                "role": "user",
-                "content": f"Product Concept:\n\n{concept_text}",
-            })
+            content = [
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:{mime};base64,{img_data}", "detail": "high"},
+                },
+            ]
+            if has_text:
+                content.append({"type": "text", "text": f"Product Concept:\n\n{concept_text}"})
+            else:
+                content.append({"type": "text", "text": "Here is a product concept for your review."})
+            messages.append({"role": "user", "content": content})
         else:
-            raise ValueError("Must provide either concept_text or concept_image_path")
+            messages.append({"role": "user", "content": f"Product Concept:\n\n{concept_text}"})
 
         # Elicitation question
         messages.append({"role": "user", "content": question})
@@ -138,17 +137,24 @@ class GeminiClient(LLMClient):
         )
         chat = model.start_chat()
 
-        # Concept message
-        if concept_image_path and Path(concept_image_path).exists():
+        # Concept message (image, text, or both)
+        has_image = bool(concept_image_path and Path(concept_image_path).exists())
+        has_text = bool(concept_text)
+
+        if not has_image and not has_text:
+            raise ValueError("Must provide either concept_text or concept_image_path")
+
+        if has_image:
             import PIL.Image
             img = PIL.Image.open(concept_image_path)
-            chat.send_message(
-                ["Here is a product concept for your review.", img]
-            )
-        elif concept_text:
-            chat.send_message(f"Product Concept:\n\n{concept_text}")
+            parts = [img]
+            if has_text:
+                parts.append(f"Product Concept:\n\n{concept_text}")
+            else:
+                parts.append("Here is a product concept for your review.")
+            chat.send_message(parts)
         else:
-            raise ValueError("Must provide either concept_text or concept_image_path")
+            chat.send_message(f"Product Concept:\n\n{concept_text}")
 
         # Elicitation question
         response = chat.send_message(question)
@@ -175,29 +181,26 @@ class AnthropicClient(LLMClient):
     ) -> str:
         content_blocks = []
 
-        # Concept message
-        if concept_image_path and Path(concept_image_path).exists():
+        # Concept message (image, text, or both)
+        has_image = bool(concept_image_path and Path(concept_image_path).exists())
+        has_text = bool(concept_text)
+
+        if not has_image and not has_text:
+            raise ValueError("Must provide either concept_text or concept_image_path")
+
+        if has_image:
             img_data = _encode_image(concept_image_path)
             mime = _guess_mime(concept_image_path)
             content_blocks.append({
                 "type": "image",
-                "source": {
-                    "type": "base64",
-                    "media_type": mime,
-                    "data": img_data,
-                },
+                "source": {"type": "base64", "media_type": mime, "data": img_data},
             })
-            content_blocks.append({
-                "type": "text",
-                "text": f"Here is a product concept for your review.\n\n{question}",
-            })
-        elif concept_text:
-            content_blocks.append({
-                "type": "text",
-                "text": f"Product Concept:\n\n{concept_text}\n\n{question}",
-            })
+
+        if has_text:
+            text_body = f"Product Concept:\n\n{concept_text}\n\n{question}"
         else:
-            raise ValueError("Must provide either concept_text or concept_image_path")
+            text_body = f"Here is a product concept for your review.\n\n{question}"
+        content_blocks.append({"type": "text", "text": text_body})
 
         response = self._client.messages.create(
             model=self.model,

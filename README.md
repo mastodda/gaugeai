@@ -44,12 +44,30 @@ ANTHROPIC_API_KEY=...    # optional, for Claude
 
 ## Running the Pipeline
 
+### Streamlit Launcher (recommended)
+
+```bash
+streamlit run launcher.py
+```
+
+A browser UI for configuring runs without touching JSON files. Supports:
+- Dropdown selection for mode, LLM provider, and model
+- Dynamic concept entry with drag-and-drop image upload
+- Demographic panel customisation (panel size, age, gender, region, income)
+- Live pipeline progress display
+- One-click launch of the Results Explorer when done
+
+### CLI
+
 ```bash
 # Validate config, estimate costs — no API calls
 python run_pipeline.py config/example_engagement.json --dry-run
 
-# Full run
+# Full run (default: Tier 2 personas, Stage 2 reasoning, insights)
 python run_pipeline.py config/example_engagement.json --seed 42
+
+# Paper mode: strict Maier et al. methodology (Tier 1 personas, no Stage 2, no insights)
+python run_pipeline.py config/example_engagement.json --mode paper
 
 # Generate insights for an existing run
 python -m core.insights_generator output/<run_dir>/results.json
@@ -92,14 +110,32 @@ python explorer/test_explorer.py
 
 ---
 
+## Pipeline Modes
+
+Set `"mode"` in the `pipeline` section of your engagement config, or override with `--mode` on the CLI:
+
+| | `"full"` (default) | `"paper"` |
+|---|---|---|
+| Personas | Tier 2 (LLM narrative + psychographics) | Tier 1 (demographic template only) |
+| Stage 2 reasoning | Enabled | Disabled |
+| Insights generation | Enabled | Disabled |
+| SSR scoring | Identical | Identical |
+
+`"paper"` mode replicates the strict Maier et al. (2025) methodology — useful for validation runs, cost-sensitive jobs, or establishing a calibrated baseline before running `"full"`.
+
+---
+
 ## Engagement Config
 
 Each pipeline run is driven by an engagement JSON file. See `config/example_engagement.json` for a full example. Key fields:
 
 ```json
 {
-  "panel_size": 100,
-  "persona_tier": "tier2",
+  "pipeline": {
+    "mode": "full",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o"
+  },
   "concepts": [
     {
       "concept_id": "concept_a",
@@ -117,9 +153,9 @@ Images are optional — place them next to the engagement JSON. All three LLM pr
 
 ## Persona Tiers
 
-**Tier 1 (basic):** Template-based prompts from sampled demographics only. No extra API calls. Paper-validated.
+**Tier 1 (basic):** Template-based prompts from sampled demographics only. No extra API calls. Paper-validated. Used automatically in `"paper"` mode.
 
-**Tier 2 (rich):** Demographics + 6 psychographic dimensions (shopping mindset, health orientation, brand adoption style, primary shopping channel, media influence, household composition). One LLM call generates a narrative per persona. Produces richer qualitative reasoning at ~0.5 lower absolute mean PI vs Tier 1. Concept ranking is preserved.
+**Tier 2 (rich):** Demographics + 6 psychographic dimensions (shopping mindset, health orientation, brand adoption style, primary shopping channel, media influence, household composition). One LLM call generates a narrative per persona. Produces richer qualitative reasoning at ~0.5 lower absolute mean PI vs Tier 1. Concept ranking is preserved. Used in `"full"` mode when `lifestyle_attributes.json` is present.
 
 ---
 

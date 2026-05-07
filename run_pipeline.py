@@ -14,12 +14,12 @@ import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(Path.home() / "Documents/Projects/.env")
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from core.pipeline import load_pipeline_config, run_pipeline
+from core.pipeline import load_pipeline_config, run_pipeline, apply_mode
 
 
 def main():
@@ -31,7 +31,14 @@ Examples:
   python run_pipeline.py config/example_engagement.json
   python run_pipeline.py config/example_engagement.json --output output/test_run
   python run_pipeline.py config/example_engagement.json --dry-run
+  python run_pipeline.py config/example_engagement.json --mode paper
 
+Modes:
+  full  (default) — Tier 2 personas, Stage 2 reasoning, insights generation
+  paper           — Strict Maier et al. methodology: Tier 1 personas only,
+                    no Stage 2 reasoning, no insights generation
+
+The --mode flag overrides the "mode" field in the engagement config.
 The --dry-run flag validates config and generates personas without making
 any API calls. Use it to verify your engagement config before spending credits.
         """,
@@ -58,6 +65,13 @@ any API calls. Use it to verify your engagement config before spending credits.
         default=None,
         help="Random seed for panel generation (default: random). Logged in output for reproducibility.",
     )
+    parser.add_argument(
+        "--mode",
+        choices=["paper", "full"],
+        default=None,
+        help="Override pipeline mode: 'paper' (strict paper methodology, Tier 1 only) "
+             "or 'full' (all features). Overrides the 'mode' field in the engagement config.",
+    )
 
     args = parser.parse_args()
 
@@ -67,6 +81,10 @@ any API calls. Use it to verify your engagement config before spending credits.
         sys.exit(1)
 
     config = load_pipeline_config(engagement_path, output_dir=args.output)
+
+    # CLI --mode overrides the engagement config's mode field
+    if args.mode is not None:
+        apply_mode(config, args.mode)
 
     # Override seed: random by default, or use --seed value
     if args.seed is not None:
@@ -92,6 +110,7 @@ def _dry_run(config):
 
     meta = config.engagement.get("_meta", {})
     print(f"  Engagement: {meta.get('engagement', 'unnamed')}")
+    print(f"  Mode:       {config.mode}")
     print(f"  Concepts:   {len(config.concepts)}")
     print(f"  Provider:   {config.llm_provider} / {config.llm_model}")
     print()
@@ -163,15 +182,22 @@ def _dry_run(config):
     print()
 
     # Cost estimate
-    n_calls = spec.panel_size * config.samples_per_persona * len(config.concepts)
-    n_embeddings = n_calls + 30  # responses + 30 anchor embeddings (cached after first run)
+    n_scoring_calls = spec.panel_size * config.samples_per_persona * len(config.concepts)
+    n_stage2_calls = 0 if config.skip_stage_2 else spec.panel_size * len(config.concepts)
+    n_calls = n_scoring_calls + n_stage2_calls
     print("=" * 60)
     print("COST ESTIMATE")
     print("=" * 60)
-    print(f"  LLM calls:       {n_calls} ({spec.panel_size} personas × "
+    print(f"  Stage 1 (scoring): {n_scoring_calls} calls ({spec.panel_size} personas × "
           f"{config.samples_per_persona} samples × {len(config.concepts)} concepts)")
-    print(f"  Embedding calls:  {n_calls} response embeddings + 30 anchors (cached)")
-    print(f"  Estimated time:   ~{n_calls * 1.5 / 60:.0f} min at ~1.5s per LLM call")
+    if not config.skip_stage_2:
+        print(f"  Stage 2 (reasoning): {n_stage2_calls} calls ({spec.panel_size} personas × "
+              f"{len(config.concepts)} concepts)")
+    else:
+        print(f"  Stage 2 (reasoning): skipped (mode: paper)")
+    print(f"  Total LLM calls:   {n_calls}")
+    print(f"  Embedding calls:   {n_scoring_calls} response embeddings + 30 anchors (cached)")
+    print(f"  Estimated time:    ~{n_calls * 1.5 / 60:.0f} min at ~1.5s per LLM call")
     print()
     print("  Run without --dry-run to execute.")
     print("=" * 60)

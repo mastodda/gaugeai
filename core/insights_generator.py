@@ -19,7 +19,7 @@ from collections import Counter
 from pathlib import Path
 
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(Path.home() / "Documents/Projects/.env")
 
 
 # ── Sentiment bands (matching reviews explorer) ────────────────────────

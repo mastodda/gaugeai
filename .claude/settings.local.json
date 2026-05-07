@@ -3,7 +3,25 @@
     "allow": [
       "Bash(python:*)",
       "Bash(lsof:*)",
-      "Bash(git init:*)"
-    ]
+      "Bash(git init:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)",
+      "Bash(python3:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(/**/.env)",
+      "Read(/**/.env.*)"
+    ],
+    "read": {
+      "deny": [
+        "**/.env*",
+        "**/*.pem",
+        "**/*.key",
+        "**/secrets/**"
+      ]
+    }
   }
 }

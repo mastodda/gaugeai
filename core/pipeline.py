@@ -61,6 +61,26 @@ class PipelineConfig:
     seed: int
     output_dir: Path
     lifestyle_config_path: Path | None = None
+    scoring_persona_tier: int = 2
+    mode: str = "full"
+    skip_stage_2: bool = False
+    skip_insights: bool = False
+
+
+def apply_mode(config: "PipelineConfig", mode: str) -> None:
+    """Apply mode-derived flags to a PipelineConfig in-place.
+
+    "paper" — strict Maier et al. methodology: Tier 1 personas, no Stage 2, no insights.
+    "full"  — all extensions: Tier 2 personas (if lifestyle config present), Stage 2, insights.
+    """
+    config.mode = mode
+    if mode == "paper":
+        config.lifestyle_config_path = None
+        config.skip_stage_2 = True
+        config.skip_insights = True
+    else:
+        config.skip_stage_2 = False
+        config.skip_insights = False
 
 
 def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = None) -> PipelineConfig:
@@ -81,15 +101,21 @@ def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = N
         reasoning_q = templates.get("elicitation_prompt", {}).get("reasoning_followup", {})
         reasoning_question = reasoning_q.get("question")
 
-    # Check for lifestyle attributes config (enables Tier 2 rich personas)
-    lifestyle_path = path.parent / "lifestyle_attributes.json"
+    # Check for lifestyle attributes config (enables Tier 2 rich personas).
+    # Engagement config may specify a custom file via pipeline.lifestyle_config;
+    # otherwise falls back to the default lifestyle_attributes.json in the config dir.
+    custom_lifestyle = pipeline.get("lifestyle_config")
+    if custom_lifestyle:
+        lifestyle_path = path.parent / custom_lifestyle
+    else:
+        lifestyle_path = path.parent / "lifestyle_attributes.json"
     lifestyle_config_path = lifestyle_path if lifestyle_path.exists() else None
 
     if output_dir is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_dir = Path("output") / f"run_{timestamp}"
 
-    return PipelineConfig(
+    config = PipelineConfig(
         engagement_path=path,
         engagement=eng,
         concepts=eng["concepts"],
@@ -108,7 +134,10 @@ def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = N
         seed=pipeline["seed"],
         output_dir=Path(output_dir),
         lifestyle_config_path=lifestyle_config_path,
+        scoring_persona_tier=pipeline.get("scoring_persona_tier", 2),
     )
+    apply_mode(config, pipeline.get("mode", "full"))
+    return config
 
 
 def run_pipeline(config: PipelineConfig):
@@ -161,6 +190,7 @@ def run_pipeline(config: PipelineConfig):
         lifestyle_config_path=config.lifestyle_config_path,
         llm_client=llm if config.lifestyle_config_path else None,
         narrative_temperature=1.0,
+        scoring_persona_tier=config.scoring_persona_tier,
         progress_fn=_panel_progress if config.lifestyle_config_path else None,
     )
     if config.lifestyle_config_path:
@@ -206,7 +236,7 @@ def run_pipeline(config: PipelineConfig):
     # Step 4: Run elicitation + scoring for each concept
     # ------------------------------------------------------------------
     print("[4/5] Running elicitation and scoring...")
-    if config.reasoning_question:
+    if config.reasoning_question and not config.skip_stage_2:
         print(f"  Stage 2 enabled: reasoning follow-up per persona (T={config.reasoning_temperature})")
 
     # Resolve image paths relative to engagement file
@@ -289,7 +319,7 @@ def run_pipeline(config: PipelineConfig):
                     )
 
                 # Stage 2: Reasoning follow-up (qualitative only, not scored)
-                if config.reasoning_question:
+                if config.reasoning_question and not config.skip_stage_2:
                     try:
                         reasoning_text = llm.elicit_response(
                             system_prompt=persona.reasoning_prompt or persona.system_prompt,
@@ -346,6 +376,7 @@ def run_pipeline(config: PipelineConfig):
         "meta": {
             "engagement": meta,
             "pipeline_config": {
+                "mode": config.mode,
                 "llm_provider": config.llm_provider,
                 "llm_model": config.llm_model,
                 "llm_temperature": config.llm_temperature,
@@ -392,22 +423,26 @@ def run_pipeline(config: PipelineConfig):
     print(f"  Personas:      {personas_path}")
 
     # Insights file (LLM-synthesized themes and recommendations)
-    print("\n  Generating insights (GPT-4o-mini)...")
-    try:
-        from core.insights_generator import generate_insights
-        personas_data = {
-            "panel_summary": summary,
-            "personas": [persona_to_dict(p) for p in personas],
-        }
-        insights = generate_insights(output, personas_data)
-        insights_path = config.output_dir / "insights.json"
-        with open(insights_path, "w") as f:
-            json.dump(insights, f, indent=2)
-        print(f"  Insights:      {insights_path}")
-    except Exception as e:
-        print(f"  ⚠ Insights generation failed (non-blocking): {e}")
-        print(f"    You can generate insights later with:")
-        print(f"    python -m core.insights_generator {results_path}")
+    if config.skip_insights:
+        print("\n  Insights skipped (mode: paper).")
+        print(f"    Generate later with: python -m core.insights_generator {results_path}")
+    else:
+        print("\n  Generating insights (GPT-4o-mini)...")
+        try:
+            from core.insights_generator import generate_insights
+            personas_data = {
+                "panel_summary": summary,
+                "personas": [persona_to_dict(p) for p in personas],
+            }
+            insights = generate_insights(output, personas_data)
+            insights_path = config.output_dir / "insights.json"
+            with open(insights_path, "w") as f:
+                json.dump(insights, f, indent=2)
+            print(f"  Insights:      {insights_path}")
+        except Exception as e:
+            print(f"  ⚠ Insights generation failed (non-blocking): {e}")
+            print(f"    You can generate insights later with:")
+            print(f"    python -m core.insights_generator {results_path}")
 
     print(f"\nDone. {sum(len(c['respondents']) for c in all_concept_results.values())} "
           f"total respondent records across {len(config.concepts)} concepts.")

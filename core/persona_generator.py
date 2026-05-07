@@ -33,6 +33,7 @@ class Persona:
     region: str
     income: str | None = None
     ethnicity: str | None = None
+    occupation: str | None = None
     # Lifestyle attributes (Tier 2)
     lifestyle: dict = field(default_factory=dict)
     # Prompts
@@ -64,6 +65,7 @@ class DemographicSpec:
     )
     income_distribution: dict[str, float] | None = None
     ethnicity_distribution: dict[str, float] | None = None
+    occupation_distribution: dict[str, float] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -172,6 +174,10 @@ def _render_system_prompt(persona: Persona, template: dict) -> str:
         income_clause=income_clause,
         ethnicity_clause=ethnicity_clause,
     )
+
+    if persona.occupation:
+        prompt += f" You work as a {persona.occupation}."
+
     return prompt
 
 
@@ -202,18 +208,20 @@ def generate_persona_narrative(
     system_prompt = narrative_config["template"]
 
     # Build the user message from the template
-    user_msg = narrative_config["user_message_template"].format(
-        age=persona.age,
-        gender=persona.gender,
-        region=persona.region,
-        income=persona.income or "not specified",
-        household_composition=persona.lifestyle.get("household_composition", "not specified"),
-        shopping_mindset=persona.lifestyle.get("shopping_mindset", "not specified"),
-        health_orientation=persona.lifestyle.get("health_orientation", "not specified"),
-        brand_adoption_style=persona.lifestyle.get("brand_adoption_style", "not specified"),
-        primary_shopping_channel=persona.lifestyle.get("primary_shopping_channel", "not specified"),
-        media_influence=persona.lifestyle.get("media_influence", "not specified"),
-    )
+    # Build format kwargs dynamically so any lifestyle config's dimensions work,
+    # not just the hardcoded consumer ones.
+    format_kwargs = {
+        "age": persona.age,
+        "gender": persona.gender,
+        "region": persona.region,
+        "income": persona.income or "not specified",
+        "occupation": persona.occupation or "not specified",
+    }
+    format_kwargs.update({
+        k: v if v else "not specified"
+        for k, v in persona.lifestyle.items()
+    })
+    user_msg = narrative_config["user_message_template"].format(**format_kwargs)
 
     # Use the LLM client's elicit_response — it works for any prompt
     narrative = llm_client.elicit_response(
@@ -260,6 +268,7 @@ def generate_panel(
     lifestyle_config_path: str | Path | None = None,
     llm_client=None,
     narrative_temperature: float = 1.0,
+    scoring_persona_tier: int = 2,
     progress_fn=None,
 ) -> list[Persona]:
     """
@@ -274,6 +283,11 @@ def generate_panel(
             If None, generates Tier 1 template-based personas.
         llm_client: LLM client for narrative generation. Required for Tier 2.
         narrative_temperature: Temperature for persona narrative generation.
+        scoring_persona_tier: Which persona prompt drives SSR scoring elicitation.
+            2 (default) — rich Tier 2 narrative for both scoring and reasoning.
+            1           — clean Tier 1 demographic prompt for scoring;
+                          rich narrative reserved for Stage 2 reasoning only.
+            Only applies when use_rich is True; ignored for Tier 1-only runs.
         progress_fn: Optional callback(current, total) for progress display.
 
     Returns:
@@ -307,6 +321,10 @@ def generate_panel(
         if spec.ethnicity_distribution:
             ethnicity = _weighted_sample(spec.ethnicity_distribution, rng)
 
+        occupation = None
+        if spec.occupation_distribution:
+            occupation = _weighted_sample(spec.occupation_distribution, rng)
+
         persona = Persona(
             persona_id=f"resp_{i:04d}",
             age=age,
@@ -314,6 +332,7 @@ def generate_panel(
             region=region,
             income=income,
             ethnicity=ethnicity,
+            occupation=occupation,
         )
 
         if use_rich:
@@ -333,7 +352,14 @@ def generate_panel(
             scoring_prompt, reasoning_prompt = _render_rich_prompts(
                 persona, lifestyle_config,
             )
-            persona.system_prompt = scoring_prompt
+            # scoring_persona_tier controls which prompt drives SSR scoring:
+            #   2 (default) — rich narrative for both scoring and reasoning
+            #   1           — clean Tier 1 demographic prompt for scoring,
+            #                 rich narrative only for qualitative Stage 2 reasoning
+            if scoring_persona_tier == 1:
+                persona.system_prompt = _render_system_prompt(persona, sys_template)
+            else:
+                persona.system_prompt = scoring_prompt
             persona.reasoning_prompt = reasoning_prompt
 
         else:
@@ -369,6 +395,7 @@ def load_demographic_spec(path: str | Path) -> DemographicSpec:
         }),
         income_distribution=demo.get("income_distribution"),
         ethnicity_distribution=demo.get("ethnicity_distribution"),
+        occupation_distribution=demo.get("occupation_distribution"),
     )
     return spec
 
@@ -382,6 +409,7 @@ def persona_to_dict(persona: Persona) -> dict:
         "region": persona.region,
         "income": persona.income,
         "ethnicity": persona.ethnicity,
+        "occupation": persona.occupation,
         "system_prompt": persona.system_prompt,
     }
     if persona.lifestyle:

@@ -20,13 +20,24 @@ pip install numpy openai google-generativeai anthropic python-dotenv
 cd explorer && pip install -r requirements.txt && npm install
 ```
 
-### Run the pipeline
+### Run the pipeline (Streamlit Launcher — recommended)
+```bash
+streamlit run launcher.py
+```
+Browser UI: mode dropdown, LLM provider/model selection, concept entry with image upload,
+demographic customisation sliders, live progress display, one-click explorer launch.
+Saves the generated engagement JSON to config/_launcher_{timestamp}.json.
+
+### Run the pipeline (CLI)
 ```bash
 # Dry-run (validate config, no API calls)
 python run_pipeline.py config/example_engagement.json --dry-run
 
-# Full run
+# Full run (default mode: Tier 2 personas, Stage 2, insights)
 python run_pipeline.py config/example_engagement.json --seed 42
+
+# Paper mode: strict Maier et al. methodology (Tier 1 only, no Stage 2, no insights)
+python run_pipeline.py config/example_engagement.json --mode paper
 
 # With custom output dir
 python run_pipeline.py config/example_engagement.json --output output/my_run --seed 42

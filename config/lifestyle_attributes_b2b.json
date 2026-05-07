@@ -1,0 +1,113 @@
+{
+  "_meta": {
+    "description": "Professional lifestyle and psychographic attributes for B2B marketing and advertising persona generation. Designed for concept tests targeting early adopters of research, insights, and marketing technology tools.",
+    "version": "0.1.0",
+    "notes": [
+      "Weights are relative and will be normalized.",
+      "Dimensions are designed to produce realistic variance in purchase intent for B2B research and insights tools.",
+      "Conditional overrides use age and income as proxies for career stage and organizational seniority.",
+      "Consumer lifestyle dimensions (shopping channel, health orientation, etc.) are intentionally absent — this config is for professional, not consumer, panel contexts."
+    ]
+  },
+
+  "dimensions": {
+
+    "research_methodology_orientation": {
+      "description": "How this person currently gets consumer insights. Strongly predicts their frame of reference when evaluating a synthetic panel methodology and their awareness of the pain points it solves.",
+      "values": {
+        "traditional panel user — relies on established vendors like Qualtrics, Ipsos, or Nielsen for quantitative research": 0.25,
+        "qualitative-first — prefers focus groups, ethnographies, and in-depth interviews over quant methods": 0.20,
+        "DIY survey practitioner — builds and deploys surveys directly using SurveyMonkey, Typeform, or similar tools": 0.20,
+        "analytics-led — draws primarily on sales data, social listening, and digital analytics rather than primary research": 0.20,
+        "intuition-led — makes decisions based on experience and market feel; rarely commissions formal research": 0.15
+      }
+    },
+
+    "ai_tool_adoption": {
+      "description": "Their current relationship with AI tools in their professional workflow. The single strongest predictor of openness to AI-generated survey methodology.",
+      "values": {
+        "AI enthusiast — actively uses AI tools across writing, research, and strategy; excited about new applications": 0.20,
+        "pragmatic adopter — uses AI where it demonstrably saves time, but skeptical of hype and unproven claims": 0.35,
+        "cautious evaluator — intellectually interested in AI but wants peer validation and proof before committing": 0.28,
+        "AI skeptic — concerned about quality, bias, and reliability; strongly prefers human judgment for important decisions": 0.17
+      },
+      "conditional_overrides": {
+        "age < 35": {
+          "AI enthusiast — actively uses AI tools across writing, research, and strategy; excited about new applications": 0.35,
+          "pragmatic adopter — uses AI where it demonstrably saves time, but skeptical of hype and unproven claims": 0.38,
+          "cautious evaluator — intellectually interested in AI but wants peer validation and proof before committing": 0.18,
+          "AI skeptic — concerned about quality, bias, and reliability; strongly prefers human judgment for important decisions": 0.09
+        },
+        "age > 50": {
+          "AI enthusiast — actively uses AI tools across writing, research, and strategy; excited about new applications": 0.10,
+          "pragmatic adopter — uses AI where it demonstrably saves time, but skeptical of hype and unproven claims": 0.28,
+          "cautious evaluator — intellectually interested in AI but wants peer validation and proof before committing": 0.37,
+          "AI skeptic — concerned about quality, bias, and reliability; strongly prefers human judgment for important decisions": 0.25
+        }
+      }
+    },
+
+    "budget_and_procurement_context": {
+      "description": "Their purchasing authority and research budget situation. Determines whether they can act on interest directly or need to build an internal case.",
+      "values": {
+        "independent budget owner — can approve new vendor spend under $2K without additional sign-off": 0.30,
+        "budget recommender — influences vendor decisions but needs director or VP sign-off for new tools": 0.35,
+        "cost-pressured operator — research budget is frequently squeezed; ROI and cost savings dominate vendor evaluation": 0.20,
+        "well-resourced — healthy research budget; speed and quality outweigh cost in vendor decisions": 0.15
+      },
+      "conditional_overrides": {
+        "income == 'high'": {
+          "independent budget owner — can approve new vendor spend under $2K without additional sign-off": 0.45,
+          "budget recommender — influences vendor decisions but needs director or VP sign-off for new tools": 0.25,
+          "cost-pressured operator — research budget is frequently squeezed; ROI and cost savings dominate vendor evaluation": 0.10,
+          "well-resourced — healthy research budget; speed and quality outweigh cost in vendor decisions": 0.20
+        },
+        "income == 'moderate'": {
+          "independent budget owner — can approve new vendor spend under $2K without additional sign-off": 0.18,
+          "budget recommender — influences vendor decisions but needs director or VP sign-off for new tools": 0.42,
+          "cost-pressured operator — research budget is frequently squeezed; ROI and cost savings dominate vendor evaluation": 0.30,
+          "well-resourced — healthy research budget; speed and quality outweigh cost in vendor decisions": 0.10
+        }
+      }
+    },
+
+    "organization_size_and_type": {
+      "description": "The size and nature of their employer. Affects procurement complexity, research formality, and tolerance for novel or unproven methodology.",
+      "values": {
+        "small agency or boutique firm (under 50 people) — wears many hats; speed and cost efficiency are critical": 0.20,
+        "mid-size agency or in-house brand team (50–500 people) — has some dedicated research support but remains nimble": 0.35,
+        "large holding company agency or enterprise brand — formal procurement processes, multiple stakeholders, higher methodology scrutiny": 0.25,
+        "startup or growth-stage company — moving fast, open to unconventional tools, budget-conscious": 0.20
+      }
+    },
+
+    "concept_testing_frequency": {
+      "description": "How often they formally test concepts, ads, or product ideas. Determines how acutely they feel the pain of slow, expensive research and how much value faster alternatives provide.",
+      "values": {
+        "frequent tester — runs 10+ concept or ad tests per year; research turnaround time is a recurring bottleneck": 0.25,
+        "regular tester — runs 4–9 tests per year; balances research investment against timeline pressure": 0.35,
+        "occasional tester — runs 1–3 tests per year; treats concept testing as a significant undertaking": 0.25,
+        "rare tester — seldom commissions formal concept testing; relies on soft feedback and professional instinct": 0.15
+      }
+    },
+
+    "speed_vs_rigor_orientation": {
+      "description": "How they navigate the tradeoff between research speed and methodological rigor. Predicts receptivity to a fast AI-driven approach versus skepticism about cutting corners.",
+      "values": {
+        "speed-first — would rather have fast directional data than wait weeks for methodologically perfect data": 0.28,
+        "rigor-first — distrusts shortcuts; wants statistically sound methodology regardless of timeline or cost": 0.22,
+        "pragmatic — calibrates expected rigor to decision stakes; comfortable with good-enough for low-stakes calls": 0.38,
+        "client-driven — rigor and speed requirements are dictated by client expectations, not personal preference": 0.12
+      }
+    }
+
+  },
+
+  "persona_narrative_prompt": {
+    "description": "System prompt for generating rich B2B professional persona narratives from structured attributes. Replaces the consumer-focused narrative prompt for professional panel contexts.",
+    "template": "You are a creative writer building realistic personas for professional market research. Given the following professional and demographic attributes, write a 2-3 paragraph third-person persona description. The persona should feel like a real, specific professional — not a job description or marketing segment summary.\n\nRules:\n- Write in third person (\"They are...\" or use a first name)\n- Include specific but plausible professional details (e.g., types of clients or brands they work on, how their team operates, recurring pressures and priorities)\n- Stay consistent with ALL provided attributes — don't contradict any of them\n- Do NOT mention purchase intent or express opinions about any specific product or service\n- Do NOT invent demographics that contradict the provided attributes\n- Focus on professional context, workflow, decision-making style, and how they evaluate new tools or vendors\n- Keep it grounded and realistic — avoid caricature or stereotype\n- End with a brief note on what matters most to them when evaluating a new business tool or research vendor",
+    "user_message_template": "Generate a professional persona based on these attributes:\n\nAge: {age}\nGender: {gender}\nRegion: {region}\nIncome level: {income}\nOccupation: {occupation}\nOrganization size and type: {organization_size_and_type}\nResearch methodology orientation: {research_methodology_orientation}\nAI tool adoption: {ai_tool_adoption}\nBudget and procurement context: {budget_and_procurement_context}\nConcept testing frequency: {concept_testing_frequency}\nSpeed vs. rigor orientation: {speed_vs_rigor_orientation}",
+    "elicitation_system_prompt_template": "You are participating in a market research survey. Here is your professional background:\n\n{persona_narrative}\n\nStay in character and respond naturally based on who you are. Reply briefly to any questions posed to you.",
+    "reasoning_system_prompt_template": "You are participating in a market research survey. Here is your professional background:\n\n{persona_narrative}\n\nStay in character and respond naturally based on who you are. Give a thoughtful, detailed explanation drawing on your professional situation, workflow, and priorities."
+  }
+}

@@ -51,6 +51,7 @@
   },
 
   "pipeline": {
+    "mode": "full",
     "llm_provider": "openai",
     "llm_model": "gpt-4o",
     "llm_temperature": 0.5,
