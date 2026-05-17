@@ -340,6 +340,8 @@
     border-bottom: 1px solid #F0F0F0;
     color: var(--text-secondary);
     font-size: 0.88rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .comparison tr:last-child td { border-bottom: none; }
   .comparison td:last-child { font-weight: 600; color: var(--black); }
@@ -477,6 +479,26 @@
     position: relative;
   }
 
+  /* --- PROSE BODY (Where we are section) --- */
+  .prose-lead {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  .prose-list {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .prose-close {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
   /* --- FOOTER --- */
   footer {
     text-align: center;
@@ -542,8 +564,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">LLM-based Consumer Research</div>
-  <h1>Test your concepts<br><span class="accent">before you test<br>your budget</span></h1>
-  <p>AI-generated consumer panels that deliver purchase intent scores, Likert distributions, and rich qualitative feedback in 24 hours.</p>
+  <h1>Rank-order your concepts<br><span class="accent">before you commit<br>your research budget</span></h1>
+  <p>AI-generated consumer panels that rank-order your concepts and surface qualitative drivers and barriers — in 24 hours, not 3 weeks.</p>
   <a href="mailto:miles@milesstoddart.com?subject=Free%20pilot%20request" class="hero-cta">
     Request a Free Pilot
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -554,16 +576,16 @@
 <div class="stats-section">
   <div class="stats-grid">
     <div class="stat reveal">
-      <div class="stat-number">90%</div>
-      <div class="stat-label">Correlation with human panel data<br>(peer-reviewed methodology)</div>
+      <div class="stat-number">5/5</div>
+      <div class="stat-label">Concepts correctly ranked in our pilot<br>validation against 33 consumers</div>
     </div>
     <div class="stat reveal">
       <div class="stat-number">24hr</div>
       <div class="stat-label">Turnaround from brief<br>to delivered report</div>
     </div>
     <div class="stat reveal">
-      <div class="stat-number">~90%</div>
-      <div class="stat-label">Cost reduction vs.<br>traditional survey panels</div>
+      <div class="stat-number">&lt;$500</div>
+      <div class="stat-label">Per-concept cost vs.<br>$15K–$30K for traditional panels</div>
     </div>
   </div>
 </div>
@@ -573,7 +595,7 @@
   <section class="section reveal">
     <span class="section-label">Our Method</span>
     <h2>Research-grade methodology,<br>radically faster execution</h2>
-    <p class="section-intro">Our pipeline is built on published academic research in LLM-based consumer simulation. Real statistical rigor, real distributions, real insight.</p>
+    <p class="section-intro">Our pipeline implements peer-reviewed methodology (Maier et al., 2025) for converting LLM free-text responses into Likert distributions. Every concept is run through 100+ demographically-targeted synthetic respondents and scored against six independent reference sets.</p>
 
     <div class="steps-grid">
       <div class="step-card">
@@ -589,7 +611,7 @@
       <div class="step-card">
         <div class="step-num">03 — Elicit</div>
         <h3>Free-text response scoring</h3>
-        <p>Each synthetic respondent reacts in their own words. Responses are scored into calibrated Likert distributions using semantic similarity.</p>
+        <p>Each synthetic respondent reacts in their own words. Responses are scored into Likert distributions using semantic similarity to anchor statements — never asking the LLM to pick a number, which produces center-clustered, low-signal results.</p>
       </div>
       <div class="step-card">
         <div class="step-num">04 — Deliver</div>
@@ -600,7 +622,7 @@
 
     <div class="method-callout">
       <svg class="method-callout-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-      <p><strong>Built on published research.</strong> Our scoring method (Semantic Similarity Rating) achieves 90% of the maximum correlation ceiling set by human test-retest reliability — validated with real consumer panel benchmarks.</p>
+      <p><strong>Built on published research.</strong> Our scoring method (Semantic Similarity Rating) is based on peer-reviewed research by Maier et al. (2025), which validated the approach across 57 consumer concept surveys against real human panels. Our own pilot validation against 33 consumers correctly ranked all 5 tested concepts in agreement with human respondents.</p>
     </div>
   </section>
 </div>
@@ -624,8 +646,8 @@
           <tr><td>Turnaround</td><td>2–4 weeks</td><td>24 hours</td></tr>
           <tr><td>Cost per concept</td><td>$15,000 – $30,000+</td><td>Under $500</td></tr>
           <tr><td>Qualitative depth</td><td>Minimal open-ends</td><td>Detailed reasoning per respondent</td></tr>
-          <tr><td>Iteration speed</td><td>Weeks between variants</td><td>Test 5 variants in a day</td></tr>
-          <tr><td>Niche demographics</td><td>Hard to fill, expensive</td><td>Any demographic mix on demand</td></tr>
+          <tr><td>Iteration speed</td><td>Weeks between variants</td><td>Iterate same-day on multiple variants</td></tr>
+          <tr><td>Niche demographics</td><td>Hard to fill, expensive</td><td>Demographics matched to your target on demand (subject to category and demographic suitability — we'll flag mismatches upfront)</td></tr>
           <tr><td>Output format</td><td>Raw data + crosstabs</td><td>Presentation-ready deck + data</td></tr>
         </tbody>
       </table>
@@ -645,7 +667,7 @@
           <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
         </div>
         <h3>Brand & Innovation Teams</h3>
-        <p>Screen 10 concepts before committing budget to validate the top 2 with a traditional panel. Cut your concept mortality rate in half.</p>
+        <p>Screen 10 concepts to identify the top 2–3 worth committing real research budget to. Use our service for ranking; use traditional panels for absolute calibration.</p>
       </div>
       <div class="usecase-card">
         <div class="usecase-icon">
@@ -672,24 +694,34 @@
     <h2>Validated across everyday<br>consumer products</h2>
     <p class="section-intro">Our methodology performs best for categories where purchase intent is a meaningful signal — products people can evaluate from a concept description or visual.</p>
 
-    <div class="categories-list">
-      <span class="category-tag active">Food & Beverage</span>
-      <span class="category-tag active">Personal Care</span>
-      <span class="category-tag active">Household Products</span>
-      <span class="category-tag active">OTC Health</span>
-      <span class="category-tag active">Pet Products</span>
-      <span class="category-tag active">Consumer Electronics</span>
-      <span class="category-tag active">DTC Brands</span>
-    </div>
+    <p><strong>Where the methodology applies:</strong> Everyday consumer products that someone can meaningfully evaluate from a description, image, or short video — food & beverage, personal care, household goods, OTC health, pet products, DTC apparel and accessories.</p>
 
-    <p class="caveat">Not yet validated for: B2B, luxury goods, financial products, or novel technology categories. We'll tell you upfront if your category isn't a good fit.</p>
+    <p class="caveat"><strong>Where it's still being validated:</strong> Higher-consideration purchases (luxury, financial products, B2B), highly novel categories where consumer mental models don't yet exist, and narrow demographic targets (e.g., niche subcultures). We'll tell you on the intake call if your concept is outside the validated zone — and what that means for confidence in the read.</p>
+  </section>
+</div>
+
+<!-- WHERE WE ARE -->
+<div class="bg-gray">
+  <section class="section reveal">
+    <span class="section-label">Where we are</span>
+    <h2>Honest about what this is — and isn't</h2>
+
+    <p class="section-intro">Our service is built on peer-reviewed academic methodology (Maier et al., 2025) and has completed its first internal validation pilot: 5 product concepts, 33 real consumers, perfect 5-of-5 ranking agreement with human respondents.</p>
+
+    <p class="prose-lead">What that means in practice:</p>
+    <ul class="prose-list">
+      <li><strong>What we're confident about:</strong> Rank-ordering concepts within an engagement. If concept A scores higher than concept B in our pipeline, that ordering held up in our pilot.</li>
+      <li><strong>What we're still validating:</strong> Absolute purchase-intent scores. Our synthetic responses skew positive vs. human responses by a consistent margin — useful for relative comparison, not yet calibrated for absolute prediction.</li>
+      <li><strong>What we're upfront about:</strong> One pilot is one data point. We're actively building our validation library across more categories and demographics. Pilot clients get the same rigor we used internally, plus a methodology + limitations doc with every engagement.</li>
+    </ul>
+    <p class="prose-close">If you're looking for a service that ranks concepts faster and cheaper than full panels, this is ready. If you're looking for a drop-in replacement for traditional research, it isn't — and we'll tell you that on the intake call.</p>
   </section>
 </div>
 
 <!-- CTA -->
 <div class="cta-section">
-  <h2>See it on your concept for free</h2>
-  <p>Send us your real concept. We'll run it through our full pipeline and deliver a polished report. No cost, no commitment.</p>
+  <h2>See it on your concept — pilot program</h2>
+  <p>Send us 1–3 real concepts. We'll run them through the full pipeline and deliver a polished report at no cost. In exchange, we ask for permission to use the anonymized results as part of our ongoing methodology validation.</p>
   <a href="mailto:miles@milesstoddart.com?subject=Free%20pilot%20request" class="cta-button">
     Request a Free Pilot
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
