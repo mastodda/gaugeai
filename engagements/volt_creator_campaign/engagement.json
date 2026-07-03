@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "engagement": "Demo: VOLT Creator Campaign — Creative Angle Screening",
+    "client": "Illustrative (HardScope discovery call)",
+    "date": "2026-06-21",
+    "analyst": "Miles",
+    "notes": "Demo run. 4 creative angles for one fictional energy drink, screened against a young, media-influenced panel. Tier 2 personas. Present RANKINGS not absolute PI. Synthetic/illustrative — not a real client study."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "angle_performance",
+      "name": "VOLT — Performance / Grind",
+      "description": "VOLT is the fuel for people who outwork everyone. Clean caffeine, B-vitamins, zero sugar — engineered for the early mornings and late nights when you're building something. No gimmicks, just energy that performs when you do. The campaign features creators showing their real grind: 5am workouts, side hustles, all-nighters. Tagline: 'Earn it.'",
+      "image_path": null
+    },
+    {
+      "concept_id": "angle_community",
+      "name": "VOLT — Community / Belonging",
+      "description": "VOLT is what brings the crew together. Whether it's a gaming session, a group ride, or a late study night, VOLT is the shared spark that keeps the energy up for everyone. Clean caffeine, zero sugar. The campaign features creators with their communities — squads, servers, group chats. Tagline: 'Better together, fully charged.'",
+      "image_path": null
+    },
+    {
+      "concept_id": "angle_rebellion",
+      "name": "VOLT — Rebellion / Anti-Establishment",
+      "description": "VOLT isn't for people who follow the rules. It's for the ones doing it their own way — ignoring the playbook, building outside the system, refusing the 9-to-5 script. Clean caffeine, zero sugar, zero apologies. The campaign features creators who walked away from the expected path. Tagline: 'Run your own program.'",
+      "image_path": null
+    },
+    {
+      "concept_id": "angle_wellness",
+      "name": "VOLT — Wellness / Balance",
+      "description": "VOLT gives you clean energy without the crash or the jitters. Natural caffeine from green tea, adaptogens, B-vitamins, zero sugar — energy that fits a balanced life, not one that runs you into the ground. The campaign features creators with calm, intentional routines: mindful mornings, focused work blocks, real rest. Tagline: 'Energy, in balance.'",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "Imagine you saw this campaign from a creator you follow. How likely would you be to buy this product?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 80,
+    "age_range": [18, 34],
+    "gender_distribution": { "woman": 0.48, "man": 0.50, "nonbinary": 0.02 },
+    "region_distribution": {
+      "Midwest": 0.21,
+      "Northeast": 0.17,
+      "South": 0.38,
+      "West": 0.24
+    },
+    "income_distribution": {
+      "low": 0.30,
+      "moderate": 0.45,
+      "upper-moderate": 0.20,
+      "high": 0.05
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "mode": "full",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

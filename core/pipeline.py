@@ -40,6 +40,25 @@ from core.persona_generator import (
 # dry-run and config loading without API packages installed.
 
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+ROOT_CONFIG_DIR = PROJECT_ROOT / "config"
+
+
+def _resolve_config_file(engagement_dir: Path, filename: str) -> Path | None:
+    """Resolve a config file with layered fallback.
+
+    Looks in the engagement dir first (per-engagement override), then in the
+    root config/ dir (universal default). Returns None if neither exists.
+    """
+    local = engagement_dir / filename
+    if local.exists():
+        return local
+    root = ROOT_CONFIG_DIR / filename
+    if root.exists():
+        return root
+    return None
+
+
 @dataclass
 class PipelineConfig:
     """All settings for a pipeline run, loaded from engagement config."""
@@ -49,6 +68,7 @@ class PipelineConfig:
     question_text: str
     reasoning_question: str | None
     reference_sets_path: Path
+    prompt_templates_path: Path | None
     llm_provider: str
     llm_model: str
     llm_temperature: float
@@ -84,7 +104,12 @@ def apply_mode(config: "PipelineConfig", mode: str) -> None:
 
 
 def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = None) -> PipelineConfig:
-    """Parse an engagement JSON file into a PipelineConfig."""
+    """Parse an engagement JSON file into a PipelineConfig.
+
+    Universal config files (prompt_templates.json, reference_sets.json,
+    lifestyle_attributes.json) are resolved with layered fallback: the
+    engagement folder wins, then root config/.
+    """
     path = Path(engagement_path)
     with open(path) as f:
         eng = json.load(f)
@@ -92,28 +117,31 @@ def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = N
     pipeline = eng["pipeline"]
     question = eng["survey_question"]
 
-    # Load reasoning follow-up question from prompt templates (if available)
-    templates_path = path.parent / "prompt_templates.json"
+    # Layered config resolution: engagement folder first, then root config/.
+    templates_path = _resolve_config_file(path.parent, "prompt_templates.json")
     reasoning_question = None
-    if templates_path.exists():
+    if templates_path is not None:
         with open(templates_path) as tf:
             templates = json.load(tf)
         reasoning_q = templates.get("elicitation_prompt", {}).get("reasoning_followup", {})
         reasoning_question = reasoning_q.get("question")
 
-    # Check for lifestyle attributes config (enables Tier 2 rich personas).
-    # Engagement config may specify a custom file via pipeline.lifestyle_config;
-    # otherwise falls back to the default lifestyle_attributes.json in the config dir.
-    custom_lifestyle = pipeline.get("lifestyle_config")
-    if custom_lifestyle:
-        lifestyle_path = path.parent / custom_lifestyle
-    else:
-        lifestyle_path = path.parent / "lifestyle_attributes.json"
-    lifestyle_config_path = lifestyle_path if lifestyle_path.exists() else None
+    reference_sets_path = _resolve_config_file(path.parent, question["reference_sets_file"])
+    if reference_sets_path is None:
+        raise FileNotFoundError(
+            f"Reference sets file '{question['reference_sets_file']}' not found in "
+            f"{path.parent} or {ROOT_CONFIG_DIR}"
+        )
+
+    # Tier 2 personas activate when a lifestyle attributes file is available.
+    # Engagement can pin a specific file via pipeline.lifestyle_config; otherwise
+    # the default lifestyle_attributes.json is looked up in engagement dir → root.
+    lifestyle_filename = pipeline.get("lifestyle_config", "lifestyle_attributes.json")
+    lifestyle_config_path = _resolve_config_file(path.parent, lifestyle_filename)
 
     if output_dir is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = Path("output") / f"run_{timestamp}"
+        output_dir = path.parent / "runs" / f"run_{timestamp}"
 
     config = PipelineConfig(
         engagement_path=path,
@@ -121,7 +149,8 @@ def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = N
         concepts=eng["concepts"],
         question_text=question["text"],
         reasoning_question=reasoning_question,
-        reference_sets_path=path.parent / question["reference_sets_file"],
+        reference_sets_path=reference_sets_path,
+        prompt_templates_path=templates_path,
         llm_provider=pipeline["llm_provider"],
         llm_model=pipeline["llm_model"],
         llm_temperature=pipeline["llm_temperature"],
@@ -185,7 +214,7 @@ def run_pipeline(config: PipelineConfig):
 
     personas = generate_panel(
         spec=spec,
-        prompt_template_path=config.engagement_path.parent / "prompt_templates.json",
+        prompt_template_path=config.prompt_templates_path,
         seed=config.seed,
         lifestyle_config_path=config.lifestyle_config_path,
         llm_client=llm if config.lifestyle_config_path else None,

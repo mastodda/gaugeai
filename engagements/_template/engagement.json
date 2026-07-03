@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "engagement": "TEMPLATE — rename me",
+    "client": "Client name",
+    "date": "YYYY-MM-DD",
+    "analyst": "Miles",
+    "notes": "One-line description of what this engagement is testing."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "concept_a",
+      "name": "Concept A — short name",
+      "description": "Full concept description shown to personas as the stimulus.",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this product?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [21, 65],
+    "gender_distribution": { "woman": 0.52, "man": 0.48 },
+    "region_distribution": {
+      "Midwest": 0.21,
+      "Northeast": 0.17,
+      "South": 0.38,
+      "West": 0.24
+    },
+    "income_distribution": {
+      "low": 0.25,
+      "moderate": 0.40,
+      "upper-moderate": 0.25,
+      "high": 0.10
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "mode": "full",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

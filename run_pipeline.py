@@ -154,9 +154,9 @@ def _dry_run(config):
 
     # Generate test panel
     print("[3/4] Generating test panel...")
-    prompt_template_path = config.engagement_path.parent / "prompt_templates.json"
-    if not prompt_template_path.exists():
-        print(f"  ✗ Prompt templates not found: {prompt_template_path}")
+    prompt_template_path = config.prompt_templates_path
+    if prompt_template_path is None or not prompt_template_path.exists():
+        print(f"  ✗ Prompt templates not found (looked in engagement dir and root config/)")
         return
 
     spec = load_demographic_spec(config.engagement_path)

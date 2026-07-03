@@ -31,19 +31,20 @@ Saves the generated engagement JSON to config/_launcher_{timestamp}.json.
 ### Run the pipeline (CLI)
 ```bash
 # Dry-run (validate config, no API calls)
-python run_pipeline.py config/example_engagement.json --dry-run
+python run_pipeline.py engagements/example_sparkling_water/engagement.json --dry-run
 
 # Full run (default mode: Tier 2 personas, Stage 2, insights)
-python run_pipeline.py config/example_engagement.json --seed 42
+# Output lands in engagements/<name>/runs/run_TIMESTAMP/ by default
+python run_pipeline.py engagements/example_sparkling_water/engagement.json --seed 42
 
 # Paper mode: strict Maier et al. methodology (Tier 1 only, no Stage 2, no insights)
-python run_pipeline.py config/example_engagement.json --mode paper
+python run_pipeline.py engagements/example_sparkling_water/engagement.json --mode paper
 
 # With custom output dir
-python run_pipeline.py config/example_engagement.json --output output/my_run --seed 42
+python run_pipeline.py engagements/example_sparkling_water/engagement.json --output output/my_run --seed 42
 
 # Generate insights for an existing run
-python -m core.insights_generator output/<run_dir>/results.json
+python -m core.insights_generator engagements/<name>/runs/<run_dir>/results.json
 ```
 
 ### Run the Streamlit explorer
@@ -101,26 +102,29 @@ Post-pipeline: `core/insights_generator.py` runs GPT-4o-mini to synthesize compa
 
 ### Configuration
 
-All config lives in `config/`:
+**Universal config** lives in `config/` and is shared across all engagements:
 
-- **`pipeline_config.json`** — default LLM (Gemini-2.0-flash), embedding model (`text-embedding-3-small`), SSR params (`epsilon=0.0`, `temperature=1.0`), default panel size (100)
 - **`reference_sets.json`** — 6 semantic anchor sets for purchase intent scoring (e.g. "I'd probably buy this" → 5-point scale)
 - **`prompt_templates.json`** — persona system prompt template + elicitation/reasoning question text
 - **`lifestyle_attributes.json`** — 6 psychographic dimensions for Tier 2 personas (shopping mindset, health orientation, media influence, etc.) with age/income conditional overrides
 
-Engagement configs (the input to the pipeline) follow the format in `config/example_engagement.json`.
+**Engagement config** lives in `engagements/<name>/engagement.json` — one folder per client/project. See `engagements/_template/` for the starter layout and `engagements/example_sparkling_water/` for a worked example.
+
+**Layered resolution:** `prompt_templates.json`, `reference_sets.json`, and `lifestyle_attributes.json` are looked up in the engagement folder first, then fall back to root `config/`. Drop a same-named file into an engagement folder to override universally (e.g., custom semantic anchors for a B2B SaaS engagement). Don't override unless you have to.
 
 ### Output Structure
 
-Each pipeline run produces a timestamped directory under `output/`:
+Each pipeline run produces a timestamped directory under the engagement's `runs/` folder (gitignored):
 ```
-output/run_YYYYMMDD_HHMMSS/
+engagements/<name>/runs/run_YYYYMMDD_HHMMSS/
 ├── results.json       # Full respondent-level SSR data
 ├── summary.json       # Aggregated Likert distributions by concept
 ├── personas.json      # Panel demographics & lifestyle attributes
 ├── insights.json      # LLM-synthesized comparative insights
 └── .cache/embeddings/ # Cached embedding vectors (reused across runs)
 ```
+
+(Older runs invoked with `--output output/...` still write to the legacy global `output/` location.)
 
 ### LLM Provider Notes
 
@@ -131,4 +135,4 @@ output/run_YYYYMMDD_HHMMSS/
 
 ### Domain Suitability
 
-SSR works best for **consumer product categories** (CPG, personal care, household goods, pet products, OTC health). See `docs/domain_suitability_checklist.md` before running on new domains. Age and income are well-replicated by LLMs; gender, region, and ethnicity are less reliable.
+SSR works best for **consumer product categories** (CPG, personal care, household goods, pet products, OTC health). See `docs/reference/domain_suitability_checklist.md` before running on new domains. Age and income are well-replicated by LLMs; gender, region, and ethnicity are less reliable.
