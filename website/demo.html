@@ -93,12 +93,55 @@
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0,114,174,0.08);
     background: var(--white);
+    display: flex;
+    flex-direction: column;
+  }
+  .demo-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .demo-toolbar-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .demo-toolbar-actions { display: flex; gap: 0.5rem; }
+  .demo-btn {
+    font-family: var(--body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--blue);
+    background: rgba(0,114,174,0.06);
+    border: 1px solid rgba(0,114,174,0.2);
+    border-radius: 6px;
+    padding: 0.35rem 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .demo-btn:hover {
+    background: var(--blue);
+    color: var(--white);
   }
   .demo-embed {
     display: block;
     width: 100%;
     height: 850px;
     border: none;
+  }
+  .demo-embed-wrap:fullscreen {
+    border: none;
+    border-radius: 0;
+  }
+  .demo-embed-wrap:fullscreen .demo-embed {
+    height: auto;
+    flex: 1;
   }
   @media (max-width: 768px) {
     .demo-embed { height: 600px; }
@@ -565,17 +608,26 @@
     <h2>Explore a real synthetic<br>panel run</h2>
     <p class="section-intro">A 100-respondent synthetic panel screening hypothetical product launches for JasonTheWeen.</p>
 
-    <div class="demo-embed-wrap">
+    <div class="demo-embed-wrap" id="demo-wrap">
+      <div class="demo-toolbar">
+        <span class="demo-toolbar-title">SSR Results Explorer</span>
+        <div class="demo-toolbar-actions">
+          <button class="demo-btn" id="fullscreen-btn" type="button">⛶ Fullscreen</button>
+          <a class="demo-btn" href="https://gaugeai-m6ib2j4hutgugnbdaz4hah.streamlit.app/?embed=true" target="_blank" rel="noopener">Open in new tab ↗</a>
+        </div>
+      </div>
       <iframe
         class="demo-embed"
-        src="https://gaugeai-m6ib2j4hutgugnbdaz4hah.streamlit.app/?embedded=true"
+        id="demo-frame"
+        src="https://gaugeai-m6ib2j4hutgugnbdaz4hah.streamlit.app/?embed=true"
         sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-        allow="storage-access-api; cookie;"
+        allow="storage-access-api; cookie; fullscreen"
+        allowfullscreen
         loading="lazy"
         title="SSR Results Explorer — Live Demo">
       </iframe>
     </div>
-    <p class="caveat">The demo may take ~30 seconds to wake on first load.</p>
+    <p class="caveat">The demo may take ~30 seconds to wake on first load. Press Esc to exit fullscreen.</p>
   </section>
 </div>
 
@@ -605,6 +657,23 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Fullscreen toggle for the demo embed
+const demoWrap = document.getElementById('demo-wrap');
+const fsBtn = document.getElementById('fullscreen-btn');
+fsBtn.addEventListener('click', () => {
+  if (document.fullscreenElement || document.webkitFullscreenElement) {
+    (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+  } else {
+    (demoWrap.requestFullscreen || demoWrap.webkitRequestFullscreen).call(demoWrap);
+  }
+});
+document.addEventListener('fullscreenchange', () => {
+  fsBtn.textContent = document.fullscreenElement ? '✕ Exit Fullscreen' : '⛶ Fullscreen';
+});
+document.addEventListener('webkitfullscreenchange', () => {
+  fsBtn.textContent = document.webkitFullscreenElement ? '✕ Exit Fullscreen' : '⛶ Fullscreen';
+});
 </script>
 
 </body>
