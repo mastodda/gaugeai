@@ -1,0 +1,2841 @@
+{
+  "headline": "Sports Research Collagen Peptides leads the pack with strong purchase intent, while GNC Pro Performance Citrulline Complex struggles significantly in consumer interest.",
+  "ranking_interpretation": {
+    "meaningful_separations": "Group A (Sports Research) clearly separates from Group B (Vital Proteins) with a ~0.26 PI gap driven by superior flavor experience and brand trust. Group C (Vitauthority and Amen) is closely tied, both showing moderate interest but lacking the strong appeal of the top two. Group D (GNC) is distinctly lower, with a ~0.83 gap from the top, indicating significant barriers to purchase.",
+    "within_noise_notes": "Ranks 3-4 (Vitauthority and Amen) are effectively tied within Group C, both showing similar levels of skepticism and marketing concerns.",
+    "top_pick": "Sports Research Collagen Peptides is the top-ranked concept, showcasing the highest mean PI and positive sentiment."
+  },
+  "segment_insights": [
+    {
+      "segment_axis": "income",
+      "finding": "Upper-moderate income consumers show the highest PI for Sports Research at 3.47, while GNC struggles across all income levels with a low of 2.52 among moderate earners.",
+      "implication": "Target upper-moderate income segments with premium messaging for Sports Research, while GNC should consider value-driven promotions.",
+      "evidence": "One respondent noted, 'If I see it on my feed, it\u2019s definitely going in my cart.'"
+    },
+    {
+      "segment_axis": "shopping_mindset",
+      "finding": "Impulse/spontaneous shoppers rate Sports Research at 3.37, while GNC's appeal drops to 2.55 in the same segment.",
+      "implication": "Leverage impulse-driven marketing for Sports Research, while GNC should focus on educational content to convert deal hunters.",
+      "evidence": "A respondent said, 'If it looks trendy, I\u2019m more likely to grab it.'"
+    },
+    {
+      "segment_axis": "brand_adoption_style",
+      "finding": "Early adopters rate Sports Research at 3.48, while GNC's early adopters score only 2.49.",
+      "implication": "Position Sports Research as a must-try for trendsetters, while GNC needs to build credibility with skeptics.",
+      "evidence": "One consumer mentioned, 'I\u2019m looking for something that feels like a premium product.'"
+    }
+  ],
+  "topic_analysis": [
+    {
+      "topic": "Flavor and Sensory Experience",
+      "mention_rate": "85%",
+      "role": "driver",
+      "detail": "Flavor is a significant driver for Sports Research, with respondents appreciating its unflavored versatility. In contrast, GNC's flavor appeal is weak, contributing to its low scores.",
+      "concept_difference": "Sports Research excels in flavor perception, while GNC's flavor is seen as a barrier."
+    },
+    {
+      "topic": "Brand Trust and Recognition",
+      "mention_rate": "77%",
+      "role": "driver",
+      "detail": "Strong brand recognition boosts Sports Research's appeal. GNC, despite being a recognized name, suffers from skepticism regarding its efficacy.",
+      "concept_difference": "Sports Research is viewed as a trusted choice, while GNC is seen as less credible."
+    },
+    {
+      "topic": "Price Sensitivity",
+      "mention_rate": "61%",
+      "role": "barrier",
+      "detail": "Price sensitivity affects all concepts, but GNC's higher price point relative to perceived value is a significant barrier.",
+      "concept_difference": "GNC's price is a major deterrent, while Sports Research is seen as worth the investment."
+    },
+    {
+      "topic": "Skepticism and Barriers to Purchase",
+      "mention_rate": "50%",
+      "role": "barrier",
+      "detail": "Skepticism is prevalent across all concepts, but particularly impacts GNC, where consumers question its effectiveness.",
+      "concept_difference": "GNC faces higher skepticism compared to the more trusted Sports Research."
+    }
+  ],
+  "recommended_actions": [
+    {
+      "action": "Develop influencer partnerships to enhance visibility for Sports Research.",
+      "evidence": "Upper-moderate income consumers are highly engaged with social media, as indicated by their higher PI scores.",
+      "expected_impact": "Increase purchase intent among younger consumers, particularly in the 18-29 age band.",
+      "priority": "high"
+    },
+    {
+      "action": "Create value-driven promotions for GNC to address price sensitivity.",
+      "evidence": "GNC's low scores across all income levels indicate a need for better price positioning.",
+      "expected_impact": "Improve purchase intent and reduce barriers related to cost.",
+      "priority": "high"
+    },
+    {
+      "action": "Enhance transparency and ingredient efficacy messaging for GNC.",
+      "evidence": "Skepticism is a major barrier for GNC, with consumers needing more assurance about product effectiveness.",
+      "expected_impact": "Increase trust and reduce skepticism among potential buyers.",
+      "priority": "medium"
+    }
+  ],
+  "concept_specific": {
+    "Sports Research Collagen Peptides \u2014 Unflavored": {
+      "rank_context": "Rank 1 of 5, tied in Group A, indicating strong consumer interest and positive sentiment.",
+      "purchase_drivers": [
+        {
+          "theme": "Flavor and Sensory Experience",
+          "detail": "Respondents appreciate the unflavored option for its versatility in mixing with other beverages.",
+          "evidence": "One consumer stated, 'It mixes smoothly and doesn't alter the taste of my coffee.'"
+        },
+        {
+          "theme": "Brand Trust and Recognition",
+          "detail": "The brand's reputation enhances consumer confidence in the product's efficacy.",
+          "evidence": "A respondent noted, 'I trust Sports Research; I've seen it recommended by fitness experts.'"
+        },
+        {
+          "theme": "Convenience and Ease of Use",
+          "detail": "The product's easy mixing and no preparation required are significant selling points.",
+          "evidence": "One user mentioned, 'I love that I can just scoop it into my drink without any fuss.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Price Sensitivity",
+          "detail": "Some consumers feel the product is on the higher end of their budget.",
+          "evidence": "A respondent said, 'I need to see a sale before I commit to buying it.'"
+        },
+        {
+          "theme": "Skepticism and Barriers to Purchase",
+          "detail": "While generally trusted, some consumers still express doubts about effectiveness.",
+          "evidence": "One consumer remarked, 'I need to hear more success stories before trying it.'"
+        },
+        {
+          "theme": "Ingredient Transparency and Efficacy",
+          "detail": "Consumers want more information on ingredient sourcing and benefits.",
+          "evidence": "A respondent stated, 'I\u2019d like to know more about where the collagen comes from.'"
+        }
+      ],
+      "best_audience": "Upper-moderate income consumers, particularly those aged 18-29."
+    },
+    "Vital Proteins Collagen Peptides \u2014 Unflavored": {
+      "rank_context": "Rank 2 of 5, tied in Group B, indicating moderate consumer interest but lower than the top concept.",
+      "purchase_drivers": [
+        {
+          "theme": "Brand Trust and Recognition",
+          "detail": "The brand is well-known and often recommended, which boosts consumer confidence.",
+          "evidence": "One consumer noted, 'I see it everywhere, so it must be good.'"
+        },
+        {
+          "theme": "Flavor and Sensory Experience",
+          "detail": "The unflavored option is appealing for those who want to mix it into various drinks.",
+          "evidence": "A respondent stated, 'I like that it doesn't change the taste of my smoothies.'"
+        },
+        {
+          "theme": "Convenience and Ease of Use",
+          "detail": "Easy to incorporate into daily routines without requiring special preparation.",
+          "evidence": "One user mentioned, 'I can just toss it in my morning coffee.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Price Sensitivity",
+          "detail": "Many consumers feel the price is too high for the quantity offered.",
+          "evidence": "A respondent said, 'I can find cheaper options that work just as well.'"
+        },
+        {
+          "theme": "Skepticism and Barriers to Purchase",
+          "detail": "Some consumers express doubts about the effectiveness of collagen supplements.",
+          "evidence": "One consumer remarked, 'I\u2019m not sure if it really does anything for me.'"
+        },
+        {
+          "theme": "Marketing and Positioning Concerns",
+          "detail": "The marketing may not resonate with all consumers, particularly those focused on performance.",
+          "evidence": "A respondent stated, 'It feels more like a beauty product than a health supplement.'"
+        }
+      ],
+      "best_audience": "Moderate income consumers, especially those aged 18-29."
+    },
+    "Vitauthority Multi Collagen Burn \u2014 Strawberry Lemonade": {
+      "rank_context": "Rank 3 of 5, tied in Group C, indicating moderate interest but significant skepticism.",
+      "purchase_drivers": [
+        {
+          "theme": "Flavor and Sensory Experience",
+          "detail": "The strawberry lemonade flavor is appealing and perceived as refreshing.",
+          "evidence": "One consumer noted, 'It sounds like a fun flavor to try.'"
+        },
+        {
+          "theme": "Marketing and Positioning Concerns",
+          "detail": "The trendy branding attracts consumers looking for the latest health products.",
+          "evidence": "A respondent stated, 'I\u2019m always looking for the next big thing in wellness.'"
+        },
+        {
+          "theme": "Convenience and Ease of Use",
+          "detail": "The product's ease of mixing into drinks is a plus for busy consumers.",
+          "evidence": "One user mentioned, 'I like that I can just shake it up in water.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Skepticism and Barriers to Purchase",
+          "detail": "Consumers are unsure about the product's effectiveness and benefits.",
+          "evidence": "A respondent remarked, 'I need to see more proof that it works.'"
+        },
+        {
+          "theme": "Price Sensitivity",
+          "detail": "The price point is seen as high for a product with unclear benefits.",
+          "evidence": "One consumer said, 'I\u2019m not paying $40 without knowing it works.'"
+        },
+        {
+          "theme": "Ingredient Transparency and Efficacy",
+          "detail": "Consumers want clearer information on the collagen types and their benefits.",
+          "evidence": "A respondent stated, 'I\u2019d like to know exactly what I\u2019m getting in this.'"
+        }
+      ],
+      "best_audience": "Trend-focused consumers, particularly those aged 18-29."
+    },
+    "Amen Collagen Hydrolyzed Multi Collagen Peptides + Vitamin C": {
+      "rank_context": "Rank 4 of 5, tied in Group C, indicating similar levels of interest and skepticism as Vitauthority.",
+      "purchase_drivers": [
+        {
+          "theme": "Brand Trust and Recognition",
+          "detail": "The product's branding appeals to consumers looking for reputable options.",
+          "evidence": "One consumer noted, 'I trust brands that focus on health and wellness.'"
+        },
+        {
+          "theme": "Convenience and Ease of Use",
+          "detail": "Capsule form is seen as an easy way to incorporate collagen into daily routines.",
+          "evidence": "A respondent stated, 'I prefer capsules over powders for convenience.'"
+        },
+        {
+          "theme": "Ingredient Transparency and Efficacy",
+          "detail": "The addition of Vitamin C is viewed positively for its health benefits.",
+          "evidence": "One user mentioned, 'Vitamin C is a nice touch for absorption.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Skepticism and Barriers to Purchase",
+          "detail": "Consumers express doubts about the effectiveness of collagen in capsule form.",
+          "evidence": "A respondent remarked, 'I\u2019m not sure if capsules work as well as powders.'"
+        },
+        {
+          "theme": "Price Sensitivity",
+          "detail": "The price is perceived as high for a product that may not deliver clear benefits.",
+          "evidence": "One consumer said, 'I need to see a discount to consider this.'"
+        },
+        {
+          "theme": "Marketing and Positioning Concerns",
+          "detail": "The product's marketing may not resonate with all consumers, particularly those focused on performance.",
+          "evidence": "A respondent stated, 'It feels more like a beauty product than a health supplement.'"
+        }
+      ],
+      "best_audience": "Health-conscious consumers, particularly those aged 18-29."
+    },
+    "GNC Pro Performance Citrulline Complex 1700mg": {
+      "rank_context": "Rank 5 of 5, tied in Group D, indicating low consumer interest and significant barriers.",
+      "purchase_drivers": [
+        {
+          "theme": "Brand Trust and Recognition",
+          "detail": "The GNC brand is recognized, but trust is lower due to skepticism about efficacy.",
+          "evidence": "One consumer noted, 'I know GNC, but I\u2019m not sure about this product.'"
+        },
+        {
+          "theme": "Ingredient Transparency and Efficacy",
+          "detail": "Some consumers appreciate the ingredient list but want more clarity on dosages.",
+          "evidence": "A respondent stated, 'I need to know exactly what I\u2019m getting in this.'"
+        },
+        {
+          "theme": "Convenience and Ease of Use",
+          "detail": "The product's straightforward use is a plus for busy consumers.",
+          "evidence": "One user mentioned, 'I like that I can just add it to my drink.'"
+        }
+      ],
+      "pain_points": [
+        {
+          "theme": "Price Sensitivity",
+          "detail": "The price is seen as high for the perceived value, leading to low interest.",
+          "evidence": "A respondent said, 'I can find cheaper options that work just as well.'"
+        },
+        {
+          "theme": "Skepticism and Barriers to Purchase",
+          "detail": "High levels of skepticism about the product's effectiveness are a major barrier.",
+          "evidence": "One consumer remarked, 'I need to see more proof that it works.'"
+        },
+        {
+          "theme": "Marketing and Positioning Concerns",
+          "detail": "The product's marketing may not resonate with all consumers, particularly those focused on performance.",
+          "evidence": "A respondent stated, 'It feels more like a beauty product than a health supplement.'"
+        }
+      ],
+      "best_audience": "Budget-conscious consumers, particularly those aged 18-29."
+    }
+  },
+  "methodology_notes": [
+    "The ranking is based on pre-computed metrics, and the top tie_group contains multiple concepts, indicating that ranks within it are within panel noise.",
+    "Consumer insights are derived from a limited sample size of 100 respondents, which may not fully represent broader market trends.",
+    "Verbatim quotes are subjective and reflect individual opinions, which may not be universally applicable."
+  ],
+  "concept_ranking": [
+    {
+      "concept_id": "sports_research_collagen",
+      "name": "Sports Research Collagen Peptides \u2014 Unflavored",
+      "mean_pi": 3.4061,
+      "std_pi": 0.4965,
+      "top2box": 0.502,
+      "bot2box": 0.21,
+      "pos_neg_ratio": 2.4,
+      "rank": 1,
+      "tie_group": "A",
+      "delta_from_top": 0.0
+    },
+    {
+      "concept_id": "vital_proteins_collagen",
+      "name": "Vital Proteins Collagen Peptides \u2014 Unflavored",
+      "mean_pi": 3.1454,
+      "std_pi": 0.549,
+      "top2box": 0.421,
+      "bot2box": 0.299,
+      "pos_neg_ratio": 1.4,
+      "rank": 2,
+      "tie_group": "B",
+      "delta_from_top": 0.261
+    },
+    {
+      "concept_id": "vitauthority_collagen_burn",
+      "name": "Vitauthority Multi Collagen Burn \u2014 Strawberry Lemonade",
+      "mean_pi": 2.9542,
+      "std_pi": 0.5882,
+      "top2box": 0.363,
+      "bot2box": 0.362,
+      "pos_neg_ratio": 1.0,
+      "rank": 3,
+      "tie_group": "C",
+      "delta_from_top": 0.452
+    },
+    {
+      "concept_id": "amen_collagen",
+      "name": "Amen Collagen Hydrolyzed Multi Collagen Peptides + Vitamin C",
+      "mean_pi": 2.9143,
+      "std_pi": 0.5752,
+      "top2box": 0.346,
+      "bot2box": 0.375,
+      "pos_neg_ratio": 0.9,
+      "rank": 4,
+      "tie_group": "C",
+      "delta_from_top": 0.492
+    },
+    {
+      "concept_id": "gnc_citrulline",
+      "name": "GNC Pro Performance Citrulline Complex 1700mg",
+      "mean_pi": 2.5772,
+      "std_pi": 0.4655,
+      "top2box": 0.246,
+      "bot2box": 0.502,
+      "pos_neg_ratio": 0.5,
+      "rank": 5,
+      "tie_group": "D",
+      "delta_from_top": 0.829
+    }
+  ],
+  "standout_insights": {
+    "amen_collagen": {
+      "concept_name": "Amen Collagen Hydrolyzed Multi Collagen Peptides + Vitamin C",
+      "insights": [
+        {
+          "theme": "Beauty Branding Backlash",
+          "type": "objection",
+          "quote": "When I see 'Advanced Beauty Nutrition,' my brain immediately categorizes it as a vanity supplement.",
+          "persona_context": "20yo man, West, moderate income, deal hunter, early majority",
+          "persona_id": "resp_0011",
+          "why_it_matters": "This insight highlights a significant disconnect between the product's branding and the target audience's priorities, which could deter potential buyers.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Visual Aesthetic Appeal",
+          "type": "suggestion",
+          "quote": "The minimalist design makes me feel like the brand has its act together.",
+          "persona_context": "25yo man, Midwest, low income, convenience first, early majority",
+          "persona_id": "resp_0062",
+          "why_it_matters": "A clean, modern design resonates with consumers who value aesthetics in their living spaces, suggesting that investing in packaging could enhance appeal.",
+          "pi_score": 3.3
+        },
+        {
+          "theme": "Ingredient Transparency Demand",
+          "type": "objection",
+          "quote": "Without seeing the breakdown of those sources, I can\u2019t tell if it aligns with my dietary ethics.",
+          "persona_context": "20yo nonbinary, South, upper-moderate income, brand loyal, early majority",
+          "persona_id": "resp_0051",
+          "why_it_matters": "Consumers are increasingly looking for transparency in ingredient sourcing, and failure to provide this could result in lost sales.",
+          "pi_score": 3.1
+        },
+        {
+          "theme": "Functional vs. Aesthetic Disconnect",
+          "type": "objection",
+          "quote": "If a product is framed around 'beauty,' my brain categorizes it as a vanity item rather than a functional performance tool.",
+          "persona_context": "25yo man, West, moderate income, brand loyal, early adopter",
+          "persona_id": "resp_0066",
+          "why_it_matters": "This indicates a critical misalignment between product positioning and consumer expectations, which could alienate a key demographic.",
+          "pi_score": 2.4
+        },
+        {
+          "theme": "Social Proof Importance",
+          "type": "objection",
+          "quote": "I have zero mental shortcut to tell me if it\u2019s reliable or just some random white-labeled product.",
+          "persona_context": "28yo man, Northeast, low income, convenience first, late majority",
+          "persona_id": "resp_0008",
+          "why_it_matters": "Lack of brand recognition and social proof can significantly hinder purchase decisions, indicating a need for stronger brand positioning.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Performance Over Aesthetics",
+          "type": "objection",
+          "quote": "I\u2019m looking for structural support\u2014tendons, ligaments, and recovery\u2014not anti-aging or skin health.",
+          "persona_context": "19yo man, Midwest, low income, brand loyal, late majority",
+          "persona_id": "resp_0011",
+          "why_it_matters": "This reinforces the need for the brand to pivot its messaging to emphasize performance benefits rather than beauty claims.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Capsule Efficacy Concerns",
+          "type": "objection",
+          "quote": "If this is a 90-capsule bottle with 30 servings, those capsules are likely tiny.",
+          "persona_context": "25yo man, South, moderate income, deal hunter, early adopter",
+          "persona_id": "resp_0035",
+          "why_it_matters": "Concerns about dosage efficacy in capsule form highlight the need for clearer communication about the product's effectiveness.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Immediate Reward Expectation",
+          "type": "objection",
+          "quote": "When I buy something, I want to feel the value immediately.",
+          "persona_context": "28yo man, South, low income, deal hunter, early adopter",
+          "persona_id": "resp_0048",
+          "why_it_matters": "Consumers' desire for immediate results suggests that the brand should consider marketing strategies that highlight quick benefits.",
+          "pi_score": 2.3
+        },
+        {
+          "theme": "Minimalist Design Appeal",
+          "type": "suggestion",
+          "quote": "This looks like something you\u2019d see in a high-end wellness studio.",
+          "persona_context": "25yo man, Midwest, moderate income, impulse/spontaneous, early adopter",
+          "persona_id": "resp_0080",
+          "why_it_matters": "Emphasizing a premium, minimalist design can attract consumers who prioritize aesthetics and modern living spaces.",
+          "pi_score": 3.8
+        },
+        {
+          "theme": "Ingredient Stacking Efficiency",
+          "type": "suggestion",
+          "quote": "If I can get five types of collagen plus Vitamin C in one product, that feels like I\u2019m effectively hacking my supplement routine.",
+          "persona_context": "22yo man, West, high income, brand loyal, early adopter",
+          "persona_id": "resp_0022",
+          "why_it_matters": "Highlighting the product's multi-functional benefits can appeal to consumers looking for efficiency in their supplement choices.",
+          "pi_score": 3.6
+        }
+      ],
+      "n_extracted": 10
+    },
+    "gnc_citrulline": {
+      "concept_name": "GNC Pro Performance Citrulline Complex 1700mg",
+      "insights": [
+        {
+          "theme": "Dosage Transparency Challenge",
+          "type": "objection",
+          "quote": "1.6g is a low 'clinical' dose. If I have to take four servings to hit the 6g\u20138g threshold that actually does something for my performance, it's a hard pass.",
+          "persona_context": "20yo man, Midwest, low income, brand loyal, early adopter",
+          "persona_id": "resp_0002",
+          "why_it_matters": "Consumers are looking for effective dosages; under-dosing could lead to lost sales and brand trust.",
+          "pi_score": 2.3
+        },
+        {
+          "theme": "Clinical Aesthetic Deterrent",
+          "type": "objection",
+          "quote": "The design is super sterile. It reminds me of the boring vitamin aisle at a grocery store that I usually walk past.",
+          "persona_context": "28yo man, South, moderate income, impulse/spontaneous, late majority",
+          "persona_id": "resp_0012",
+          "why_it.matters": "A clinical look can deter younger consumers who seek lifestyle-oriented products; redesigning could enhance appeal.",
+          "pi_score": 2.5
+        },
+        {
+          "theme": "Social Proof Importance",
+          "type": "suggestion",
+          "quote": "I want to see a big, recognizable name like GNC on the label to feel like it\u2019s the 'standard' version of what everyone\u2019s talking about.",
+          "persona_context": "28yo man, South, moderate income, deal hunter, early adopter",
+          "persona_id": "resp_0049",
+          "why_it.matters": "Highlighting social proof and endorsements can enhance credibility and attract hesitant buyers.",
+          "pi_score": 3.6
+        },
+        {
+          "theme": "Branding Perception Risk",
+          "type": "objection",
+          "quote": "The bold red and white branding feels very 'legacy' and clinical. It reminds me of the supplement aisle in a big-box grocery store.",
+          "persona_context": "19yo man, South, moderate income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0024",
+          "why_it.matters": "Outdated branding can alienate younger consumers; a modern redesign could improve market relevance.",
+          "pi_score": 2.5
+        },
+        {
+          "theme": "Convenience vs. Control Dilemma",
+          "type": "objection",
+          "quote": "When I buy a supplement, I want to know exactly how much of the active ingredient I\u2019m getting compared to the 'filler'.",
+          "persona_context": "20yo man, South, upper-moderate income, deal hunter, early majority",
+          "persona_id": "resp_0021",
+          "why_it.matters": "Consumers prioritize transparency; clear labeling can enhance trust and purchase likelihood.",
+          "pi_score": 3.5
+        },
+        {
+          "theme": "Lifestyle Integration Need",
+          "type": "objection",
+          "quote": "It feels like a product that has been sitting on a shelf since 2005. I prefer brands that feel like they belong in a modern apartment.",
+          "persona_context": "27yo man, South, upper-moderate income, impulse/spontaneous, early adopter",
+          "persona_id": "resp_0025",
+          "why_it.matters": "Products must resonate with consumers' lifestyles; a modern aesthetic can drive engagement and sales.",
+          "pi_score": 2.5
+        },
+        {
+          "theme": "Complexity Overload Barrier",
+          "type": "objection",
+          "quote": "When I read things like 'nitric oxide production,' it just sounds like a lot of homework.",
+          "persona_context": "21yo man, Northeast, high income, brand loyal, late majority",
+          "persona_id": "resp_0006",
+          "why_it.matters": "Simplifying messaging can lower barriers to purchase for consumers overwhelmed by technical jargon.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Value Proposition Clarity",
+          "type": "objection",
+          "quote": "If I can get a tub of bulk L-Citrulline powder for significantly less than $0.90 a serving, this GNC product is effectively a 'luxury' version.",
+          "persona_context": "20yo man, Midwest, low income, brand loyal, early majority",
+          "persona_id": "resp_0009",
+          "why_it.matters": "Clear value propositions are essential; competitive pricing can attract budget-conscious consumers.",
+          "pi_score": 2.7
+        },
+        {
+          "theme": "Lifestyle Branding Opportunity",
+          "type": "suggestion",
+          "quote": "I want my purchases to feel like a lifestyle upgrade, not a medical prescription.",
+          "persona_context": "25yo man, South, moderate income, brand loyal, early adopter",
+          "persona_id": "resp_0041",
+          "why_it.matters": "Positioning products as lifestyle enhancements can attract consumers looking for more than just functionality.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Flavor Experience Demand",
+          "type": "suggestion",
+          "quote": "If I\u2019m buying a new energy drink, I get the immediate gratification of a bold flavor; this stuff? It\u2019s just a pill.",
+          "persona_context": "19yo man, South, low income, brand loyal, early adopter",
+          "persona_id": "resp_0001",
+          "why_it.matters": "Introducing flavor options could enhance appeal and create a more engaging consumer experience.",
+          "pi_score": 2.2
+        }
+      ],
+      "n_extracted": 10
+    },
+    "sports_research_collagen": {
+      "concept_name": "Sports Research Collagen Peptides \u2014 Unflavored",
+      "insights": [
+        {
+          "theme": "Luxury Pricing Barrier",
+          "type": "objection",
+          "quote": "At $0.90 per serving, this is a premium add-on... Collagen is a secondary supplement\u2014it\u2019s for 'maintenance,' not primary muscle protein.",
+          "persona_context": "28yo man, South, low income, deal hunter, early majority",
+          "persona_id": "resp_0000",
+          "why_it_matters": "The brand needs to address pricing concerns for budget-conscious consumers who prioritize essential supplements over secondary options.",
+          "pi_score": 3.4
+        },
+        {
+          "theme": "Chore vs. Reward Perception",
+          "type": "objection",
+          "quote": "This collagen stuff feels like something you'd find in a dusty corner of a health store.",
+          "persona_context": "19yo man, South, low income, brand loyal, early adopter",
+          "persona_id": "resp_0001",
+          "why_it.matters": "The brand should consider repositioning the product to feel more rewarding and engaging rather than a mundane task.",
+          "pi_score": 2.3
+        },
+        {
+          "theme": "Transparency and Claims Importance",
+          "type": "suggestion",
+          "quote": "Knowing exactly what I\u2019m getting helps me justify the potential cost.",
+          "persona_context": "18yo man, Midwest, low income, deal hunter, early adopter",
+          "persona_id": "resp_0002",
+          "why_it.matters": "Highlighting transparency in ingredient sourcing and benefits can help build trust and justify the product's price.",
+          "pi_score": 3.5
+        },
+        {
+          "theme": "Visual Appeal and Packaging",
+          "type": "suggestion",
+          "quote": "The beige packaging just blends into the background... I want something that pops\u2014bright neons, shiny foils.",
+          "persona_context": "23yo man, West, moderate income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0003",
+          "why_it.matters": "Investing in more eye-catching packaging could attract consumers looking for visually appealing products.",
+          "pi_score": 2.4
+        },
+        {
+          "theme": "Social Proof and Brand Reputation",
+          "type": "suggestion",
+          "quote": "Seeing this specific tub on my feed repeatedly... makes me trust it enough to buy.",
+          "persona_context": "28yo man, Northeast, low income, convenience first, late majority",
+          "persona_id": "resp_0008",
+          "why_it.matters": "Leveraging social media presence and endorsements can enhance brand credibility and encourage purchases.",
+          "pi_score": 3.6
+        },
+        {
+          "theme": "Unflavored Versatility Appeal",
+          "type": "suggestion",
+          "quote": "If I can dump this into my post-workout shake or my morning oats without altering the flavor, it\u2019s a major selling point.",
+          "persona_context": "23yo man, Northeast, moderate income, deal hunter, early majority",
+          "persona_id": "resp_0017",
+          "why_it.matters": "Emphasizing the unflavored aspect can attract consumers who want seamless integration into their existing routines.",
+          "pi_score": 3.7
+        },
+        {
+          "theme": "Skepticism Towards Marketing Claims",
+          "type": "objection",
+          "quote": "The marketing around collagen always feels a bit vague to me.",
+          "persona_context": "21yo man, South, moderate income, brand loyal, early majority",
+          "persona_id": "resp_0011",
+          "why_it.matters": "Addressing skepticism by providing clear, specific benefits can help convert hesitant consumers.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Aesthetic vs. Functionality Conflict",
+          "type": "objection",
+          "quote": "This product feels like a chore rather than a vibe.",
+          "persona_context": "22yo man, South, moderate income, convenience first, early adopter",
+          "persona_id": "resp_0061",
+          "why_it.matters": "Rebranding the product to emphasize enjoyment and lifestyle integration rather than just health benefits could improve appeal.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Minimalist Design Preference",
+          "type": "suggestion",
+          "quote": "This packaging feels like it belongs in a high-end boutique wellness shop.",
+          "persona_context": "28yo woman, Midwest, upper-moderate income, impulse/spontaneous, early adopter",
+          "persona_id": "resp_0028",
+          "why_it.matters": "Adopting a minimalist design can attract consumers who value aesthetics and quality in their wellness products.",
+          "pi_score": 3.9
+        },
+        {
+          "theme": "Integration into Daily Routine",
+          "type": "suggestion",
+          "quote": "If I can just dump a scoop into my coffee without it changing the flavor profile, that\u2019s a high-value feature.",
+          "persona_context": "21yo man, South, moderate income, convenience first, late majority",
+          "persona_id": "resp_0039",
+          "why_it.matters": "Highlighting ease of use can resonate with busy consumers looking for low-effort health solutions.",
+          "pi_score": 3.3
+        },
+        {
+          "theme": "Influencer Fatigue Risk",
+          "type": "objection",
+          "quote": "Because I see this brand all over my TikTok feed, my internal alarm bells go off.",
+          "persona_context": "27yo man, West, moderate income, deal hunter, late majority",
+          "persona_id": "resp_0099",
+          "why_it.matters": "The brand should diversify its marketing approach to avoid overwhelming consumers with influencer-driven campaigns.",
+          "pi_score": 3.3
+        },
+        {
+          "theme": "Functional vs. Aesthetic Balance",
+          "type": "suggestion",
+          "quote": "The minimalist design communicates a sense of quality\u2014it suggests that the brand is confident in the product itself.",
+          "persona_context": "26yo man, Midwest, moderate income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0076",
+          "why_it.matters": "Balancing aesthetics with functional messaging can enhance consumer trust and interest in the product.",
+          "pi_score": 3.6
+        }
+      ],
+      "n_extracted": 12
+    },
+    "vital_proteins_collagen": {
+      "concept_name": "Vital Proteins Collagen Peptides \u2014 Unflavored",
+      "insights": [
+        {
+          "theme": "Incomplete Protein Concern",
+          "type": "objection",
+          "quote": "As someone who tracks every gram of protein, I can\u2019t count collagen because it\u2019s missing essential amino acids.",
+          "persona_context": "28yo man, South, low income, deal hunter, early majority",
+          "persona_id": "resp_0000",
+          "why_it_matters": "Highlighting the incomplete protein issue could help the brand adjust messaging to better target athletes.",
+          "pi_score": 2.8
+        },
+        {
+          "theme": "Flavor Innovation Demand",
+          "type": "suggestion",
+          "quote": "I want to see a wild new flavor\u2014maybe something like 'Blue Raspberry' or 'Spicy Mango'.",
+          "persona_context": "19yo man, South, low income, brand loyal, early adopter",
+          "persona_id": "resp_0001",
+          "why_it_matters": "Introducing innovative flavors could attract younger consumers looking for excitement in their supplements.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Perceived Beauty Focus",
+          "type": "objection",
+          "quote": "When the copy leads with 'youthful appearance,' I categorize it as a cosmetic supplement.",
+          "persona_context": "18yo man, Midwest, low income, deal hunter, early adopter",
+          "persona_id": "resp_0002",
+          "why_it_matters": "Revising marketing language to emphasize performance benefits could resonate better with athletes.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Utility vs. Novelty Gap",
+          "type": "objection",
+          "quote": "It feels like a 'Homework' Product'\u2014I'm not shopping for long-term health; I'm shopping for a mood.",
+          "persona_context": "23yo man, West, moderate income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0003",
+          "why_it_matters": "Positioning the product as a lifestyle choice rather than a chore could enhance appeal.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Functional Versatility Advantage",
+          "type": "suggestion",
+          "quote": "The unflavored aspect mixes into both hot and cold liquids, fitting my established routine.",
+          "persona_context": "28yo man, South, low income, convenience first, late majority",
+          "persona_id": "resp_0004",
+          "why_it_matters": "Emphasizing versatility in marketing could attract consumers who prioritize convenience.",
+          "pi_score": 3.6
+        },
+        {
+          "theme": "Social Proof Validation",
+          "type": "objection",
+          "quote": "When I see this tub everywhere, it feels like a safe choice but also mainstream.",
+          "persona_context": "27yo man, South, moderate income, deal hunter, early adopter",
+          "persona_id": "resp_0025",
+          "why_it_matters": "Balancing mainstream appeal with a sense of exclusivity could enhance brand desirability.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Cost-Per-Use Concern",
+          "type": "objection",
+          "quote": "At nearly $2 a serving, I need to justify that cost against my grocery budget.",
+          "persona_context": "20yo man, South, upper-moderate income, deal hunter, early majority",
+          "persona_id": "resp_0021",
+          "why_it_matters": "Addressing cost concerns through value messaging could help convert budget-conscious consumers.",
+          "pi_score": 3.1
+        },
+        {
+          "theme": "Transparency in Marketing",
+          "type": "objection",
+          "quote": "The marketing feels vague and targets a beauty-conscious consumer, not someone focused on performance.",
+          "persona_context": "24yo man, Midwest, low income, quality/ingredient focused, early majority",
+          "persona_id": "resp_0020",
+          "why_it_matters": "Clarifying the product's benefits could improve trust among performance-focused consumers.",
+          "pi_score": 2.5
+        },
+        {
+          "theme": "Social Media Influence",
+          "type": "suggestion",
+          "quote": "Seeing it in TikTok routines makes it feel like a low-effort way to participate in wellness.",
+          "persona_context": "21yo woman, South, moderate income, convenience first, early majority",
+          "persona_id": "resp_0051",
+          "why_it_matters": "Leveraging social media trends could enhance product visibility and relatability.",
+          "pi_score": 3.6
+        },
+        {
+          "theme": "Aesthetic Appeal Importance",
+          "type": "objection",
+          "quote": "The packaging feels dated and screams 'mainstream wellness' from five years ago.",
+          "persona_context": "27yo man, Northeast, moderate income, quality/ingredient focused, early adopter",
+          "persona_id": "resp_0060",
+          "why_it_matters": "Refreshing packaging design could attract younger consumers seeking modern aesthetics.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Perceived Commitment Barrier",
+          "type": "objection",
+          "quote": "This product feels like a project; I want something that feels like a win.",
+          "persona_context": "26yo man, Northeast, moderate income, impulse/spontaneous, early adopter",
+          "persona_id": "resp_0023",
+          "why_it_matters": "Positioning the product as an effortless addition to routines could increase purchase likelihood.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Performance vs. Wellness Messaging",
+          "type": "objection",
+          "quote": "The focus on 'youthful appearance' makes me question the product's efficacy for performance.",
+          "persona_context": "22yo man, South, moderate income, quality/ingredient focused, early majority",
+          "persona_id": "resp_0074",
+          "why_it_matters": "Revising messaging to emphasize performance benefits could resonate better with the target audience.",
+          "pi_score": 2.4
+        },
+        {
+          "theme": "Ease of Use Factor",
+          "type": "suggestion",
+          "quote": "The unflavored aspect is huge; I don\u2019t want a supplement that changes my drink's flavor.",
+          "persona_context": "21yo man, South, moderate income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0073",
+          "why_it_matters": "Highlighting ease of integration into existing routines could attract busy consumers.",
+          "pi_score": 3.6
+        }
+      ],
+      "n_extracted": 13
+    },
+    "vitauthority_collagen_burn": {
+      "concept_name": "Vitauthority Multi Collagen Burn \u2014 Strawberry Lemonade",
+      "insights": [
+        {
+          "theme": "Transparency Demand",
+          "type": "objection",
+          "quote": "When I see 'metabolism enhancing' on a label without a clear mechanism of action, my brain immediately flags it as marketing fluff.",
+          "persona_context": "24yo man, Midwest, low income, quality/ingredient focused, early majority",
+          "persona_id": "resp_0037",
+          "why_it_matters": "Consumers are increasingly skeptical of vague claims and require clear, evidence-based information to make purchasing decisions.",
+          "pi_score": 2.4
+        },
+        {
+          "theme": "Flavor Concerns",
+          "type": "objection",
+          "quote": "When I see 'grass-fed beef' and 'wild-caught fish' listed, I think it\u2019s going to have a weird aftertaste.",
+          "persona_context": "19yo man, South, low income, brand loyal, early adopter",
+          "persona_id": "resp_0001",
+          "why_it_matters": "Flavor perception can significantly impact purchase decisions; consumers need reassurance that the product will taste good.",
+          "pi_score": 2.4
+        },
+        {
+          "theme": "Aesthetic Appeal",
+          "type": "suggestion",
+          "quote": "I want something that looks like it belongs on a desk next to a neon keyboard or in a satisfying 'reset my day' TikTok video.",
+          "persona_context": "23yo man, West, moderate income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0003",
+          "why_it_matters": "The product's visual appeal can drive purchase decisions, especially among younger consumers who value aesthetics.",
+          "pi_score": 3.1
+        },
+        {
+          "theme": "Multi-Functionality Attraction",
+          "type": "suggestion",
+          "quote": "If this can act as both a beauty/health boost and a metabolism hack, that\u2019s a huge selling point.",
+          "persona_context": "19yo man, South, low income, impulse/spontaneous, early majority",
+          "persona_id": "resp_0024",
+          "why_it_matters": "Highlighting multi-functional benefits can attract consumers looking for efficiency in their supplement choices.",
+          "pi_score": 3.5
+        },
+        {
+          "theme": "Skepticism of 'Burn' Claims",
+          "type": "objection",
+          "quote": "When I see 'Burn' in the title, it feels like it\u2019s promising a weight-loss or fitness transformation.",
+          "persona_context": "20yo man, South, upper-moderate income, deal hunter, early majority",
+          "persona_id": "resp_0020",
+          "why_it_matters": "The term 'burn' can alienate consumers who are not focused on weight loss, suggesting a need for more inclusive marketing language.",
+          "pi_score": 2.4
+        },
+        {
+          "theme": "Ingredient Transparency",
+          "type": "objection",
+          "quote": "Without a breakdown of the amino acid profile or the exact concentrations, I can\u2019t calculate how it interacts with my current stack.",
+          "persona_context": "21yo man, Northeast, moderate income, deal hunter, early majority",
+          "persona_id": "resp_0030",
+          "why_it_matters": "Consumers want detailed ingredient information to feel confident in their purchases, especially in a crowded supplement market.",
+          "pi_score": 2.6
+        },
+        {
+          "theme": "Social Proof Importance",
+          "type": "suggestion",
+          "quote": "If I go on social media and see influencers using this, I\u2019d be more likely to buy it.",
+          "persona_context": "23yo man, South, low income, impulse/spontaneous, early adopter",
+          "persona_id": "resp_0003",
+          "why_it_matters": "Leveraging social media influencers can enhance credibility and drive sales among younger demographics.",
+          "pi_score": 3.1
+        },
+        {
+          "theme": "Lifestyle vs. Utility Disconnect",
+          "type": "objection",
+          "quote": "This feels like a 'lifestyle' purchase rather than a 'utility' purchase.",
+          "persona_context": "21yo man, Northeast, high income, brand loyal, late majority",
+          "persona_id": "resp_0006",
+          "why_it_matters": "Positioning the product as a utility rather than a lifestyle choice can attract more serious fitness consumers.",
+          "pi_score": 2.2
+        },
+        {
+          "theme": "Value Perception",
+          "type": "objection",
+          "quote": "I need to know it\u2019s a 'hero' product\u2014something that\u2019s going to deliver clear results.",
+          "persona_context": "21yo man, South, moderate income, deal hunter, early majority",
+          "persona_id": "resp_0039",
+          "why_it_matters": "Consumers are looking for clear value propositions; demonstrating tangible benefits can improve purchase likelihood.",
+          "pi_score": 2.8
+        },
+        {
+          "theme": "Ingredient Quality Concerns",
+          "type": "objection",
+          "quote": "If I see a list of chemical additives just to make a powder taste like fruit, it devalues the 'grass-fed/wild-caught' claims.",
+          "persona_context": "24yo man, Midwest, low income, quality/ingredient focused, early majority",
+          "persona_id": "resp_0019",
+          "why_it_matters": "Maintaining high ingredient quality is crucial for consumer trust; any perceived compromise can deter purchases.",
+          "pi_score": 2.6
+        }
+      ],
+      "n_extracted": 10
+    }
+  },
+  "_precomputed": {
+    "amen_collagen": {
+      "segment_metrics": {
+        "income": {
+          "low": {
+            "n": 46,
+            "mean_pi": 2.9,
+            "sentiment_distribution": {
+              "soft_neg": 0.39,
+              "neutral": 0.33,
+              "leaning": 0.17,
+              "low": 0.11
+            }
+          },
+          "moderate": {
+            "n": 38,
+            "mean_pi": 2.9,
+            "sentiment_distribution": {
+              "soft_neg": 0.45,
+              "neutral": 0.24,
+              "leaning": 0.24,
+              "low": 0.08
+            }
+          },
+          "high": {
+            "n": 2,
+            "mean_pi": 2.83,
+            "sentiment_distribution": {
+              "low": 0.5,
+              "leaning": 0.5
+            }
+          },
+          "upper-moderate": {
+            "n": 14,
+            "mean_pi": 3.01,
+            "sentiment_distribution": {
+              "soft_neg": 0.43,
+              "neutral": 0.36,
+              "leaning": 0.21
+            }
+          }
+        },
+        "age_band": {
+          "18-29": {
+            "n": 100,
+            "mean_pi": 2.91,
+            "sentiment_distribution": {
+              "soft_neg": 0.41,
+              "neutral": 0.29,
+              "leaning": 0.21,
+              "low": 0.09
+            }
+          }
+        },
+        "region": {
+          "South": {
+            "n": 36,
+            "mean_pi": 2.94,
+            "sentiment_distribution": {
+              "soft_neg": 0.39,
+              "leaning": 0.28,
+              "neutral": 0.22,
+              "low": 0.11
+            }
+          },
+          "Midwest": {
+            "n": 27,
+            "mean_pi": 2.99,
+            "sentiment_distribution": {
+              "neutral": 0.26,
+              "soft_neg": 0.41,
+              "low": 0.07,
+              "leaning": 0.26
+            }
+          },
+          "West": {
+            "n": 24,
+            "mean_pi": 2.94,
+            "sentiment_distribution": {
+              "soft_neg": 0.42,
+              "neutral": 0.46,
+              "leaning": 0.12
+            }
+          },
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 2.63,
+            "sentiment_distribution": {
+              "low": 0.23,
+              "soft_neg": 0.46,
+              "neutral": 0.23,
+              "leaning": 0.08
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 43,
+            "mean_pi": 2.97,
+            "sentiment_distribution": {
+              "soft_neg": 0.47,
+              "neutral": 0.26,
+              "leaning": 0.26,
+              "low": 0.02
+            }
+          },
+          "living with roommates": {
+            "n": 30,
+            "mean_pi": 2.78,
+            "sentiment_distribution": {
+              "soft_neg": 0.33,
+              "neutral": 0.27,
+              "low": 0.23,
+              "leaning": 0.17
+            }
+          },
+          "couple, no children": {
+            "n": 24,
+            "mean_pi": 2.98,
+            "sentiment_distribution": {
+              "soft_neg": 0.38,
+              "neutral": 0.42,
+              "leaning": 0.17,
+              "low": 0.04
+            }
+          },
+          "single parent": {
+            "n": 2,
+            "mean_pi": 3.1,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "soft_neg": 0.5
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 1,
+            "mean_pi": 2.59,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 18,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "soft_neg": 0.44,
+              "neutral": 0.5,
+              "leaning": 0.06
+            }
+          },
+          "brand loyal": {
+            "n": 20,
+            "mean_pi": 2.68,
+            "sentiment_distribution": {
+              "soft_neg": 0.6,
+              "neutral": 0.25,
+              "low": 0.1,
+              "leaning": 0.05
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 31,
+            "mean_pi": 3.14,
+            "sentiment_distribution": {
+              "soft_neg": 0.29,
+              "leaning": 0.39,
+              "neutral": 0.29,
+              "low": 0.03
+            }
+          },
+          "convenience first": {
+            "n": 21,
+            "mean_pi": 2.87,
+            "sentiment_distribution": {
+              "leaning": 0.29,
+              "low": 0.19,
+              "soft_neg": 0.38,
+              "neutral": 0.14
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 10,
+            "mean_pi": 2.72,
+            "sentiment_distribution": {
+              "soft_neg": 0.4,
+              "neutral": 0.3,
+              "leaning": 0.1,
+              "low": 0.2
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 32,
+            "mean_pi": 2.86,
+            "sentiment_distribution": {
+              "soft_neg": 0.47,
+              "neutral": 0.34,
+              "low": 0.06,
+              "leaning": 0.12
+            }
+          },
+          "health-indifferent": {
+            "n": 39,
+            "mean_pi": 2.77,
+            "sentiment_distribution": {
+              "soft_neg": 0.41,
+              "neutral": 0.23,
+              "low": 0.18,
+              "leaning": 0.18
+            }
+          },
+          "highly health-conscious": {
+            "n": 11,
+            "mean_pi": 3.11,
+            "sentiment_distribution": {
+              "leaning": 0.27,
+              "soft_neg": 0.45,
+              "neutral": 0.27
+            }
+          },
+          "moderately health-aware": {
+            "n": 18,
+            "mean_pi": 3.19,
+            "sentiment_distribution": {
+              "leaning": 0.39,
+              "neutral": 0.33,
+              "soft_neg": 0.28
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 37,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "soft_neg": 0.46,
+              "neutral": 0.32,
+              "leaning": 0.19,
+              "low": 0.03
+            }
+          },
+          "early adopter": {
+            "n": 39,
+            "mean_pi": 3.14,
+            "sentiment_distribution": {
+              "soft_neg": 0.33,
+              "neutral": 0.31,
+              "leaning": 0.33,
+              "low": 0.03
+            }
+          },
+          "late majority": {
+            "n": 22,
+            "mean_pi": 2.55,
+            "sentiment_distribution": {
+              "low": 0.27,
+              "soft_neg": 0.45,
+              "neutral": 0.23,
+              "leaning": 0.05
+            }
+          },
+          "skeptic": {
+            "n": 2,
+            "mean_pi": 2.25,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "low": 0.5
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 78,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "soft_neg": 0.38,
+              "neutral": 0.31,
+              "leaning": 0.23,
+              "low": 0.08
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 9,
+            "mean_pi": 2.72,
+            "sentiment_distribution": {
+              "soft_neg": 0.44,
+              "low": 0.22,
+              "leaning": 0.11,
+              "neutral": 0.22
+            }
+          },
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 8,
+            "mean_pi": 2.63,
+            "sentiment_distribution": {
+              "soft_neg": 0.62,
+              "neutral": 0.25,
+              "low": 0.12
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 3,
+            "mean_pi": 2.75,
+            "sentiment_distribution": {
+              "soft_neg": 0.67,
+              "neutral": 0.33
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 2,
+            "mean_pi": 3.63,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 67,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "soft_neg": 0.39,
+              "neutral": 0.28,
+              "leaning": 0.24,
+              "low": 0.09
+            }
+          },
+          "word-of-mouth": {
+            "n": 23,
+            "mean_pi": 2.78,
+            "sentiment_distribution": {
+              "soft_neg": 0.48,
+              "neutral": 0.3,
+              "leaning": 0.13,
+              "low": 0.09
+            }
+          },
+          "research-driven": {
+            "n": 7,
+            "mean_pi": 2.89,
+            "sentiment_distribution": {
+              "soft_neg": 0.57,
+              "neutral": 0.43
+            }
+          },
+          "ad-responsive": {
+            "n": 1,
+            "mean_pi": 3.86,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          },
+          "in-store discovery": {
+            "n": 2,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "low": 0.5,
+              "leaning": 0.5
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "Price Sensitivity": {
+          "count": 61,
+          "pct": 61
+        },
+        "Brand Trust and Recognition": {
+          "count": 77,
+          "pct": 77
+        },
+        "Marketing and Positioning Concerns": {
+          "count": 77,
+          "pct": 77
+        },
+        "Ingredient Transparency and Efficacy": {
+          "count": 50,
+          "pct": 50
+        },
+        "Convenience and Ease of Use": {
+          "count": 38,
+          "pct": 38
+        },
+        "Flavor and Sensory Experience": {
+          "count": 17,
+          "pct": 17
+        },
+        "Skepticism and Barriers to Purchase": {
+          "count": 50,
+          "pct": 50
+        }
+      }
+    },
+    "gnc_citrulline": {
+      "segment_metrics": {
+        "income": {
+          "low": {
+            "n": 46,
+            "mean_pi": 2.6,
+            "sentiment_distribution": {
+              "soft_neg": 0.59,
+              "low": 0.15,
+              "neutral": 0.17,
+              "leaning": 0.09
+            }
+          },
+          "moderate": {
+            "n": 38,
+            "mean_pi": 2.52,
+            "sentiment_distribution": {
+              "soft_neg": 0.55,
+              "low": 0.24,
+              "neutral": 0.13,
+              "leaning": 0.08
+            }
+          },
+          "high": {
+            "n": 2,
+            "mean_pi": 2.97,
+            "sentiment_distribution": {
+              "low": 0.5,
+              "leaning": 0.5
+            }
+          },
+          "upper-moderate": {
+            "n": 14,
+            "mean_pi": 2.61,
+            "sentiment_distribution": {
+              "soft_neg": 0.79,
+              "leaning": 0.14,
+              "low": 0.07
+            }
+          }
+        },
+        "age_band": {
+          "18-29": {
+            "n": 100,
+            "mean_pi": 2.58,
+            "sentiment_distribution": {
+              "soft_neg": 0.59,
+              "low": 0.18,
+              "neutral": 0.13,
+              "leaning": 0.1
+            }
+          }
+        },
+        "region": {
+          "South": {
+            "n": 36,
+            "mean_pi": 2.5,
+            "sentiment_distribution": {
+              "soft_neg": 0.67,
+              "low": 0.17,
+              "leaning": 0.08,
+              "neutral": 0.08
+            }
+          },
+          "Midwest": {
+            "n": 27,
+            "mean_pi": 2.66,
+            "sentiment_distribution": {
+              "soft_neg": 0.59,
+              "low": 0.15,
+              "leaning": 0.15,
+              "neutral": 0.11
+            }
+          },
+          "West": {
+            "n": 24,
+            "mean_pi": 2.68,
+            "sentiment_distribution": {
+              "soft_neg": 0.54,
+              "low": 0.12,
+              "leaning": 0.12,
+              "neutral": 0.21
+            }
+          },
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 2.43,
+            "sentiment_distribution": {
+              "low": 0.38,
+              "neutral": 0.15,
+              "soft_neg": 0.46
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 43,
+            "mean_pi": 2.51,
+            "sentiment_distribution": {
+              "soft_neg": 0.65,
+              "low": 0.19,
+              "neutral": 0.09,
+              "leaning": 0.07
+            }
+          },
+          "living with roommates": {
+            "n": 30,
+            "mean_pi": 2.6,
+            "sentiment_distribution": {
+              "soft_neg": 0.57,
+              "low": 0.2,
+              "leaning": 0.13,
+              "neutral": 0.1
+            }
+          },
+          "couple, no children": {
+            "n": 24,
+            "mean_pi": 2.67,
+            "sentiment_distribution": {
+              "low": 0.17,
+              "leaning": 0.12,
+              "neutral": 0.25,
+              "soft_neg": 0.46
+            }
+          },
+          "single parent": {
+            "n": 2,
+            "mean_pi": 2.58,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 1,
+            "mean_pi": 2.5,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 18,
+            "mean_pi": 2.73,
+            "sentiment_distribution": {
+              "soft_neg": 0.44,
+              "low": 0.11,
+              "neutral": 0.33,
+              "leaning": 0.11
+            }
+          },
+          "brand loyal": {
+            "n": 20,
+            "mean_pi": 2.51,
+            "sentiment_distribution": {
+              "soft_neg": 0.7,
+              "low": 0.2,
+              "leaning": 0.05,
+              "neutral": 0.05
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 31,
+            "mean_pi": 2.55,
+            "sentiment_distribution": {
+              "soft_neg": 0.68,
+              "neutral": 0.1,
+              "low": 0.13,
+              "leaning": 0.1
+            }
+          },
+          "convenience first": {
+            "n": 21,
+            "mean_pi": 2.62,
+            "sentiment_distribution": {
+              "soft_neg": 0.57,
+              "low": 0.19,
+              "leaning": 0.19,
+              "neutral": 0.05
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 10,
+            "mean_pi": 2.42,
+            "sentiment_distribution": {
+              "low": 0.4,
+              "soft_neg": 0.4,
+              "neutral": 0.2
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 32,
+            "mean_pi": 2.61,
+            "sentiment_distribution": {
+              "soft_neg": 0.62,
+              "low": 0.16,
+              "neutral": 0.09,
+              "leaning": 0.12
+            }
+          },
+          "health-indifferent": {
+            "n": 39,
+            "mean_pi": 2.48,
+            "sentiment_distribution": {
+              "soft_neg": 0.56,
+              "low": 0.26,
+              "neutral": 0.08,
+              "leaning": 0.1
+            }
+          },
+          "highly health-conscious": {
+            "n": 11,
+            "mean_pi": 2.64,
+            "sentiment_distribution": {
+              "soft_neg": 0.45,
+              "low": 0.18,
+              "leaning": 0.09,
+              "neutral": 0.27
+            }
+          },
+          "moderately health-aware": {
+            "n": 18,
+            "mean_pi": 2.67,
+            "sentiment_distribution": {
+              "soft_neg": 0.67,
+              "leaning": 0.06,
+              "neutral": 0.22,
+              "low": 0.06
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 37,
+            "mean_pi": 2.6,
+            "sentiment_distribution": {
+              "soft_neg": 0.62,
+              "low": 0.16,
+              "neutral": 0.11,
+              "leaning": 0.11
+            }
+          },
+          "early adopter": {
+            "n": 39,
+            "mean_pi": 2.49,
+            "sentiment_distribution": {
+              "soft_neg": 0.64,
+              "low": 0.18,
+              "leaning": 0.05,
+              "neutral": 0.13
+            }
+          },
+          "late majority": {
+            "n": 22,
+            "mean_pi": 2.74,
+            "sentiment_distribution": {
+              "low": 0.18,
+              "soft_neg": 0.45,
+              "neutral": 0.18,
+              "leaning": 0.18
+            }
+          },
+          "skeptic": {
+            "n": 2,
+            "mean_pi": 2.16,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "low": 0.5
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 78,
+            "mean_pi": 2.58,
+            "sentiment_distribution": {
+              "soft_neg": 0.63,
+              "low": 0.15,
+              "neutral": 0.12,
+              "leaning": 0.1
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 9,
+            "mean_pi": 2.5,
+            "sentiment_distribution": {
+              "soft_neg": 0.56,
+              "low": 0.22,
+              "neutral": 0.22
+            }
+          },
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 8,
+            "mean_pi": 2.55,
+            "sentiment_distribution": {
+              "low": 0.25,
+              "soft_neg": 0.5,
+              "leaning": 0.12,
+              "neutral": 0.12
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 3,
+            "mean_pi": 2.41,
+            "sentiment_distribution": {
+              "low": 0.67,
+              "neutral": 0.33
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 2,
+            "mean_pi": 3.04,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "soft_neg": 0.5
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 67,
+            "mean_pi": 2.54,
+            "sentiment_distribution": {
+              "soft_neg": 0.64,
+              "low": 0.18,
+              "leaning": 0.07,
+              "neutral": 0.1
+            }
+          },
+          "word-of-mouth": {
+            "n": 23,
+            "mean_pi": 2.67,
+            "sentiment_distribution": {
+              "soft_neg": 0.52,
+              "neutral": 0.17,
+              "leaning": 0.17,
+              "low": 0.13
+            }
+          },
+          "research-driven": {
+            "n": 7,
+            "mean_pi": 2.47,
+            "sentiment_distribution": {
+              "low": 0.43,
+              "soft_neg": 0.29,
+              "neutral": 0.29
+            }
+          },
+          "ad-responsive": {
+            "n": 1,
+            "mean_pi": 2.48,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          },
+          "in-store discovery": {
+            "n": 2,
+            "mean_pi": 3.16,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "soft_neg": 0.5
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "Price Sensitivity": {
+          "count": 52,
+          "pct": 52
+        },
+        "Brand Trust and Recognition": {
+          "count": 68,
+          "pct": 68
+        },
+        "Marketing and Positioning Concerns": {
+          "count": 64,
+          "pct": 64
+        },
+        "Ingredient Transparency and Efficacy": {
+          "count": 47,
+          "pct": 47
+        },
+        "Convenience and Ease of Use": {
+          "count": 36,
+          "pct": 36
+        },
+        "Flavor and Sensory Experience": {
+          "count": 25,
+          "pct": 25
+        },
+        "Skepticism and Barriers to Purchase": {
+          "count": 53,
+          "pct": 53
+        }
+      }
+    },
+    "sports_research_collagen": {
+      "segment_metrics": {
+        "income": {
+          "low": {
+            "n": 46,
+            "mean_pi": 3.38,
+            "sentiment_distribution": {
+              "neutral": 0.28,
+              "soft_neg": 0.13,
+              "leaning": 0.57,
+              "low": 0.02
+            }
+          },
+          "moderate": {
+            "n": 38,
+            "mean_pi": 3.44,
+            "sentiment_distribution": {
+              "soft_neg": 0.16,
+              "leaning": 0.63,
+              "neutral": 0.21
+            }
+          },
+          "high": {
+            "n": 2,
+            "mean_pi": 3.0,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "leaning": 0.5
+            }
+          },
+          "upper-moderate": {
+            "n": 14,
+            "mean_pi": 3.47,
+            "sentiment_distribution": {
+              "neutral": 0.21,
+              "leaning": 0.64,
+              "soft_neg": 0.14
+            }
+          }
+        },
+        "age_band": {
+          "18-29": {
+            "n": 100,
+            "mean_pi": 3.41,
+            "sentiment_distribution": {
+              "neutral": 0.24,
+              "soft_neg": 0.15,
+              "leaning": 0.6,
+              "low": 0.01
+            }
+          }
+        },
+        "region": {
+          "South": {
+            "n": 36,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "neutral": 0.19,
+              "soft_neg": 0.14,
+              "leaning": 0.64,
+              "low": 0.03
+            }
+          },
+          "Midwest": {
+            "n": 27,
+            "mean_pi": 3.59,
+            "sentiment_distribution": {
+              "leaning": 0.74,
+              "neutral": 0.22,
+              "soft_neg": 0.04
+            }
+          },
+          "West": {
+            "n": 24,
+            "mean_pi": 3.33,
+            "sentiment_distribution": {
+              "soft_neg": 0.21,
+              "neutral": 0.29,
+              "leaning": 0.5
+            }
+          },
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 3.1,
+            "sentiment_distribution": {
+              "soft_neg": 0.31,
+              "leaning": 0.38,
+              "neutral": 0.31
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 43,
+            "mean_pi": 3.42,
+            "sentiment_distribution": {
+              "neutral": 0.21,
+              "soft_neg": 0.14,
+              "leaning": 0.63,
+              "low": 0.02
+            }
+          },
+          "living with roommates": {
+            "n": 30,
+            "mean_pi": 3.36,
+            "sentiment_distribution": {
+              "soft_neg": 0.2,
+              "leaning": 0.6,
+              "neutral": 0.2
+            }
+          },
+          "couple, no children": {
+            "n": 24,
+            "mean_pi": 3.44,
+            "sentiment_distribution": {
+              "neutral": 0.29,
+              "leaning": 0.58,
+              "soft_neg": 0.12
+            }
+          },
+          "single parent": {
+            "n": 2,
+            "mean_pi": 3.51,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "neutral": 0.5
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 1,
+            "mean_pi": 3.04,
+            "sentiment_distribution": {
+              "neutral": 1.0
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 18,
+            "mean_pi": 3.43,
+            "sentiment_distribution": {
+              "neutral": 0.39,
+              "leaning": 0.56,
+              "soft_neg": 0.06
+            }
+          },
+          "brand loyal": {
+            "n": 20,
+            "mean_pi": 3.24,
+            "sentiment_distribution": {
+              "soft_neg": 0.2,
+              "leaning": 0.35,
+              "neutral": 0.45
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 31,
+            "mean_pi": 3.37,
+            "sentiment_distribution": {
+              "soft_neg": 0.26,
+              "leaning": 0.65,
+              "neutral": 0.1
+            }
+          },
+          "convenience first": {
+            "n": 21,
+            "mean_pi": 3.55,
+            "sentiment_distribution": {
+              "leaning": 0.76,
+              "neutral": 0.14,
+              "low": 0.05,
+              "soft_neg": 0.05
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 10,
+            "mean_pi": 3.53,
+            "sentiment_distribution": {
+              "leaning": 0.7,
+              "soft_neg": 0.1,
+              "neutral": 0.2
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 32,
+            "mean_pi": 3.57,
+            "sentiment_distribution": {
+              "neutral": 0.25,
+              "leaning": 0.69,
+              "soft_neg": 0.06
+            }
+          },
+          "health-indifferent": {
+            "n": 39,
+            "mean_pi": 3.19,
+            "sentiment_distribution": {
+              "soft_neg": 0.28,
+              "leaning": 0.49,
+              "neutral": 0.21,
+              "low": 0.03
+            }
+          },
+          "highly health-conscious": {
+            "n": 11,
+            "mean_pi": 3.59,
+            "sentiment_distribution": {
+              "leaning": 0.64,
+              "neutral": 0.36
+            }
+          },
+          "moderately health-aware": {
+            "n": 18,
+            "mean_pi": 3.47,
+            "sentiment_distribution": {
+              "leaning": 0.67,
+              "soft_neg": 0.11,
+              "neutral": 0.22
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 37,
+            "mean_pi": 3.4,
+            "sentiment_distribution": {
+              "neutral": 0.38,
+              "soft_neg": 0.11,
+              "leaning": 0.51
+            }
+          },
+          "early adopter": {
+            "n": 39,
+            "mean_pi": 3.48,
+            "sentiment_distribution": {
+              "soft_neg": 0.13,
+              "leaning": 0.74,
+              "neutral": 0.1,
+              "low": 0.03
+            }
+          },
+          "late majority": {
+            "n": 22,
+            "mean_pi": 3.37,
+            "sentiment_distribution": {
+              "soft_neg": 0.18,
+              "leaning": 0.55,
+              "neutral": 0.27
+            }
+          },
+          "skeptic": {
+            "n": 2,
+            "mean_pi": 2.51,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 78,
+            "mean_pi": 3.46,
+            "sentiment_distribution": {
+              "neutral": 0.28,
+              "soft_neg": 0.09,
+              "leaning": 0.62,
+              "low": 0.01
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 9,
+            "mean_pi": 3.04,
+            "sentiment_distribution": {
+              "soft_neg": 0.56,
+              "leaning": 0.44
+            }
+          },
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 8,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "soft_neg": 0.38,
+              "neutral": 0.12
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 3,
+            "mean_pi": 3.49,
+            "sentiment_distribution": {
+              "leaning": 0.67,
+              "neutral": 0.33
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 2,
+            "mean_pi": 3.78,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 67,
+            "mean_pi": 3.47,
+            "sentiment_distribution": {
+              "neutral": 0.24,
+              "leaning": 0.66,
+              "soft_neg": 0.09,
+              "low": 0.01
+            }
+          },
+          "word-of-mouth": {
+            "n": 23,
+            "mean_pi": 3.17,
+            "sentiment_distribution": {
+              "soft_neg": 0.39,
+              "leaning": 0.48,
+              "neutral": 0.13
+            }
+          },
+          "research-driven": {
+            "n": 7,
+            "mean_pi": 3.34,
+            "sentiment_distribution": {
+              "neutral": 0.71,
+              "leaning": 0.29
+            }
+          },
+          "ad-responsive": {
+            "n": 1,
+            "mean_pi": 3.92,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          },
+          "in-store discovery": {
+            "n": 2,
+            "mean_pi": 3.8,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "Price Sensitivity": {
+          "count": 56,
+          "pct": 56
+        },
+        "Brand Trust and Recognition": {
+          "count": 73,
+          "pct": 73
+        },
+        "Marketing and Positioning Concerns": {
+          "count": 58,
+          "pct": 58
+        },
+        "Ingredient Transparency and Efficacy": {
+          "count": 32,
+          "pct": 32
+        },
+        "Convenience and Ease of Use": {
+          "count": 37,
+          "pct": 37
+        },
+        "Flavor and Sensory Experience": {
+          "count": 85,
+          "pct": 85
+        },
+        "Skepticism and Barriers to Purchase": {
+          "count": 46,
+          "pct": 46
+        }
+      }
+    },
+    "vital_proteins_collagen": {
+      "segment_metrics": {
+        "income": {
+          "low": {
+            "n": 46,
+            "mean_pi": 3.1,
+            "sentiment_distribution": {
+              "neutral": 0.3,
+              "soft_neg": 0.3,
+              "leaning": 0.37,
+              "low": 0.02
+            }
+          },
+          "moderate": {
+            "n": 38,
+            "mean_pi": 3.14,
+            "sentiment_distribution": {
+              "soft_neg": 0.32,
+              "leaning": 0.37,
+              "neutral": 0.29,
+              "low": 0.03
+            }
+          },
+          "high": {
+            "n": 2,
+            "mean_pi": 2.98,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "leaning": 0.5
+            }
+          },
+          "upper-moderate": {
+            "n": 14,
+            "mean_pi": 3.32,
+            "sentiment_distribution": {
+              "leaning": 0.57,
+              "neutral": 0.14,
+              "soft_neg": 0.29
+            }
+          }
+        },
+        "age_band": {
+          "18-29": {
+            "n": 100,
+            "mean_pi": 3.15,
+            "sentiment_distribution": {
+              "neutral": 0.27,
+              "soft_neg": 0.31,
+              "leaning": 0.4,
+              "low": 0.02
+            }
+          }
+        },
+        "region": {
+          "South": {
+            "n": 36,
+            "mean_pi": 3.17,
+            "sentiment_distribution": {
+              "neutral": 0.33,
+              "soft_neg": 0.25,
+              "leaning": 0.39,
+              "low": 0.03
+            }
+          },
+          "Midwest": {
+            "n": 27,
+            "mean_pi": 3.28,
+            "sentiment_distribution": {
+              "soft_neg": 0.3,
+              "leaning": 0.48,
+              "neutral": 0.22
+            }
+          },
+          "West": {
+            "n": 24,
+            "mean_pi": 3.15,
+            "sentiment_distribution": {
+              "soft_neg": 0.33,
+              "leaning": 0.42,
+              "neutral": 0.25
+            }
+          },
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 2.79,
+            "sentiment_distribution": {
+              "soft_neg": 0.46,
+              "leaning": 0.23,
+              "neutral": 0.23,
+              "low": 0.08
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 43,
+            "mean_pi": 3.05,
+            "sentiment_distribution": {
+              "neutral": 0.21,
+              "soft_neg": 0.42,
+              "leaning": 0.35,
+              "low": 0.02
+            }
+          },
+          "living with roommates": {
+            "n": 30,
+            "mean_pi": 3.13,
+            "sentiment_distribution": {
+              "soft_neg": 0.27,
+              "leaning": 0.43,
+              "neutral": 0.27,
+              "low": 0.03
+            }
+          },
+          "couple, no children": {
+            "n": 24,
+            "mean_pi": 3.32,
+            "sentiment_distribution": {
+              "neutral": 0.38,
+              "leaning": 0.46,
+              "soft_neg": 0.17
+            }
+          },
+          "single parent": {
+            "n": 2,
+            "mean_pi": 3.48,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "neutral": 0.5
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 1,
+            "mean_pi": 2.76,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 18,
+            "mean_pi": 2.96,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "soft_neg": 0.33,
+              "leaning": 0.17
+            }
+          },
+          "brand loyal": {
+            "n": 20,
+            "mean_pi": 2.93,
+            "sentiment_distribution": {
+              "soft_neg": 0.55,
+              "leaning": 0.3,
+              "neutral": 0.15
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 31,
+            "mean_pi": 3.2,
+            "sentiment_distribution": {
+              "soft_neg": 0.26,
+              "leaning": 0.48,
+              "neutral": 0.19,
+              "low": 0.06
+            }
+          },
+          "convenience first": {
+            "n": 21,
+            "mean_pi": 3.51,
+            "sentiment_distribution": {
+              "leaning": 0.67,
+              "soft_neg": 0.1,
+              "neutral": 0.24
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 10,
+            "mean_pi": 2.98,
+            "sentiment_distribution": {
+              "soft_neg": 0.4,
+              "neutral": 0.4,
+              "leaning": 0.2
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 32,
+            "mean_pi": 3.05,
+            "sentiment_distribution": {
+              "neutral": 0.25,
+              "soft_neg": 0.44,
+              "leaning": 0.31
+            }
+          },
+          "health-indifferent": {
+            "n": 39,
+            "mean_pi": 3.14,
+            "sentiment_distribution": {
+              "soft_neg": 0.26,
+              "leaning": 0.41,
+              "neutral": 0.28,
+              "low": 0.05
+            }
+          },
+          "highly health-conscious": {
+            "n": 11,
+            "mean_pi": 3.19,
+            "sentiment_distribution": {
+              "leaning": 0.36,
+              "soft_neg": 0.18,
+              "neutral": 0.45
+            }
+          },
+          "moderately health-aware": {
+            "n": 18,
+            "mean_pi": 3.28,
+            "sentiment_distribution": {
+              "leaning": 0.56,
+              "soft_neg": 0.28,
+              "neutral": 0.17
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 37,
+            "mean_pi": 3.26,
+            "sentiment_distribution": {
+              "neutral": 0.35,
+              "soft_neg": 0.22,
+              "leaning": 0.43
+            }
+          },
+          "early adopter": {
+            "n": 39,
+            "mean_pi": 3.02,
+            "sentiment_distribution": {
+              "soft_neg": 0.44,
+              "leaning": 0.36,
+              "neutral": 0.18,
+              "low": 0.03
+            }
+          },
+          "late majority": {
+            "n": 22,
+            "mean_pi": 3.25,
+            "sentiment_distribution": {
+              "soft_neg": 0.23,
+              "leaning": 0.45,
+              "neutral": 0.32
+            }
+          },
+          "skeptic": {
+            "n": 2,
+            "mean_pi": 2.29,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "low": 0.5
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 78,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.27,
+              "soft_neg": 0.29,
+              "leaning": 0.42,
+              "low": 0.01
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 9,
+            "mean_pi": 2.88,
+            "sentiment_distribution": {
+              "soft_neg": 0.56,
+              "leaning": 0.33,
+              "low": 0.11
+            }
+          },
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 8,
+            "mean_pi": 3.1,
+            "sentiment_distribution": {
+              "leaning": 0.25,
+              "soft_neg": 0.25,
+              "neutral": 0.5
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 3,
+            "mean_pi": 2.82,
+            "sentiment_distribution": {
+              "soft_neg": 0.33,
+              "neutral": 0.67
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 2,
+            "mean_pi": 3.72,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 67,
+            "mean_pi": 3.18,
+            "sentiment_distribution": {
+              "neutral": 0.22,
+              "soft_neg": 0.3,
+              "leaning": 0.45,
+              "low": 0.03
+            }
+          },
+          "word-of-mouth": {
+            "n": 23,
+            "mean_pi": 3.07,
+            "sentiment_distribution": {
+              "soft_neg": 0.39,
+              "leaning": 0.35,
+              "neutral": 0.26
+            }
+          },
+          "research-driven": {
+            "n": 7,
+            "mean_pi": 2.88,
+            "sentiment_distribution": {
+              "neutral": 0.71,
+              "soft_neg": 0.29
+            }
+          },
+          "ad-responsive": {
+            "n": 1,
+            "mean_pi": 3.75,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          },
+          "in-store discovery": {
+            "n": 2,
+            "mean_pi": 3.38,
+            "sentiment_distribution": {
+              "neutral": 0.5,
+              "leaning": 0.5
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "Price Sensitivity": {
+          "count": 73,
+          "pct": 73
+        },
+        "Brand Trust and Recognition": {
+          "count": 74,
+          "pct": 74
+        },
+        "Marketing and Positioning Concerns": {
+          "count": 57,
+          "pct": 57
+        },
+        "Ingredient Transparency and Efficacy": {
+          "count": 28,
+          "pct": 28
+        },
+        "Convenience and Ease of Use": {
+          "count": 35,
+          "pct": 35
+        },
+        "Flavor and Sensory Experience": {
+          "count": 70,
+          "pct": 70
+        },
+        "Skepticism and Barriers to Purchase": {
+          "count": 46,
+          "pct": 46
+        }
+      }
+    },
+    "vitauthority_collagen_burn": {
+      "segment_metrics": {
+        "income": {
+          "low": {
+            "n": 46,
+            "mean_pi": 2.92,
+            "sentiment_distribution": {
+              "soft_neg": 0.39,
+              "leaning": 0.2,
+              "neutral": 0.33,
+              "low": 0.09
+            }
+          },
+          "moderate": {
+            "n": 38,
+            "mean_pi": 2.97,
+            "sentiment_distribution": {
+              "neutral": 0.16,
+              "soft_neg": 0.42,
+              "low": 0.08,
+              "leaning": 0.34
+            }
+          },
+          "high": {
+            "n": 2,
+            "mean_pi": 2.86,
+            "sentiment_distribution": {
+              "low": 0.5,
+              "leaning": 0.5
+            }
+          },
+          "upper-moderate": {
+            "n": 14,
+            "mean_pi": 3.03,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "leaning": 0.29,
+              "neutral": 0.21
+            }
+          }
+        },
+        "age_band": {
+          "18-29": {
+            "n": 100,
+            "mean_pi": 2.95,
+            "sentiment_distribution": {
+              "soft_neg": 0.41,
+              "neutral": 0.24,
+              "leaning": 0.27,
+              "low": 0.08
+            }
+          }
+        },
+        "region": {
+          "South": {
+            "n": 36,
+            "mean_pi": 2.96,
+            "sentiment_distribution": {
+              "soft_neg": 0.47,
+              "leaning": 0.31,
+              "neutral": 0.19,
+              "low": 0.03
+            }
+          },
+          "Midwest": {
+            "n": 27,
+            "mean_pi": 3.06,
+            "sentiment_distribution": {
+              "soft_neg": 0.41,
+              "neutral": 0.19,
+              "low": 0.07,
+              "leaning": 0.33
+            }
+          },
+          "West": {
+            "n": 24,
+            "mean_pi": 2.88,
+            "sentiment_distribution": {
+              "neutral": 0.38,
+              "soft_neg": 0.38,
+              "low": 0.08,
+              "leaning": 0.17
+            }
+          },
+          "Northeast": {
+            "n": 13,
+            "mean_pi": 2.88,
+            "sentiment_distribution": {
+              "low": 0.23,
+              "soft_neg": 0.31,
+              "leaning": 0.23,
+              "neutral": 0.23
+            }
+          }
+        },
+        "household_composition": {
+          "single, living alone": {
+            "n": 43,
+            "mean_pi": 2.97,
+            "sentiment_distribution": {
+              "soft_neg": 0.47,
+              "leaning": 0.28,
+              "low": 0.05,
+              "neutral": 0.21
+            }
+          },
+          "living with roommates": {
+            "n": 30,
+            "mean_pi": 2.89,
+            "sentiment_distribution": {
+              "neutral": 0.27,
+              "low": 0.17,
+              "leaning": 0.23,
+              "soft_neg": 0.33
+            }
+          },
+          "couple, no children": {
+            "n": 24,
+            "mean_pi": 3.01,
+            "sentiment_distribution": {
+              "soft_neg": 0.38,
+              "neutral": 0.29,
+              "leaning": 0.29,
+              "low": 0.04
+            }
+          },
+          "single parent": {
+            "n": 2,
+            "mean_pi": 3.06,
+            "sentiment_distribution": {
+              "leaning": 0.5,
+              "soft_neg": 0.5
+            }
+          },
+          "family with young children (under 12)": {
+            "n": 1,
+            "mean_pi": 2.52,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          }
+        },
+        "shopping_mindset": {
+          "deal hunter": {
+            "n": 18,
+            "mean_pi": 2.7,
+            "sentiment_distribution": {
+              "soft_neg": 0.67,
+              "low": 0.06,
+              "leaning": 0.06,
+              "neutral": 0.22
+            }
+          },
+          "brand loyal": {
+            "n": 20,
+            "mean_pi": 2.63,
+            "sentiment_distribution": {
+              "soft_neg": 0.55,
+              "neutral": 0.15,
+              "low": 0.2,
+              "leaning": 0.1
+            }
+          },
+          "impulse/spontaneous": {
+            "n": 31,
+            "mean_pi": 3.36,
+            "sentiment_distribution": {
+              "neutral": 0.39,
+              "soft_neg": 0.13,
+              "leaning": 0.48
+            }
+          },
+          "convenience first": {
+            "n": 21,
+            "mean_pi": 3.04,
+            "sentiment_distribution": {
+              "leaning": 0.38,
+              "low": 0.1,
+              "soft_neg": 0.38,
+              "neutral": 0.14
+            }
+          },
+          "quality/ingredient focused": {
+            "n": 10,
+            "mean_pi": 2.61,
+            "sentiment_distribution": {
+              "soft_neg": 0.6,
+              "neutral": 0.2,
+              "leaning": 0.1,
+              "low": 0.1
+            }
+          }
+        },
+        "health_orientation": {
+          "fitness/performance oriented": {
+            "n": 32,
+            "mean_pi": 2.82,
+            "sentiment_distribution": {
+              "soft_neg": 0.5,
+              "low": 0.12,
+              "leaning": 0.16,
+              "neutral": 0.22
+            }
+          },
+          "health-indifferent": {
+            "n": 39,
+            "mean_pi": 3.12,
+            "sentiment_distribution": {
+              "soft_neg": 0.28,
+              "neutral": 0.21,
+              "low": 0.08,
+              "leaning": 0.44
+            }
+          },
+          "highly health-conscious": {
+            "n": 11,
+            "mean_pi": 2.56,
+            "sentiment_distribution": {
+              "leaning": 0.09,
+              "low": 0.09,
+              "soft_neg": 0.73,
+              "neutral": 0.09
+            }
+          },
+          "moderately health-aware": {
+            "n": 18,
+            "mean_pi": 3.08,
+            "sentiment_distribution": {
+              "leaning": 0.22,
+              "neutral": 0.44,
+              "soft_neg": 0.33
+            }
+          }
+        },
+        "brand_adoption_style": {
+          "early majority": {
+            "n": 37,
+            "mean_pi": 2.92,
+            "sentiment_distribution": {
+              "soft_neg": 0.49,
+              "neutral": 0.22,
+              "leaning": 0.27,
+              "low": 0.03
+            }
+          },
+          "early adopter": {
+            "n": 39,
+            "mean_pi": 3.23,
+            "sentiment_distribution": {
+              "soft_neg": 0.26,
+              "leaning": 0.44,
+              "neutral": 0.26,
+              "low": 0.05
+            }
+          },
+          "late majority": {
+            "n": 22,
+            "mean_pi": 2.58,
+            "sentiment_distribution": {
+              "low": 0.23,
+              "soft_neg": 0.5,
+              "neutral": 0.27
+            }
+          },
+          "skeptic": {
+            "n": 2,
+            "mean_pi": 2.31,
+            "sentiment_distribution": {
+              "soft_neg": 1.0
+            }
+          }
+        },
+        "primary_shopping_channel": {
+          "primarily online (Amazon Fresh, Instacart, Walmart+)": {
+            "n": 78,
+            "mean_pi": 3.0,
+            "sentiment_distribution": {
+              "soft_neg": 0.37,
+              "leaning": 0.29,
+              "neutral": 0.26,
+              "low": 0.08
+            }
+          },
+          "discount/value (Walmart, Aldi, Lidl, Dollar General)": {
+            "n": 9,
+            "mean_pi": 2.75,
+            "sentiment_distribution": {
+              "neutral": 0.22,
+              "low": 0.11,
+              "soft_neg": 0.56,
+              "leaning": 0.11
+            }
+          },
+          "mainstream grocery (Kroger, Safeway, Publix, HEB)": {
+            "n": 8,
+            "mean_pi": 2.66,
+            "sentiment_distribution": {
+              "leaning": 0.12,
+              "soft_neg": 0.75,
+              "neutral": 0.12
+            }
+          },
+          "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": {
+            "n": 3,
+            "mean_pi": 2.65,
+            "sentiment_distribution": {
+              "soft_neg": 0.33,
+              "neutral": 0.33,
+              "low": 0.33
+            }
+          },
+          "warehouse club (Costco, Sam's Club, BJ's)": {
+            "n": 2,
+            "mean_pi": 3.7,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          }
+        },
+        "media_influence": {
+          "social media influenced": {
+            "n": 67,
+            "mean_pi": 3.0,
+            "sentiment_distribution": {
+              "soft_neg": 0.4,
+              "neutral": 0.22,
+              "leaning": 0.28,
+              "low": 0.09
+            }
+          },
+          "word-of-mouth": {
+            "n": 23,
+            "mean_pi": 2.84,
+            "sentiment_distribution": {
+              "soft_neg": 0.57,
+              "leaning": 0.26,
+              "neutral": 0.17
+            }
+          },
+          "research-driven": {
+            "n": 7,
+            "mean_pi": 2.82,
+            "sentiment_distribution": {
+              "soft_neg": 0.14,
+              "low": 0.14,
+              "neutral": 0.71
+            }
+          },
+          "ad-responsive": {
+            "n": 1,
+            "mean_pi": 3.62,
+            "sentiment_distribution": {
+              "leaning": 1.0
+            }
+          },
+          "in-store discovery": {
+            "n": 2,
+            "mean_pi": 2.97,
+            "sentiment_distribution": {
+              "low": 0.5,
+              "leaning": 0.5
+            }
+          }
+        }
+      },
+      "keyword_frequencies": {
+        "Price Sensitivity": {
+          "count": 63,
+          "pct": 63
+        },
+        "Brand Trust and Recognition": {
+          "count": 68,
+          "pct": 68
+        },
+        "Marketing and Positioning Concerns": {
+          "count": 81,
+          "pct": 81
+        },
+        "Ingredient Transparency and Efficacy": {
+          "count": 45,
+          "pct": 45
+        },
+        "Convenience and Ease of Use": {
+          "count": 29,
+          "pct": 29
+        },
+        "Flavor and Sensory Experience": {
+          "count": 75,
+          "pct": 75
+        },
+        "Skepticism and Barriers to Purchase": {
+          "count": 63,
+          "pct": 63
+        }
+      }
+    }
+  },
+  "_meta": {
+    "model": "gpt-4o-mini",
+    "n_concepts": 5,
+    "concept_ids": [
+      "amen_collagen",
+      "gnc_citrulline",
+      "sports_research_collagen",
+      "vital_proteins_collagen",
+      "vitauthority_collagen_burn"
+    ],
+    "prompt_tokens_approx": 13983,
+    "category": "ingestibles",
+    "topic_groups": [
+      "Price Sensitivity",
+      "Brand Trust and Recognition",
+      "Marketing and Positioning Concerns",
+      "Ingredient Transparency and Efficacy",
+      "Convenience and Ease of Use",
+      "Flavor and Sensory Experience",
+      "Skepticism and Barriers to Purchase"
+    ],
+    "tie_group_threshold": 0.1
+  }
+}
