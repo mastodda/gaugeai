@@ -114,6 +114,23 @@ def load_pipeline_config(engagement_path: str | Path, output_dir: str | Path = N
     with open(path) as f:
         eng = json.load(f)
 
+    # Resolve concept descriptions loaded from external files. A concept may
+    # supply either "description" (inline) or "description_file" (path relative
+    # to engagement.json). If both are set, "description_file" wins — adding an
+    # external file is an explicit act, so treat it as the authoritative source.
+    for concept in eng.get("concepts", []):
+        desc_file = concept.get("description_file")
+        if desc_file:
+            desc_path = Path(desc_file)
+            if not desc_path.is_absolute():
+                desc_path = path.parent / desc_path
+            if not desc_path.exists():
+                raise FileNotFoundError(
+                    f"description_file for concept '{concept.get('concept_id', '?')}' "
+                    f"not found: {desc_path}"
+                )
+            concept["description"] = desc_path.read_text().strip()
+
     pipeline = eng["pipeline"]
     question = eng["survey_question"]
 

@@ -104,12 +104,24 @@ def build_respondent_df(results: dict, personas: dict) -> pd.DataFrame:
         bins=[0, 2.5, 3.5, 5.01],
         labels=["Negative", "Neutral", "Positive"],
     )
-    df["age_band"] = pd.cut(
-        df["age"],
-        bins=[0, 29, 44, 59, 100],
-        labels=["18-29", "30-44", "45-59", "60+"],
-    )
+    df["age_band"] = _make_age_bands(df["age"])
     return df
+
+
+def _make_age_bands(ages: pd.Series, max_bands: int = 4) -> pd.Series:
+    """Cut ages into bands sized to the actual panel range, not a fixed 18-60+ grid."""
+    amin, amax = int(ages.min()), int(ages.max())
+    span = amax - amin + 1
+    n_bands = min(max_bands, max(1, span // 3))
+    width = -(-span // n_bands)  # ceil division
+    edges, labels = [amin - 0.5], []
+    lo = amin
+    while lo <= amax:
+        hi = min(lo + width - 1, amax)
+        edges.append(hi + 0.5)
+        labels.append(f"{lo}" if lo == hi else f"{lo}-{hi}")
+        lo = hi + 1
+    return pd.cut(ages, bins=edges, labels=labels)
 
 
 # ---------------------------------------------------------------------------
@@ -125,42 +137,6 @@ UNRELIABLE_AXES = {"gender", "region", "ethnicity"}
 INCOME_ORDER = ["low", "moderate", "upper-moderate", "high"]
 
 
-def distribution_chart(df: pd.DataFrame, color_col: str = "concept_name") -> alt.Chart:
-    """Likert distribution bar chart, optionally grouped by concept."""
-    # Melt PMF columns into long form
-    pmf_cols = {"p1": "1", "p2": "2", "p3": "3", "p4": "4", "p5": "5"}
-    melted = df.rename(columns=pmf_cols).melt(
-        id_vars=[color_col],
-        value_vars=["1", "2", "3", "4", "5"],
-        var_name="Rating",
-        value_name="Probability",
-    )
-    # Average across respondents within each group
-    grouped = (
-        melted.groupby([color_col, "Rating"], observed=False)["Probability"]
-        .mean()
-        .reset_index()
-    )
-
-    chart = (
-        alt.Chart(grouped)
-        .mark_bar()
-        .encode(
-            x=alt.X("Rating:N", sort=LIKERT_ORDER, title="Likert Rating"),
-            y=alt.Y("Probability:Q", title="Proportion", axis=alt.Axis(format=".0%")),
-            color=alt.Color(f"{color_col}:N", title="Concept"),
-            xOffset=f"{color_col}:N",
-            tooltip=[
-                alt.Tooltip(f"{color_col}:N", title="Concept"),
-                alt.Tooltip("Rating:N"),
-                alt.Tooltip("Probability:Q", format=".1%"),
-            ],
-        )
-        .properties(height=350)
-    )
-    return chart
-
-
 def demographic_chart(
     df: pd.DataFrame,
     demo_col: str,
@@ -169,7 +145,7 @@ def demographic_chart(
 ) -> alt.Chart:
     """Mean expected rating by demographic segment, grouped by concept."""
     grouped = (
-        df.groupby([concept_col, demo_col], observed=False)
+        df.groupby([concept_col, demo_col], observed=True)
         .agg(
             mean_rating=("expected_rating", "mean"),
             count=("expected_rating", "count"),
@@ -234,6 +210,13 @@ if not (data_path / "personas.json").exists():
 results, personas = load_data(data_dir)
 insights = load_insights(data_dir)
 df = build_respondent_df(results, personas)
+
+AGE_BAND_ORDER = [str(c) for c in df["age_band"].cat.categories]
+# Only offer demographic axes that actually vary in this panel
+DEMO_AXES = [
+    ax for ax in ["age_band", "income", "gender", "region"]
+    if df[ax].nunique() > 1
+] or ["age_band"]
 
 # Sidebar metadata
 meta = results.get("meta", {})
@@ -398,161 +381,99 @@ with tab_overview:
         })
 
     # ------------------------------------------------------------------
-    # Per-concept metric cards — first thing you see
+    # Ranked concept list — one row per concept, ordered by mean PI
     # ------------------------------------------------------------------
-    st.header("Concept Summaries")
-    cols = st.columns(len(concepts))
-    for i, cm in enumerate(concept_metrics):
+    st.header("Concept Ranking")
+    st.caption(
+        "Ranked by mean purchase intent. Per the SSR methodology, "
+        "**concept ranking is more reliable than absolute PI values.**"
+    )
+
+    ranked = sorted(concept_metrics, key=lambda cm: cm["mean_pi"], reverse=True)
+    for rank, cm in enumerate(ranked, 1):
         cid = cm["concept_id"]
         concept_data = results["concepts"][cid]["concept"]
-        with cols[i]:
-            st.markdown(f"**{cm['name']}**")
+        with st.container(border=True):
+            st.markdown(f"#### #{rank} — {cm['name']}")
+            m1, m2, m3, m4, m5 = st.columns(5)
+            m1.metric("Mean PI", f"{cm['mean_pi']:.2f}")
+            m2.metric("Top 2 Box", f"{cm['top2box']:.0%}")
+            m3.metric("Bottom 2 Box", f"{cm['bottom2box']:.0%}")
+            m4.metric("+/− Ratio", f"{cm['pos_neg_ratio']:.1f}:1")
+            m5.metric("Std Dev", f"{cm['std_pi']:.2f}")
 
-            # Show concept image if available
             img_path = concept_data.get("image_path")
             if img_path:
                 img_file = Path(img_path)
-                # Also check relative to data dir
                 if not img_file.exists():
                     img_file = Path(data_dir).resolve() / img_path
                 if not img_file.exists():
                     img_file = Path(data_dir).resolve() / Path(img_path).name
                 if img_file.exists():
-                    st.image(str(img_file), use_container_width=True)
-                else:
-                    st.caption(f"📷 Image: {Path(img_path).name} (not found)")
-
-            m1, m2, m3 = st.columns(3)
-            m1.metric("Mean PI", f"{cm['mean_pi']:.2f}")
-            m2.metric("Top 2 Box", f"{cm['top2box']:.0%}")
-            m3.metric("+/− Ratio", f"{cm['pos_neg_ratio']:.1f}:1")
-
-    st.markdown("---")
+                    with st.expander("📷 Concept image"):
+                        st.image(str(img_file), width=400)
 
     # ------------------------------------------------------------------
-    # Distribution chart
+    # Metric-by-metric winners (collapsed by default)
     # ------------------------------------------------------------------
-    st.subheader("Likert Distribution")
-    st.altair_chart(distribution_chart(df), width="stretch")
-
-    st.caption(
-        "Distribution shows the average probability mass function across all respondents. "
-        "Per the SSR methodology, these are soft distributions (not hard ratings). "
-        "**Concept ranking is more reliable than absolute PI values.**"
-    )
-
-    st.markdown("---")
-
-    # ------------------------------------------------------------------
-    # Concept Ranking
-    # ------------------------------------------------------------------
-    st.header("Concept Ranking")
-
     if len(concept_metrics) >= 2:
-        # Determine winner on each metric
-        metric_defs = [
-            ("mean_pi", "Mean PI", "higher", ".2f"),
-            ("top2box", "Top 2 Box", "higher", ".0%"),
-            ("pos_neg_ratio", "+/− Ratio", "higher", ".1f"),
-            ("bottom2box", "Bottom 2 Box", "lower", ".0%"),
-            ("std_pi", "Consensus (Low Std)", "lower", ".2f"),
-        ]
+        with st.expander("🏆 Metric-by-metric winners"):
+            metric_defs = [
+                ("mean_pi", "Mean PI", "higher", ".2f"),
+                ("top2box", "Top 2 Box", "higher", ".0%"),
+                ("pos_neg_ratio", "+/− Ratio", "higher", ".1f"),
+                ("bottom2box", "Bottom 2 Box", "lower", ".0%"),
+                ("std_pi", "Consensus (Low Std)", "lower", ".2f"),
+            ]
 
-        # Build ranking rows
-        ranking_rows = []
-        wins = {cm["name"]: 0 for cm in concept_metrics}
+            ranking_rows = []
+            wins = {cm["name"]: 0 for cm in concept_metrics}
 
-        for key, label, direction, fmt in metric_defs:
-            values = [(cm["name"], cm[key]) for cm in concept_metrics]
-            if direction == "higher":
-                winner_name = max(values, key=lambda x: x[1])[0]
-            else:
-                winner_name = min(values, key=lambda x: x[1])[0]
-
-            # Only count a win if there's a meaningful difference
-            sorted_vals = sorted([v for _, v in values], reverse=(direction == "higher"))
-            margin = abs(sorted_vals[0] - sorted_vals[1]) if len(sorted_vals) > 1 else 0
-            is_tie = margin < 0.005  # within rounding
-
-            row = {"Metric": label, "Favors": "Tie" if is_tie else winner_name}
-            for cm in concept_metrics:
-                val = cm[key]
-                if fmt == ".0%":
-                    row[cm["name"]] = f"{val:.0%}"
-                elif fmt == ".1f":
-                    row[cm["name"]] = f"{val:.1f}:1" if key == "pos_neg_ratio" else f"{val:.1f}"
+            for key, label, direction, fmt in metric_defs:
+                values = [(cm["name"], cm[key]) for cm in concept_metrics]
+                if direction == "higher":
+                    winner_name = max(values, key=lambda x: x[1])[0]
                 else:
-                    row[cm["name"]] = f"{val:{fmt}}"
+                    winner_name = min(values, key=lambda x: x[1])[0]
 
-            if not is_tie:
-                wins[winner_name] += 1
+                # Only count a win if there's a meaningful difference
+                sorted_vals = sorted([v for _, v in values], reverse=(direction == "higher"))
+                margin = abs(sorted_vals[0] - sorted_vals[1]) if len(sorted_vals) > 1 else 0
+                is_tie = margin < 0.005  # within rounding
 
-            ranking_rows.append(row)
+                row = {"Metric": label, "Favors": "Tie" if is_tie else winner_name}
+                for cm in concept_metrics:
+                    val = cm[key]
+                    if fmt == ".0%":
+                        row[cm["name"]] = f"{val:.0%}"
+                    elif fmt == ".1f":
+                        row[cm["name"]] = f"{val:.1f}:1" if key == "pos_neg_ratio" else f"{val:.1f}"
+                    else:
+                        row[cm["name"]] = f"{val:{fmt}}"
 
-        # Overall winner banner
-        max_wins = max(wins.values())
-        leaders = [name for name, w in wins.items() if w == max_wins]
+                if not is_tie:
+                    wins[winner_name] += 1
 
-        if len(leaders) == 1 and max_wins > 0:
-            st.success(f"🏆 **{leaders[0]}** leads on {max_wins} of {len(metric_defs)} metrics")
-        elif max_wins > 0:
-            st.info(f"📊 **Tied**: {' and '.join(leaders)} each lead on {max_wins} metrics")
-        else:
-            st.info("📊 Concepts are statistically indistinguishable on these metrics")
+                ranking_rows.append(row)
 
-        # Ranking table
-        ranking_df = pd.DataFrame(ranking_rows)
-        st.dataframe(
-            ranking_df,
-            hide_index=True,
-            width="stretch",
-            column_config={
-                "Favors": st.column_config.TextColumn("Winner", width="medium"),
-            },
-        )
+            max_wins = max(wins.values())
+            leaders = [name for name, w in wins.items() if w == max_wins]
 
-        # Head-to-head deltas (for 2-concept case, show lift)
-        if len(concept_metrics) == 2:
-            a, b = concept_metrics[0], concept_metrics[1]
-            st.subheader("Head-to-Head Lift")
-
-            d1, d2, d3, d4 = st.columns(4)
-
-            pi_delta = a["mean_pi"] - b["mean_pi"]
-            pi_leader = a["name"] if pi_delta > 0 else b["name"]
-            d1.metric(
-                "Mean PI Δ",
-                f"{abs(pi_delta):.2f}",
-                delta=f"{pi_leader}" if abs(pi_delta) > 0.005 else "Tied",
-            )
-
-            t2_delta = a["top2box"] - b["top2box"]
-            t2_leader = a["name"] if t2_delta > 0 else b["name"]
-            d2.metric(
-                "Top 2 Box Δ",
-                f"{abs(t2_delta):.0%}",
-                delta=f"{t2_leader}" if abs(t2_delta) > 0.005 else "Tied",
-            )
-
-            ratio_delta = a["pos_neg_ratio"] - b["pos_neg_ratio"]
-            ratio_leader = a["name"] if ratio_delta > 0 else b["name"]
-            d3.metric(
-                "+/− Ratio Δ",
-                f"{abs(ratio_delta):.1f}",
-                delta=f"{ratio_leader}" if abs(ratio_delta) > 0.05 else "Tied",
-            )
-
-            # Relative lift: how much better is the leader in percentage terms
-            if min(a["top2box"], b["top2box"]) > 0:
-                rel_lift = max(a["top2box"], b["top2box"]) / min(a["top2box"], b["top2box"])
-                lift_leader = a["name"] if a["top2box"] > b["top2box"] else b["name"]
-                d4.metric(
-                    "Top 2 Box Lift",
-                    f"{rel_lift:.2f}×",
-                    delta=f"{lift_leader}",
-                )
+            if len(leaders) == 1 and max_wins > 0:
+                st.success(f"🏆 **{leaders[0]}** leads on {max_wins} of {len(metric_defs)} metrics")
+            elif max_wins > 0:
+                st.info(f"📊 **Tied**: {' and '.join(leaders)} each lead on {max_wins} metrics")
             else:
-                d4.metric("Top 2 Box Lift", "N/A")
+                st.info("📊 Concepts are statistically indistinguishable on these metrics")
+
+            st.dataframe(
+                pd.DataFrame(ranking_rows),
+                hide_index=True,
+                width="stretch",
+                column_config={
+                    "Favors": st.column_config.TextColumn("Winner", width="medium"),
+                },
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -564,8 +485,13 @@ with tab_demographics:
 
     demo_axis = st.selectbox(
         "Segment by",
-        options=["age_band", "income", "gender", "region"],
+        options=DEMO_AXES,
         format_func=lambda x: x.replace("_", " ").title(),
+    )
+    st.caption(
+        f"Panel: ages {int(df['age'].min())}–{int(df['age'].max())}, "
+        f"{df['persona_id'].nunique()} respondents. "
+        "Only axes that vary in this panel are shown."
     )
 
     # Reliability warning
@@ -578,9 +504,9 @@ with tab_demographics:
 
     sort_order = None
     if demo_axis == "income":
-        sort_order = INCOME_ORDER
+        sort_order = [i for i in INCOME_ORDER if i in df["income"].unique()]
     elif demo_axis == "age_band":
-        sort_order = ["18-29", "30-44", "45-59", "60+"]
+        sort_order = AGE_BAND_ORDER
 
     st.altair_chart(
         demographic_chart(df, demo_axis, sort_order=sort_order),
@@ -598,7 +524,7 @@ with tab_demographics:
     )
     pmf_melted["Rating"] = pmf_melted["rating_col"].str.replace("p", "")
     facet_grouped = (
-        pmf_melted.groupby(["concept_name", demo_axis, "Rating"], observed=False)["prob"]
+        pmf_melted.groupby(["concept_name", demo_axis, "Rating"], observed=True)["prob"]
         .mean()
         .reset_index()
     )
@@ -623,7 +549,7 @@ with tab_demographics:
 
     # Segment size table
     st.subheader("Segment Sizes")
-    segment_counts = df.groupby(demo_axis, observed=False)["persona_id"].nunique().reset_index()
+    segment_counts = df.groupby(demo_axis, observed=True)["persona_id"].nunique().reset_index()
     segment_counts.columns = [demo_axis.replace("_", " ").title(), "Respondents"]
     st.dataframe(segment_counts, hide_index=True)
 
@@ -671,39 +597,84 @@ with tab_insights:
         if headline:
             st.info(f"**{headline}**")
 
-        # ── Concept Comparison ────────────────────────────────────
-        comparison = insights.get("concept_comparison", {})
-        if comparison:
-            st.subheader("⚖️ Concept Comparison")
-            winner = comparison.get("winner_name", "—")
-            margin = comparison.get("margin", "")
-            diff = comparison.get("key_differentiator", "")
-            st.success(f"**Winner: {winner}** — {margin}")
-            if diff:
-                st.markdown(diff)
+        # ── Ranking Interpretation ────────────────────────────────
+        ranking = insights.get("concept_ranking", [])
+        interp = insights.get("ranking_interpretation", {})
+        if ranking or interp:
+            st.subheader("⚖️ Concept Ranking")
+            top_pick = interp.get("top_pick", "")
+            if top_pick:
+                st.success(f"**Top pick:** {top_pick}")
+            if ranking:
+                rank_rows = [
+                    {
+                        "Rank": r["rank"],
+                        "Concept": r["name"],
+                        "Mean PI": f"{r['mean_pi']:.2f}",
+                        "Top 2 Box": f"{r['top2box']:.0%}",
+                        "Tie Group": r.get("tie_group", "—"),
+                        "Δ from #1": f"{r.get('delta_from_top', 0):.2f}",
+                    }
+                    for r in ranking
+                ]
+                st.dataframe(pd.DataFrame(rank_rows), hide_index=True, width="stretch")
+            seps = interp.get("meaningful_separations", "")
+            if seps:
+                st.markdown(f"**Meaningful separations:** {seps}")
+            noise = interp.get("within_noise_notes", "")
+            if noise:
+                st.caption(f"Within noise: {noise}")
 
-        # ── Per-concept strengths/weaknesses ──────────────────────
+        # ── Per-concept drivers/pain points ───────────────────────
         concept_specific = insights.get("concept_specific", {})
         if concept_specific:
             st.markdown("---")
             st.subheader("📋 Concept Profiles")
 
-            cs_cols = st.columns(len(concept_specific))
-            for i, (cid, cdata) in enumerate(concept_specific.items()):
-                cname = results["concepts"].get(cid, {}).get("concept", {}).get("name", cid)
-                with cs_cols[i]:
-                    st.markdown(f"**{cname}**")
+            # Keys may be concept names or concept IDs depending on generator version
+            id_to_name = {
+                cid: cdata["concept"].get("name", cid)
+                for cid, cdata in results["concepts"].items()
+            }
+            # Order profiles by ranking when available
+            rank_order = [r["name"] for r in ranking] if ranking else None
+            items = list(concept_specific.items())
+            if rank_order:
+                items.sort(key=lambda kv: rank_order.index(id_to_name.get(kv[0], kv[0]))
+                           if id_to_name.get(kv[0], kv[0]) in rank_order else 99)
+
+            for i, (key, cdata) in enumerate(items):
+                cname = id_to_name.get(key, key)
+                with st.expander(f"**{cname}**", expanded=(i == 0)):
+                    rank_context = cdata.get("rank_context", "")
+                    if rank_context:
+                        st.caption(rank_context)
                     best = cdata.get("best_audience", "")
                     if best:
                         st.caption(f"🎯 Best audience: {best}")
 
-                    st.markdown("**Strengths:**")
-                    for s in cdata.get("strengths", []):
-                        st.markdown(f"- ✅ {s}")
+                    drivers = cdata.get("purchase_drivers", cdata.get("strengths", []))
+                    pains = cdata.get("pain_points", cdata.get("weaknesses", []))
 
-                    st.markdown("**Weaknesses:**")
-                    for w in cdata.get("weaknesses", []):
-                        st.markdown(f"- ⚠️ {w}")
+                    dcol, pcol = st.columns(2)
+                    with dcol:
+                        st.markdown("**✅ Purchase drivers**")
+                        for item in drivers:
+                            if isinstance(item, dict):
+                                st.markdown(f"- **{item.get('theme', '')}** — {item.get('detail', '')}")
+                                if item.get("evidence"):
+                                    st.caption(f"> {item['evidence']}")
+                            else:
+                                st.markdown(f"- {item}")
+                    with pcol:
+                        st.markdown("**⚠️ Pain points**")
+                        for item in pains:
+                            if isinstance(item, dict):
+                                st.markdown(f"- **{item.get('theme', '')}** — {item.get('detail', '')}")
+                                if item.get("evidence"):
+                                    st.caption(f"> {item['evidence']}")
+                            else:
+                                st.markdown(f"- {item}")
 
         # ── Segment Insights (the main event) ─────────────────────
         segment_insights = insights.get("segment_insights", [])
@@ -846,32 +817,47 @@ with tab_compare:
         right_df = df[df["concept_name"] == right_concept]
         compare_df = df[df["concept_name"].isin([left_concept, right_concept])]
 
-        # Overlay distribution
-        st.subheader("Distribution Overlay")
-        st.altair_chart(distribution_chart(compare_df), width="stretch")
-
-        # Metrics comparison
+        # Key metrics as grouped bar chart
         st.subheader("Key Metrics")
-        mc1, mc2 = st.columns(2)
 
-        for col, concept_df, name in [(mc1, left_df, left_concept), (mc2, right_df, right_concept)]:
-            with col:
-                st.markdown(f"**{name}**")
-                mean_pi = concept_df["expected_rating"].mean()
-                top2 = concept_df["top2box"].mean()
-                bot2 = concept_df["bottom2box"].mean()
-                ratio = top2 / bot2 if bot2 > 0 else float("inf")
+        metric_rows = []
+        for concept_df, name in [(left_df, left_concept), (right_df, right_concept)]:
+            top2 = concept_df["top2box"].mean()
+            bot2 = concept_df["bottom2box"].mean()
+            metric_rows.extend([
+                {"Concept": name, "Metric": "Mean PI", "Value": concept_df["expected_rating"].mean()},
+                {"Concept": name, "Metric": "Top 2 Box", "Value": top2},
+                {"Concept": name, "Metric": "Bottom 2 Box", "Value": bot2},
+                {"Concept": name, "Metric": "+/− Ratio", "Value": top2 / bot2 if bot2 > 0 else 0},
+                {"Concept": name, "Metric": "Std Dev", "Value": concept_df["expected_rating"].std()},
+            ])
+        metrics_long = pd.DataFrame(metric_rows)
 
-                st.metric("Mean PI", f"{mean_pi:.2f}")
-                st.metric("Top 2 Box", f"{top2:.0%}")
-                st.metric("+/− Ratio", f"{ratio:.1f}:1")
-                st.metric("Std Dev", f"{concept_df['expected_rating'].std():.2f}")
+        metrics_chart = (
+            alt.Chart(metrics_long)
+            .mark_bar()
+            .encode(
+                x=alt.X("Concept:N", title=None, axis=alt.Axis(labels=False)),
+                y=alt.Y("Value:Q", title=None),
+                color=alt.Color("Concept:N", title="Concept"),
+                column=alt.Column("Metric:N", title=None,
+                                  sort=["Mean PI", "Top 2 Box", "Bottom 2 Box", "+/− Ratio", "Std Dev"]),
+                tooltip=[
+                    alt.Tooltip("Concept:N"),
+                    alt.Tooltip("Metric:N"),
+                    alt.Tooltip("Value:Q", format=".2f"),
+                ],
+            )
+            .properties(height=250, width=120)
+            .resolve_scale(y="independent")
+        )
+        st.altair_chart(metrics_chart)
 
         # Demographic comparison
         st.subheader("Demographic Comparison")
         compare_demo = st.selectbox(
             "Compare by",
-            options=["age_band", "income", "gender", "region"],
+            options=DEMO_AXES,
             format_func=lambda x: x.replace("_", " ").title(),
             key="compare_demo",
         )
@@ -881,9 +867,9 @@ with tab_compare:
 
         compare_sort = None
         if compare_demo == "income":
-            compare_sort = INCOME_ORDER
+            compare_sort = [i for i in INCOME_ORDER if i in df["income"].unique()]
         elif compare_demo == "age_band":
-            compare_sort = ["18-29", "30-44", "45-59", "60+"]
+            compare_sort = AGE_BAND_ORDER
 
         st.altair_chart(
             demographic_chart(compare_df, compare_demo, sort_order=compare_sort),
@@ -954,7 +940,7 @@ with tab_metadata:
     )
 
     for axis in ["age_band", "income", "gender", "region"]:
-        counts = df.groupby(axis, observed=False)["persona_id"].nunique()
+        counts = df.groupby(axis, observed=True)["persona_id"].nunique()
         min_n = counts.min()
         flag = "⚠️" if min_n < 20 else "✅"
         unreliable = " *(unreliable axis per paper)*" if axis in UNRELIABLE_AXES else ""

@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "engagement": "Demo: Creator Launch Screening — Which Product Should JasonTheWeen Launch?",
+    "client": "Creator Agency",
+    "date": "2026-07-10",
+    "analyst": "Miles",
+    "category": "cross-category (creator merch)",
+    "notes": "Demo run. Hypothetical: JasonTheWeen (Jason Nguyen), a Twitch content creator known for IRL/Just Chatting and gaming streams (2M+ followers; ex-FaZe, currently in the CORE creator group as of 2026), is weighing 5 launch ideas across domains (audio, peripherals, beverage, apparel, ingestibles). Panel = the creator's audience. Elicitation is framed 'if JasonTheWeen launched this' to measure creator-audience demand fit, not raw price-sensitive purchase. Creator context is injected neutrally. Swap creator by editing the name in survey_question.text and concept names."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "gaming_headset",
+      "name": "JasonTheWeen Signature Gaming Headset",
+      "description": "A signature wireless gaming headset. Low-latency wireless, tuned audio, memory-foam earcups built for long stream sessions, detachable mic. $99.",
+      "image_path": null
+    },
+    {
+      "concept_id": "mechanical_keyboard",
+      "name": "JasonTheWeen Custom Mechanical Keyboard",
+      "description": "A signature 75% mechanical keyboard. Hot-swappable switches, custom signature keycaps, per-key RGB, aluminum case. $129.",
+      "image_path": null
+    },
+    {
+      "concept_id": "energy_drink",
+      "name": "JasonTheWeen Energy",
+      "description": "A zero-sugar focus energy drink. 200mg caffeine plus L-theanine for focus during long streams, no crash, citrus flavor. $30 per 12-pack.",
+      "image_path": null
+    },
+    {
+      "concept_id": "apparel_hoodie",
+      "name": "JasonTheWeen Premium Hoodie",
+      "description": "A limited-drop heavyweight hoodie. Embroidered logo, oversized fit, premium fleece. $65.",
+      "image_path": null
+    },
+    {
+      "concept_id": "collagen_peptide",
+      "name": "JasonTheWeen Recovery Collagen Peptides",
+      "description": "Unflavored hydrolyzed collagen peptides, 10g per serving, for joint and connective-tissue support during long sessions. Mixes into any drink. 30-serving tub, $34.",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "If JasonTheWeen — a Twitch streamer known for his IRL and gaming streams — launched this product, how likely would you be to buy it?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [18, 26],
+    "gender_distribution": {
+      "man": 0.66,
+      "woman": 0.32,
+      "nonbinary": 0.02
+    },
+    "region_distribution": {
+      "Midwest": 0.22,
+      "Northeast": 0.16,
+      "South": 0.39,
+      "West": 0.23
+    },
+    "income_distribution": {
+      "low": 0.68,
+      "moderate": 0.20,
+      "upper-moderate": 0.11,
+      "high": 0.01
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "mode": "full",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

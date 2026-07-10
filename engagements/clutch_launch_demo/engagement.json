@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "engagement": "Demo: CLUTCH Energy — Launch Concept Screening",
+    "client": "Illustrative (HardScope demo)",
+    "date": "2026-07-10",
+    "analyst": "Miles",
+    "category": "functional beverage",
+    "notes": "Demo run. Four launch concepts for one fictional gamer/creator energy drink, spanning a deliberately WIDE appeal range so the tool has legible signal to separate. Each concept adds exactly one coherent thing over the prior: (1) baseline sugary drink -> (2) zero-sugar + lower price -> (3) + gaming focus formula -> (4) + launch offer & esports proof. Expected order 1<2<3<4. Present RANKINGS + qualitative reasoning, not absolute PI. Synthetic/illustrative, not a real client study. Tone held factual and uniform across all four so separation comes from substance, not marketing register."
+  },
+
+  "concepts": [
+    {
+      "concept_id": "clutch_original",
+      "name": "CLUTCH Original",
+      "description": "A classic energy drink. 160mg caffeine, 54g sugar, citrus flavor, 16oz can. Sold individually at $3.99 per can.",
+      "image_path": null
+    },
+    {
+      "concept_id": "clutch_zero",
+      "name": "CLUTCH Zero",
+      "description": "A zero-sugar energy drink. 200mg caffeine, B-vitamins, 10 calories, berry flavor, 16oz can. $2.49 per can.",
+      "image_path": null
+    },
+    {
+      "concept_id": "clutch_focus",
+      "name": "CLUTCH Focus",
+      "description": "A zero-sugar energy drink formulated for gaming and long focus sessions. 200mg caffeine plus L-theanine and L-tyrosine for sharper focus and faster reaction time, with no jitters and no crash. Berry flavor, 16oz can. $2.49 per can.",
+      "image_path": null
+    },
+    {
+      "concept_id": "clutch_focus_bundle",
+      "name": "CLUTCH Focus — Launch Bundle",
+      "description": "The same zero-sugar gaming focus formula (200mg caffeine plus L-theanine and L-tyrosine for focus and reaction time), offered as a launch bundle: your first 12-pack for $24 ($2.00 per can) with free shipping, developed with a professional esports team. Cancel anytime.",
+      "image_path": null
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this product?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 80,
+    "age_range": [18, 30],
+    "gender_distribution": {
+      "man": 0.70,
+      "woman": 0.28,
+      "nonbinary": 0.02
+    },
+    "region_distribution": {
+      "Midwest": 0.22,
+      "Northeast": 0.16,
+      "South": 0.39,
+      "West": 0.23
+    },
+    "income_distribution": {
+      "low": 0.40,
+      "moderate": 0.42,
+      "upper-moderate": 0.16,
+      "high": 0.02
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "mode": "full",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

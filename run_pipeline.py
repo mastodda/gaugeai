@@ -72,6 +72,13 @@ any API calls. Use it to verify your engagement config before spending credits.
         help="Override pipeline mode: 'paper' (strict paper methodology, Tier 1 only) "
              "or 'full' (all features). Overrides the 'mode' field in the engagement config.",
     )
+    parser.add_argument(
+        "--skip-checklist",
+        action="store_true",
+        help="Skip the pre-run checklist audit. Use ONLY for throwaway experiments; "
+             "every real engagement should have a completed checklist.md alongside "
+             "engagement.json (see engagements/_template/checklist.md).",
+    )
 
     args = parser.parse_args()
 
@@ -79,6 +86,9 @@ any API calls. Use it to verify your engagement config before spending credits.
     if not engagement_path.exists():
         print(f"Error: Engagement file not found: {engagement_path}")
         sys.exit(1)
+
+    if not args.skip_checklist:
+        _audit_checklist(engagement_path)
 
     config = load_pipeline_config(engagement_path, output_dir=args.output)
 
@@ -97,6 +107,58 @@ any API calls. Use it to verify your engagement config before spending credits.
         _dry_run(config)
     else:
         run_pipeline(config)
+
+
+def _audit_checklist(engagement_path: Path) -> None:
+    """Scan engagement_dir/checklist.md and warn on unchecked boxes.
+
+    Prints to stdout; does not block execution. Users can pass --skip-checklist
+    to silence this entirely. The goal is a visible ritual moment before each
+    run to catch category-mismatch bugs at config time, not after the client
+    has the deck (see planned_features/engagement_tuning_checklist_spec.md).
+    """
+    checklist_path = engagement_path.parent / "checklist.md"
+
+    if not checklist_path.exists():
+        print("=" * 60)
+        print("⚠  PRE-RUN CHECKLIST MISSING")
+        print("=" * 60)
+        print(f"  No checklist.md found at: {checklist_path}")
+        print(f"  Copy from: engagements/_template/checklist.md")
+        print(f"  Complete before running to catch category-mismatch bugs.")
+        print(f"  Pass --skip-checklist to bypass for throwaway experiments.")
+        print("=" * 60)
+        print()
+        return
+
+    text = checklist_path.read_text()
+    # Count checked (`[x]` or `[X]`) vs unchecked (`[ ]`) markdown boxes.
+    import re
+    checked = len(re.findall(r"^\s*-\s*\[[xX]\]", text, re.MULTILINE))
+    unchecked_lines = [
+        line.strip() for line in text.splitlines()
+        if re.match(r"^\s*-\s*\[\s\]", line)
+    ]
+    unchecked = len(unchecked_lines)
+    total = checked + unchecked
+
+    if unchecked == 0 and total > 0:
+        print(f"✓ Pre-run checklist complete ({checked}/{total} boxes checked): {checklist_path}\n")
+        return
+
+    print("=" * 60)
+    print(f"⚠  PRE-RUN CHECKLIST INCOMPLETE ({checked}/{total} checked, {unchecked} open)")
+    print("=" * 60)
+    print(f"  Checklist: {checklist_path}")
+    print(f"  Open items:")
+    for line in unchecked_lines[:10]:
+        print(f"    {line}")
+    if unchecked > 10:
+        print(f"    ... and {unchecked - 10} more")
+    print()
+    print(f"  Pass --skip-checklist to proceed anyway (throwaway experiments only).")
+    print("=" * 60)
+    print()
 
 
 def _dry_run(config):

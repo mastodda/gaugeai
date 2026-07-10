@@ -176,4 +176,4 @@ Images are optional — place them next to the engagement JSON. All three LLM pr
 | Estimated cost (GPT-4o) | ~$0.55–$1.05 | ~$0.80–$1.35 |
 | Insight generation | ~$0.05–$0.10 | ~$0.05–$0.10 |
 
-Default LLM is **Gemini-2.0-flash** (best SSR correlation, lower cost). See `config/pipeline_config.json` to change providers.
+Default LLM is **Gemini-3.1-flash-lite** (best SSR correlation, lower cost). See `config/pipeline_config.json` to change providers.

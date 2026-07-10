@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "engagement": "Peptide & Collagen Supplements — Concept Test (CoD Viewer Panel)",
+    "client": "TBD",
+    "date": "2026-07-08",
+    "analyst": "Miles",
+    "category": "ingestibles",
+    "notes": "Five real supplement products screened against a Call of Duty content viewer panel (Twitch/YouTube/social). Each concept is an image only (descriptions in concepts/*/description.md are analyst reference, not sent to LLM per the 2026-07-10 stimulus-fidelity revert). Category-audience fit test — would these products resonate with the CoD viewer demographic?"
+  },
+
+  "concepts": [
+    {
+      "concept_id": "amen_collagen",
+      "name": "Amen Collagen Hydrolyzed Multi Collagen Peptides + Vitamin C",
+      "image_path": "concepts/amen_collagen/image.png"
+    },
+    {
+      "concept_id": "gnc_citrulline",
+      "name": "GNC Pro Performance Citrulline Complex 1700mg",
+      "image_path": "concepts/gnc_citrulline/image.png"
+    },
+    {
+      "concept_id": "sports_research_collagen",
+      "name": "Sports Research Collagen Peptides — Unflavored",
+      "image_path": "concepts/sports_research_collagen/image.png"
+    },
+    {
+      "concept_id": "vital_proteins_collagen",
+      "name": "Vital Proteins Collagen Peptides — Unflavored",
+      "image_path": "concepts/vital_proteins_collagen/image.png"
+    },
+    {
+      "concept_id": "vitauthority_collagen_burn",
+      "name": "Vitauthority Multi Collagen Burn — Strawberry Lemonade",
+      "image_path": "concepts/vitauthority_collagen_burn/image.png"
+    }
+  ],
+
+  "survey_question": {
+    "type": "purchase_intent",
+    "text": "How likely would you be to purchase this product?",
+    "reference_sets_file": "reference_sets.json"
+  },
+
+  "demographics": {
+    "panel_size": 100,
+    "age_range": [18, 28],
+    "gender_distribution": {
+      "man": 0.82,
+      "woman": 0.16,
+      "nonbinary": 0.02
+    },
+    "region_distribution": {
+      "Midwest": 0.22,
+      "Northeast": 0.16,
+      "South": 0.39,
+      "West": 0.23
+    },
+    "income_distribution": {
+      "low": 0.45,
+      "moderate": 0.40,
+      "upper-moderate": 0.13,
+      "high": 0.02
+    },
+    "ethnicity_distribution": null
+  },
+
+  "pipeline": {
+    "mode": "full",
+    "llm_provider": "openai",
+    "llm_model": "gpt-4o",
+    "llm_temperature": 0.5,
+    "llm_top_p": 0.9,
+    "reasoning_temperature": 1.0,
+    "samples_per_persona": 2,
+    "embedding_model": "text-embedding-3-small",
+    "ssr_epsilon": 0.0,
+    "ssr_temperature": 1.0,
+    "seed": 42
+  }
+}

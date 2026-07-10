@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "description": "Per-engagement lifestyle-attribute override for the peptide_supplements engagement. Target audience: Call of Duty content viewers (Twitch/YouTube/social), ages 18-28, low-to-moderate income, ~82% male. Distributions retuned from US-general-adult priors to reflect this specific audience.",
+    "version": "0.1.0-peptide",
+    "based_on": "config/lifestyle_attributes.json v0.1.0",
+    "sources": "Priors reflect an online-native creator-marketing audience: heavy social/creator media influence, online-first shopping, minimal children, mixed but younger-skewed impulse and early-adopter tendencies. Directional, not measured.",
+    "notes": [
+      "Weights are relative and will be normalized. They don't need to sum to 1.",
+      "Conditional overrides (age/income) from the base file are intentionally REMOVED. The whole file is scoped to a single 18-28 audience, so age/income branching is redundant — the base weights below already reflect the target.",
+      "Attributes are the same 6 dimensions as the base file — this is a weight retune, not a taxonomy change.",
+      "Known limitation: primary_shopping_channel is a grocery-CPG taxonomy that doesn't cleanly fit supplements (Amazon/GNC/DTC aren't in the value set). 'Primarily online' is used as the best proxy. See engagement checklist and planned_features/engagement_tuning_checklist_spec.md."
+    ]
+  },
+
+  "dimensions": {
+
+    "household_composition": {
+      "description": "Living situation and family structure.",
+      "values": {
+        "single, living alone": 0.42,
+        "living with roommates": 0.32,
+        "couple, no children": 0.22,
+        "family with young children (under 12)": 0.02,
+        "single parent": 0.02,
+        "family with teenagers": 0.0,
+        "empty nester": 0.0
+      }
+    },
+
+    "shopping_mindset": {
+      "description": "Primary decision-making style when evaluating purchases.",
+      "values": {
+        "deal hunter — actively seeks discounts, compares prices, uses coupons": 0.25,
+        "convenience first — values ease and speed over price": 0.20,
+        "quality/ingredient focused — reads labels, pays more for better quality": 0.10,
+        "brand loyal — sticks with trusted brands, slow to switch": 0.20,
+        "impulse/spontaneous — buys based on mood, packaging, or in-store discovery": 0.25
+      }
+    },
+
+    "health_orientation": {
+      "description": "How much health and wellness factor into purchase decisions.",
+      "values": {
+        "highly health-conscious — actively manages diet, reads nutrition labels, avoids processed food": 0.10,
+        "moderately health-aware — tries to make decent choices but isn't rigid about it": 0.25,
+        "health-indifferent — buys what tastes good or is convenient, doesn't think much about health": 0.35,
+        "fitness/performance oriented — focused on macros, hydration, supplements, and recovery": 0.30
+      }
+    },
+
+    "brand_adoption_style": {
+      "description": "How open someone is to trying new products and brands.",
+      "values": {
+        "early adopter — actively seeks new products, enjoys being first to try things": 0.35,
+        "early majority — open to new things once they see some social proof or reviews": 0.40,
+        "late majority — waits until something is well-established before trying it": 0.20,
+        "skeptic — resistant to new products, needs strong convincing or recommendation": 0.05
+      }
+    },
+
+    "primary_shopping_channel": {
+      "description": "Where this person does most of their shopping. (Note: base taxonomy is grocery-focused; 'primarily online' is the best proxy for the Amazon/GNC/DTC pattern typical of supplement shoppers in this audience.)",
+      "values": {
+        "primarily online (Amazon Fresh, Instacart, Walmart+)": 0.75,
+        "discount/value (Walmart, Aldi, Lidl, Dollar General)": 0.12,
+        "mainstream grocery (Kroger, Safeway, Publix, HEB)": 0.08,
+        "warehouse club (Costco, Sam's Club, BJ's)": 0.03,
+        "natural/specialty (Whole Foods, Trader Joe's, Sprouts, co-ops)": 0.02
+      }
+    },
+
+    "media_influence": {
+      "description": "How this person discovers and evaluates new products.",
+      "values": {
+        "social media influenced — discovers products through TikTok, Instagram, YouTube": 0.75,
+        "word-of-mouth — trusts recommendations from friends, family, coworkers": 0.12,
+        "research-driven — reads reviews, compares specs, checks Consumer Reports": 0.08,
+        "in-store discovery — browses shelves, influenced by packaging and displays": 0.03,
+        "ad-responsive — notices and remembers TV, podcast, and digital ads": 0.02
+      }
+    }
+  },
+
+  "persona_narrative_prompt": {
+    "description": "System prompt for the LLM call that generates a rich persona narrative from structured attributes.",
+    "template": "You are a creative writer helping build realistic consumer research personas. Given the following demographic and lifestyle attributes, write a 2-3 paragraph first-person persona description. The persona should feel like a real, specific individual — not a marketing segment summary.\n\nRules:\n- Write in third person (\"They are...\" not \"I am...\")\n- Include specific but plausible details that bring the persona to life (e.g., specific routines, preferences, habits)\n- Stay consistent with ALL provided attributes — don't contradict any of them\n- Do NOT mention purchase intent or any specific product\n- Do NOT include opinions about hypothetical products\n- Focus on daily life, routines, values, and how they approach shopping decisions\n- Keep it grounded and realistic — avoid caricature\n- End with a brief note on what matters most to them when evaluating new products",
+    "user_message_template": "Generate a persona based on these attributes:\n\nAge: {age}\nGender: {gender}\nRegion: {region}\nIncome level: {income}\nOccupation: {occupation}\nHousehold: {household_composition}\nShopping style: {shopping_mindset}\nHealth orientation: {health_orientation}\nBrand adoption: {brand_adoption_style}\nPrimary shopping channel: {primary_shopping_channel}\nProduct discovery: {media_influence}",
+    "elicitation_system_prompt_template": "You are participating in a consumer research survey. Here is your background:\n\n{persona_narrative}\n\nStay in character and respond naturally based on who you are. Reply briefly to any questions posed to you.",
+    "reasoning_system_prompt_template": "You are participating in a consumer research survey. Here is your background:\n\n{persona_narrative}\n\nStay in character and respond naturally based on who you are. Give a thoughtful, detailed explanation drawing on your personal situation, preferences, and values."
+  }
+}

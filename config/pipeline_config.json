@@ -11,8 +11,8 @@
   "llm": {
     "primary": {
       "provider": "google",
-      "model": "gemini-2.0-flash",
-      "rationale": "Best SSR correlation attainment (rho=92.4%) and strong distributional similarity in the paper"
+      "model": "gemini-3.1-flash-lite",
+      "rationale": "Lite variant chosen to avoid thinking-mode latency issues in the deprecated google.generativeai SDK. Original paper validation was on gemini-2.0-flash (rho=92.4% correlation). 3.1-flash-lite is a different tier and has not been independently re-validated."
     },
     "secondary": {
       "provider": "openai",

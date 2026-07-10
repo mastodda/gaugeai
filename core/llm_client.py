@@ -13,8 +13,42 @@ for multi-model validation runs.
 """
 
 import base64
+import random
+import time
 from pathlib import Path
 from abc import ABC, abstractmethod
+
+
+# ── Retry helper (all providers) ──────────────────────────────────────
+#
+# Wraps any SDK call and retries on transient errors: 5xx server errors,
+# 504 deadline exceeded, 429 rate limits, connection timeouts, etc.
+# Does NOT retry on 4xx client errors (bad model name, bad auth, malformed
+# request) since those won't fix themselves. Fails fast on those instead.
+
+_TRANSIENT_MARKERS = (
+    "timeout", "deadline", "unavailable", "toomanyrequests",
+    "internalserver", "connection", "retry", "resourceexhausted",
+    "504", "503", "502", "500", "429",
+)
+
+
+def _is_transient(exc: Exception) -> bool:
+    name = type(exc).__name__.lower()
+    msg = str(exc).lower()
+    return any(m in name or m in msg for m in _TRANSIENT_MARKERS)
+
+
+def _call_with_retry(fn, max_attempts: int = 3, base_delay: float = 2.0):
+    """Call fn(), retrying transient errors with exponential backoff + jitter."""
+    for attempt in range(max_attempts):
+        try:
+            return fn()
+        except Exception as e:
+            if attempt == max_attempts - 1 or not _is_transient(e):
+                raise
+            delay = base_delay * (2 ** attempt) + random.uniform(0, 0.5)
+            time.sleep(delay)
 
 
 class LLMClient(ABC):
@@ -36,8 +70,8 @@ class LLMClient(ABC):
 
         Args:
             system_prompt: Persona system prompt (demographics + survey context).
-            concept_text: Product concept as text (used if no image provided).
-            concept_image_path: Path to concept image file. Used alongside concept_text when both are provided.
+            concept_text: Product concept as text (fallback — used only when no image is provided).
+            concept_image_path: Path to concept image file. When provided, takes precedence and text is ignored.
             question: The survey question to ask.
             temperature: LLM sampling temperature.
             top_p: Nucleus sampling parameter.
@@ -69,7 +103,7 @@ class OpenAIClient(LLMClient):
     ) -> str:
         messages = [{"role": "system", "content": system_prompt}]
 
-        # Concept message (image, text, or both)
+        # Concept message — image takes precedence; text is a fallback only when no image.
         has_image = bool(concept_image_path and Path(concept_image_path).exists())
         has_text = bool(concept_text)
 
@@ -79,37 +113,33 @@ class OpenAIClient(LLMClient):
         if has_image:
             img_data = _encode_image(concept_image_path)
             mime = _guess_mime(concept_image_path)
-            content = [
+            messages.append({"role": "user", "content": [
                 {
                     "type": "image_url",
                     "image_url": {"url": f"data:{mime};base64,{img_data}", "detail": "high"},
                 },
-            ]
-            if has_text:
-                content.append({"type": "text", "text": f"Product Concept:\n\n{concept_text}"})
-            else:
-                content.append({"type": "text", "text": "Here is a product concept for your review."})
-            messages.append({"role": "user", "content": content})
+                {"type": "text", "text": "Here is a product concept for your review."},
+            ]})
         else:
             messages.append({"role": "user", "content": f"Product Concept:\n\n{concept_text}"})
 
         # Elicitation question
         messages.append({"role": "user", "content": question})
 
-        response = self._client.chat.completions.create(
+        response = _call_with_retry(lambda: self._client.chat.completions.create(
             model=self.model,
             messages=messages,
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens,
-        )
+        ))
         return response.choices[0].message.content.strip()
 
 
 class GeminiClient(LLMClient):
     """Google Gemini client."""
 
-    def __init__(self, model: str = "gemini-2.0-flash", api_key: str | None = None):
+    def __init__(self, model: str = "gemini-3.1-flash-lite", api_key: str | None = None):
         import google.generativeai as genai
         if api_key:
             genai.configure(api_key=api_key)
@@ -137,7 +167,7 @@ class GeminiClient(LLMClient):
         )
         chat = model.start_chat()
 
-        # Concept message (image, text, or both)
+        # Concept message — image takes precedence; text is a fallback only when no image.
         has_image = bool(concept_image_path and Path(concept_image_path).exists())
         has_text = bool(concept_text)
 
@@ -147,17 +177,21 @@ class GeminiClient(LLMClient):
         if has_image:
             import PIL.Image
             img = PIL.Image.open(concept_image_path)
-            parts = [img]
-            if has_text:
-                parts.append(f"Product Concept:\n\n{concept_text}")
-            else:
-                parts.append("Here is a product concept for your review.")
-            chat.send_message(parts)
+            _call_with_retry(lambda: chat.send_message(
+                [img, "Here is a product concept for your review."],
+                request_options={"timeout": 60},
+            ))
         else:
-            chat.send_message(f"Product Concept:\n\n{concept_text}")
+            _call_with_retry(lambda: chat.send_message(
+                f"Product Concept:\n\n{concept_text}",
+                request_options={"timeout": 60},
+            ))
 
         # Elicitation question
-        response = chat.send_message(question)
+        response = _call_with_retry(lambda: chat.send_message(
+            question,
+            request_options={"timeout": 60},
+        ))
         return response.text.strip()
 
 
@@ -181,7 +215,7 @@ class AnthropicClient(LLMClient):
     ) -> str:
         content_blocks = []
 
-        # Concept message (image, text, or both)
+        # Concept message — image takes precedence; text is a fallback only when no image.
         has_image = bool(concept_image_path and Path(concept_image_path).exists())
         has_text = bool(concept_text)
 
@@ -195,21 +229,19 @@ class AnthropicClient(LLMClient):
                 "type": "image",
                 "source": {"type": "base64", "media_type": mime, "data": img_data},
             })
-
-        if has_text:
-            text_body = f"Product Concept:\n\n{concept_text}\n\n{question}"
-        else:
             text_body = f"Here is a product concept for your review.\n\n{question}"
+        else:
+            text_body = f"Product Concept:\n\n{concept_text}\n\n{question}"
         content_blocks.append({"type": "text", "text": text_body})
 
-        response = self._client.messages.create(
+        response = _call_with_retry(lambda: self._client.messages.create(
             model=self.model,
             max_tokens=max_tokens,
             system=system_prompt,
             messages=[{"role": "user", "content": content_blocks}],
             temperature=temperature,
             top_p=top_p,
-        )
+        ))
         return response.content[0].text.strip()
 
 
@@ -232,7 +264,7 @@ def create_llm_client(
     """
     defaults = {
         "openai": ("gpt-4o", OpenAIClient),
-        "google": ("gemini-2.0-flash", GeminiClient),
+        "google": ("gemini-3.1-flash-lite", GeminiClient),
         "anthropic": ("claude-sonnet-4-20250514", AnthropicClient),
     }
 

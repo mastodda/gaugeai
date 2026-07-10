@@ -1,4 +1,3 @@
-
 # Engagement Template
 
 Starter for a new engagement. To create one:
@@ -7,7 +6,7 @@ Starter for a new engagement. To create one:
 cp -r engagements/_template engagements/<your_engagement_name>
 ```
 
-Then edit `engagement.json`, `notes.md`, and `checklist.md`.
+Then edit `engagement.json` and `notes.md`.
 
 ## Folder layout
 
@@ -15,20 +14,9 @@ Then edit `engagement.json`, `notes.md`, and `checklist.md`.
 <your_engagement_name>/
 ├── engagement.json     # config (panel, concepts, pipeline settings)
 ├── notes.md            # stakeholder context, decisions, deliverable focus
-├── checklist.md        # pre-run audit gate — MUST be completed before launch
 ├── concepts/           # optional: concept stimulus images, long descriptions
 └── runs/               # pipeline output goes here (gitignored)
 ```
-
-## Pre-run checklist (required)
-
-`checklist.md` is a category-mismatch gate: it exists to catch prompt/topic-schema bugs like an apparel "fit" question silently inherited by a supplement engagement. **`run_pipeline.py` scans it at run start and warns on unchecked boxes.** Complete it before every real run.
-
-Full spec: `planned_features/engagement_tuning_checklist_spec.md`.
-
-Reference glossary of trap words per category: `config/category_trap_words.yaml` (extend as new categories are tested).
-
-Post-run raw-price validation entries go in: `docs/reference/raw_price_validation_log.md`.
 
 ## Universal config (inherited from root `config/`)
 

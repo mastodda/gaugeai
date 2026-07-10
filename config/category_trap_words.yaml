@@ -1,0 +1,102 @@
+# Category trap-word glossary.
+#
+# Used by the pre-run checklist (Step 3): when auditing prompts and reasoning
+# questions for a new engagement, check every trap word from OTHER categories
+# to make sure it hasn't silently persisted from a copy-pasted config.
+#
+# The failure mode this catches: an apparel engagement's "how does the fit feel
+# for you?" reasoning prompt getting inherited by a supplement engagement, then
+# producing a "fit/sizing" theme in the topic analysis for pills.
+#
+# Extend liberally. New categories should be added the moment they're tested.
+# Words that appear in MULTIPLE categories with different meanings (e.g. "size"
+# means garment size in apparel but serving size in ingestibles) should be
+# listed under each — audit reads them in context.
+
+apparel:
+  - fit
+  - fits
+  - fitting
+  - wear
+  - wearing
+  - size
+  - sizing
+  - fabric
+  - material
+  - style
+  - color
+  - cut
+  - length
+  - waist
+  - inseam
+  - sleeve
+
+ingestibles:  # supplements, vitamins, powders, capsules
+  - taste
+  - flavor
+  - dosage
+  - dose
+  - serving
+  - ingredients
+  - capsule
+  - swallow
+  - mix
+  - dissolve
+  - aftertaste
+  - texture
+
+beverages:
+  - taste
+  - flavor
+  - aftertaste
+  - carbonation
+  - mouthfeel
+  - refreshing
+  - sweetness
+  - bitterness
+
+food:
+  - taste
+  - flavor
+  - texture
+  - freshness
+  - ingredients
+  - portion
+  - serving
+
+hard_goods:  # electronics, appliances, tools
+  - setup
+  - install
+  - installation
+  - durability
+  - compatibility
+  - warranty
+  - battery
+  - performance
+  - reliability
+  - specs
+
+personal_care:  # skincare, haircare, hygiene
+  - scent
+  - fragrance
+  - texture
+  - absorbs
+  - residue
+  - irritation
+  - sensitivity
+  - lather
+
+pet:
+  - flavor
+  - palatability
+  - my_pet   # e.g. "would your pet enjoy" — check phrasing scoping
+  - portion
+  - kibble
+
+otc_health:  # over-the-counter drugs, first aid
+  - dosage
+  - dose
+  - side_effect
+  - relief
+  - onset
+  - efficacy

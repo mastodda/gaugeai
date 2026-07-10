@@ -69,7 +69,7 @@ with st.sidebar:
     provider = st.selectbox("LLM Provider", ["openai", "google", "anthropic"])
     _model_options = {
         "openai":    ["gpt-4o", "gpt-4o-mini"],
-        "google":    ["gemini-2.0-flash", "gemini-1.5-pro"],
+        "google":    ["gemini-3.1-flash-lite", "gemini-3.5-pro"],
         "anthropic": ["claude-sonnet-4-6", "claude-haiku-4-5-20251001"],
     }
     model = st.selectbox("Model", _model_options[provider])

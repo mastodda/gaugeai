@@ -112,6 +112,17 @@ Post-pipeline: `core/insights_generator.py` runs GPT-4o-mini to synthesize compa
 
 **Layered resolution:** `prompt_templates.json`, `reference_sets.json`, and `lifestyle_attributes.json` are looked up in the engagement folder first, then fall back to root `config/`. Drop a same-named file into an engagement folder to override universally (e.g., custom semantic anchors for a B2B SaaS engagement). Don't override unless you have to.
 
+### Pre-Run Checklist Gate (required)
+
+Every real engagement must have a completed `checklist.md` alongside its `engagement.json`. `run_pipeline.py` scans it at run start and prints a visible warning for any unchecked boxes. Pass `--skip-checklist` only for throwaway experiments.
+
+- **Full spec:** `planned_features/engagement_tuning_checklist_spec.md` — read before first-time authoring or when the checklist itself needs updating.
+- **Template:** `engagements/_template/checklist.md` — copied into every new engagement folder.
+- **Trap-word glossary** (Step 3 audit reference): `config/category_trap_words.yaml`. Extend when new categories are tested.
+- **Raw-price validation log** (Section 5 evidence base): `docs/reference/raw_price_validation_log.md`. Add a row for every engagement using raw price figures.
+
+The failure mode this exists to prevent: category-specific language (e.g., an apparel "fit" question) silently persisting across engagements into categories where it produces plausible-looking but nonsensical output (e.g., "fit/sizing" appearing as a topic in a supplement study). Do not skip the checklist for real client work.
+
 ### Output Structure
 
 Each pipeline run produces a timestamped directory under the engagement's `runs/` folder (gitignored):
@@ -128,7 +139,7 @@ engagements/<name>/runs/run_YYYYMMDD_HHMMSS/
 
 ### LLM Provider Notes
 
-- **Gemini-2.0-flash** is the default (best SSR correlation: ρ=92.4%)
+- **Gemini-3.1-flash-lite** is the default. Chosen to sidestep thinking-mode latency issues in the deprecated `google.generativeai` SDK. Paper validation was on Gemini-2.0-flash (ρ=92.4%); the lite variant is a different tier and has not been independently re-validated.
 - **GPT-4o** achieves best KS distributional similarity (0.88)
 - **Insights generation** always uses GPT-4o-mini regardless of main provider
 - API keys are loaded from `.env` (`OPENAI_API_KEY`, `GOOGLE_API_KEY`, `ANTHROPIC_API_KEY`)
