@@ -269,6 +269,8 @@ with tab_overview:
             m5.metric("Std Dev", f"{cm['std_pi']:.2f}")
 
             img_path = concept_data.get("image_path")
+            description = (concept_data.get("description") or "").strip()
+
             if img_path:
                 img_file = Path(img_path)
                 if not img_file.exists():
@@ -278,6 +280,10 @@ with tab_overview:
                 if img_file.exists():
                     with st.expander("📷 Concept image"):
                         st.image(str(img_file), width=400)
+
+            if description:
+                with st.expander("📝 Concept description"):
+                    st.markdown(description)
 
     # ------------------------------------------------------------------
     # Metric-by-metric winners (collapsed by default)
