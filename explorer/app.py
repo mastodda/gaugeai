@@ -131,9 +131,6 @@ def _make_age_bands(ages: pd.Series, max_bands: int = 4) -> pd.Series:
 LIKERT_LABELS = {1: "1 – Very unlikely", 2: "2", 3: "3 – Neutral", 4: "4", 5: "5 – Very likely"}
 LIKERT_ORDER = ["1", "2", "3", "4", "5"]
 
-# Unreliable demographic axes per the paper's findings
-UNRELIABLE_AXES = {"gender", "region", "ethnicity"}
-
 INCOME_ORDER = ["low", "moderate", "upper-moderate", "high"]
 
 
@@ -500,14 +497,6 @@ with tab_demographics:
         "Only axes that vary in this panel are shown."
     )
 
-    # Reliability warning
-    if demo_axis in UNRELIABLE_AXES:
-        st.warning(
-            f"⚠️ **{demo_axis.title()}** is flagged as an unreliable demographic axis. "
-            "The SSR paper found that LLMs inconsistently capture gender, region, and "
-            "ethnicity differences. Interpret these breakdowns with caution."
-        )
-
     sort_order = None
     if demo_axis == "income":
         sort_order = [i for i in INCOME_ORDER if i in df["income"].unique()]
@@ -868,9 +857,6 @@ with tab_compare:
             key="compare_demo",
         )
 
-        if compare_demo in UNRELIABLE_AXES:
-            st.warning(f"⚠️ **{compare_demo.title()}** is flagged as unreliable.")
-
         compare_sort = None
         if compare_demo == "income":
             compare_sort = [i for i in INCOME_ORDER if i in df["income"].unique()]
@@ -949,10 +935,9 @@ with tab_metadata:
         counts = df.groupby(axis, observed=True)["persona_id"].nunique()
         min_n = counts.min()
         flag = "⚠️" if min_n < 20 else "✅"
-        unreliable = " *(unreliable axis per paper)*" if axis in UNRELIABLE_AXES else ""
         st.markdown(
             f"{flag} **{axis.replace('_', ' ').title()}**: "
-            f"min segment = {min_n}, max = {counts.max()}{unreliable}"
+            f"min segment = {min_n}, max = {counts.max()}"
         )
 
     st.markdown("---")
