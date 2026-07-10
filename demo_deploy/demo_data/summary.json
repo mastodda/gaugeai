@@ -1,17 +1,17 @@
 {
   "meta": {
     "engagement": {
-      "engagement": "Peptide & Collagen Supplements \u2014 Concept Test (CoD Viewer Panel)",
-      "client": "TBD",
-      "date": "2026-07-08",
+      "engagement": "Demo: Creator Launch Screening \u2014 Which Product Should JasonTheWeen Launch?",
+      "client": "Creator Agency",
+      "date": "2026-07-10",
       "analyst": "Miles",
-      "category": "ingestibles",
-      "notes": "Five real supplement products screened against a Call of Duty content viewer panel (Twitch/YouTube/social). Each concept is an image only (descriptions in concepts/*/description.md are analyst reference, not sent to LLM per the 2026-07-10 stimulus-fidelity revert). Category-audience fit test \u2014 would these products resonate with the CoD viewer demographic?"
+      "category": "cross-category (creator merch)",
+      "notes": "Demo run. Hypothetical: JasonTheWeen (Jason Nguyen), a Twitch content creator known for IRL/Just Chatting and gaming streams (2M+ followers; ex-FaZe, currently in the CORE creator group as of 2026), is weighing 5 launch ideas across domains (audio, peripherals, beverage, apparel, ingestibles). Panel = the creator's audience. Elicitation is framed 'if JasonTheWeen launched this' to measure creator-audience demand fit, not raw price-sensitive purchase. Creator context is injected neutrally. Swap creator by editing the name in survey_question.text and concept names."
     },
     "pipeline_config": {
       "mode": "full",
-      "llm_provider": "google",
-      "llm_model": "gemini-3.1-flash-lite",
+      "llm_provider": "openai",
+      "llm_model": "gpt-4o",
       "llm_temperature": 0.5,
       "embedding_model": "text-embedding-3-small",
       "ssr_epsilon": 0.0,
@@ -27,72 +27,72 @@
         "set_6_personal_fit"
       ]
     },
-    "timestamp": "2026-07-10T13:17:38.965647"
+    "timestamp": "2026-07-10T18:12:07.260497"
   },
   "summary": {
-    "amen_collagen": {
-      "concept_name": "Amen Collagen Hydrolyzed Multi Collagen Peptides + Vitamin C",
+    "gaming_headset": {
+      "concept_name": "JasonTheWeen Signature Gaming Headset",
       "distribution": {
-        "1": 0.1463,
-        "2": 0.2289,
-        "3": 0.2792,
-        "4": 0.2555,
-        "5": 0.0901
+        "1": 0.0592,
+        "2": 0.1046,
+        "3": 0.3106,
+        "4": 0.3399,
+        "5": 0.1857
       },
-      "mean_pi": 2.9143,
-      "std_pi": 0.5752,
+      "mean_pi": 3.4884,
+      "std_pi": 0.415,
       "n_respondents": 100
     },
-    "gnc_citrulline": {
-      "concept_name": "GNC Pro Performance Citrulline Complex 1700mg",
+    "mechanical_keyboard": {
+      "concept_name": "JasonTheWeen Custom Mechanical Keyboard",
       "distribution": {
-        "1": 0.2147,
-        "2": 0.2874,
-        "3": 0.2524,
-        "4": 0.1972,
-        "5": 0.0484
+        "1": 0.0508,
+        "2": 0.0963,
+        "3": 0.2995,
+        "4": 0.3428,
+        "5": 0.2106
       },
-      "mean_pi": 2.5772,
-      "std_pi": 0.4655,
+      "mean_pi": 3.5662,
+      "std_pi": 0.3744,
       "n_respondents": 100
     },
-    "sports_research_collagen": {
-      "concept_name": "Sports Research Collagen Peptides \u2014 Unflavored",
+    "energy_drink": {
+      "concept_name": "JasonTheWeen Energy",
       "distribution": {
-        "1": 0.0683,
-        "2": 0.1415,
-        "3": 0.2878,
-        "4": 0.3207,
-        "5": 0.1817
+        "1": 0.0307,
+        "2": 0.0659,
+        "3": 0.236,
+        "4": 0.3888,
+        "5": 0.2786
       },
-      "mean_pi": 3.4061,
-      "std_pi": 0.4965,
+      "mean_pi": 3.8186,
+      "std_pi": 0.1448,
       "n_respondents": 100
     },
-    "vital_proteins_collagen": {
-      "concept_name": "Vital Proteins Collagen Peptides \u2014 Unflavored",
+    "apparel_hoodie": {
+      "concept_name": "JasonTheWeen Premium Hoodie",
       "distribution": {
-        "1": 0.1088,
-        "2": 0.1898,
-        "3": 0.2804,
-        "4": 0.2893,
-        "5": 0.1317
+        "1": 0.042,
+        "2": 0.1088,
+        "3": 0.2991,
+        "4": 0.3461,
+        "5": 0.2039
       },
-      "mean_pi": 3.1454,
-      "std_pi": 0.549,
+      "mean_pi": 3.5612,
+      "std_pi": 0.314,
       "n_respondents": 100
     },
-    "vitauthority_collagen_burn": {
-      "concept_name": "Vitauthority Multi Collagen Burn \u2014 Strawberry Lemonade",
+    "collagen_peptide": {
+      "concept_name": "JasonTheWeen Recovery Collagen Peptides",
       "distribution": {
-        "1": 0.144,
-        "2": 0.2185,
-        "3": 0.2742,
-        "4": 0.2662,
-        "5": 0.0972
+        "1": 0.0389,
+        "2": 0.0791,
+        "3": 0.2526,
+        "4": 0.3704,
+        "5": 0.259
       },
-      "mean_pi": 2.9542,
-      "std_pi": 0.5882,
+      "mean_pi": 3.7317,
+      "std_pi": 0.2497,
       "n_respondents": 100
     }
   }
