@@ -56,8 +56,26 @@
     font-size: 0.9rem;
     letter-spacing: -0.02em;
     color: var(--black);
+    text-decoration: none;
+    transition: color 0.2s;
   }
+  .logo:hover { color: var(--blue); }
   .logo span { color: var(--blue); }
+  .nav-current {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--blue);
+    cursor: default;
+    position: relative;
+  }
+  .nav-current::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 2px;
+    background: var(--blue);
+    border-radius: 2px;
+  }
   .nav-links {
     display: flex;
     align-items: center;
@@ -549,8 +567,9 @@
 <body>
 
 <nav>
-  <div class="logo">Miles Stoddart</div>
+  <a class="logo" href="/#top">Miles Stoddart</a>
   <div class="nav-links">
+    <a href="/#top">Home</a>
     <a href="#how">Our Method</a>
     <a href="#compare">Value Proposition</a>
     <a href="#use-cases">Use Cases</a>
@@ -560,7 +579,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-badge">LLM-based Consumer Research</div>
   <h1>Test your concepts<br><span class="accent">before you test<br>your budget</span></h1>
   <p>AI-generated consumer panels that deliver purchase intent scores, Likert distributions, and rich qualitative feedback in 24 hours.</p>
